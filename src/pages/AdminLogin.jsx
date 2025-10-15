@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function AdminLogin({ onLogin }) {
+export default function AdminLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -15,44 +17,47 @@ export default function AdminLogin({ onLogin }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
+
       const data = await res.json();
 
       if (data.success && data.token) {
-        onLogin(data.token);
+        localStorage.setItem("adminToken", data.token);
+        navigate("/dashboard"); // go to dashboard
       } else {
-        setError(data.error || "Invalid credentials");
+        setError(data.error || "Login failed");
       }
-    } catch (err) {
-      setError("Server error. Try again later.");
+    } catch {
+      setError("Login failed");
     }
   }
 
   return (
-    <div className="max-w-md mx-auto">
-      <h3 className="text-xl font-semibold text-gray-800 mb-4">Admin Login</h3>
-      {error && (
-        <div className="bg-red-100 text-red-700 px-4 py-2 rounded mb-4">{error}</div>
-      )}
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-8 rounded-xl shadow-lg w-full max-w-sm"
+      >
+        <h2 className="text-xl font-bold mb-4 text-center">Admin Login</h2>
+        {error && <p className="text-red-600 mb-2">{error}</p>}
         <input
-          required
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full mb-3 p-2 border rounded-lg"
+          required
         />
         <input
-          required
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full mb-3 p-2 border rounded-lg"
+          required
         />
         <button
           type="submit"
-          className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
+          className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700"
         >
           Login
         </button>

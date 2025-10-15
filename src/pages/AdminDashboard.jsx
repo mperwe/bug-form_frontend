@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function AdminDashboard({ token, setToken }) {
+export default function AdminDashboard() {
   const [registrations, setRegistrations] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const token = localStorage.getItem("adminToken");
+
+  useEffect(() => {
+    if (!token) navigate("/admin");
+    else loadRegistrations();
+  }, [token]);
 
   async function loadRegistrations() {
     setLoading(true);
@@ -12,65 +20,52 @@ export default function AdminDashboard({ token, setToken }) {
       const res = await fetch("http://localhost:4000/api/admin/list", {
         headers: { Authorization: `Bearer ${token}` },
       });
-
-      if (!res.ok) {
-        throw new Error("Failed to fetch registrations");
-      }
-
+      if (!res.ok) throw new Error("Failed to fetch registrations");
       const data = await res.json();
       setRegistrations(data);
-    } catch (err) {
-      console.error(err);
-      setError("Failed to load data");
+    } catch {
+      setError("Failed to load registrations");
     } finally {
       setLoading(false);
     }
   }
 
-  async function downloadCSV() {
+  function handleLogout() {
+    localStorage.removeItem("adminToken");
+    navigate("/admin");
+  }
+
+  async function downloadPDF() {
     try {
-      const res = await fetch("http://localhost:4000/api/admin/download", {
+      const res = await fetch("http://localhost:4000/api/admin/download/pdf", {
         headers: { Authorization: `Bearer ${token}` },
       });
-
-      if (!res.ok) {
-        throw new Error("Failed to download CSV");
-      }
-
+      if (!res.ok) throw new Error("Failed to download PDF");
       const blob = await res.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "registrations.csv";
+      a.download = "registrations.pdf";
       document.body.appendChild(a);
       a.click();
       a.remove();
       window.URL.revokeObjectURL(url);
     } catch (err) {
       console.error(err);
-      alert("Error downloading CSV file.");
+      alert("Error downloading PDF");
     }
   }
 
-  function handleLogout() {
-    localStorage.removeItem("adminToken");
-    setToken("");
-  }
-
-  useEffect(() => {
-    if (token) loadRegistrations();
-  }, [token]);
-
   return (
-    <div className="p-4">
+    <div className="min-h-screen p-8 bg-gray-50">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-bold">Registered Attendees</h2>
         <div className="flex gap-2">
           <button
-            onClick={downloadCSV}
+            onClick={downloadPDF}
             className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
           >
-            Download CSV
+            Download PDF
           </button>
           <button
             onClick={handleLogout}
@@ -89,58 +84,33 @@ export default function AdminDashboard({ token, setToken }) {
         {loading ? "Loading..." : "Refresh List"}
       </button>
 
-      {error && <div className="text-red-600 mb-4">{error}</div>}
+      {error && <p className="text-red-600">{error}</p>}
 
       {registrations.length > 0 ? (
         <div className="overflow-x-auto border rounded-lg">
-          <table className="min-w-full text-left border-collapse">
+          <table className="min-w-full border-collapse">
             <thead className="bg-gray-100">
               <tr>
                 <th className="px-4 py-2 border">Reg No</th>
                 <th className="px-4 py-2 border">Name</th>
                 <th className="px-4 py-2 border">Passport</th>
                 <th className="px-4 py-2 border">Email</th>
-                <th className="px-4 py-2 border">Phone</th>
-                <th className="px-4 py-2 border">Ticket</th>
-                <th className="px-4 py-2 border">Amount</th>
-                <th className="px-4 py-2 border">Payment</th>
-                <th className="px-4 py-2 border">Status</th>
-                <th className="px-4 py-2 border">Certificate</th>
               </tr>
             </thead>
             <tbody>
               {registrations.map((r) => (
-                <tr key={r.id} className="hover:bg-gray-50">
-                  <td className="px-4 py-2 border font-mono">{r.reg_no}</td>
+                <tr key={r.id}>
+                  <td className="px-4 py-2 border">{r.reg_no}</td>
                   <td className="px-4 py-2 border">{r.fullname}</td>
                   <td className="px-4 py-2 border">{r.passport}</td>
                   <td className="px-4 py-2 border">{r.email}</td>
-                  <td className="px-4 py-2 border">{r.phone}</td>
-                  <td className="px-4 py-2 border">{r.ticket_type}</td>
-                  <td className="px-4 py-2 border">€{r.amount}</td>
-                  <td className="px-4 py-2 border">{r.payment_method}</td>
-                  <td className="px-4 py-2 border">{r.payment_status}</td>
-                  <td className="px-4 py-2 border">
-                    {r.reg_no && (
-                      <a
-                        href={`http://localhost:4000/uploads/${r.reg_no}.pdf`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-indigo-600 hover:underline"
-                      >
-                        View
-                      </a>
-                    )}
-                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       ) : (
-        <p className="text-gray-500">
-          {loading ? "Loading..." : "No registrations found."}
-        </p>
+        <p>{loading ? "Loading..." : "No registrations found."}</p>
       )}
     </div>
   );

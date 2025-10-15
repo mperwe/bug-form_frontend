@@ -34,22 +34,23 @@ export default function RegistrationForm() {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-100">
-      {/* Left Banner */}
+    <div className="flex flex-col lg:flex-row bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200">
+      {/* Left Banner (only visible on large screens) */}
       <div className="hidden lg:block lg:w-1/3">
         <img
-          src="/images/flyer.jpg"
-          alt="Event Banner"
+          src="/images/flyer1.jpg"
+          alt="Event Flyer"
           className="h-full w-full object-cover"
         />
       </div>
 
-      {/* Form */}
+      {/* Registration Form */}
       <div className="w-full lg:w-2/3 p-6 md:p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
           Register for the Convention
         </h2>
-        <form onSubmit={submit} className="space-y-4">
+
+        <form onSubmit={submit} className="space-y-3">
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Full Name
@@ -61,7 +62,8 @@ export default function RegistrationForm() {
               onChange={(e) =>
                 setForm({ ...form, fullname: e.target.value })
               }
-              className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="Enter your full name"
             />
           </div>
 
@@ -76,36 +78,45 @@ export default function RegistrationForm() {
               onChange={(e) =>
                 setForm({ ...form, passport: e.target.value })
               }
-              className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+              className="mt-1 w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="Passport / ID Number"
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Email
-            </label>
-            <input
-              required
-              type="email"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Email
+              </label>
+              <input
+                required
+                type="email"
+                value={form.email}
+                onChange={(e) =>
+                  setForm({ ...form, email: e.target.value })
+                }
+                className="mt-1 w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="example@email.com"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Phone
+              </label>
+              <input
+                type="tel"
+                value={form.phone}
+                onChange={(e) =>
+                  setForm({ ...form, phone: e.target.value })
+                }
+                className="mt-1 w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+                placeholder="+49 123 456789"
+              />
+            </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Phone
-            </label>
-            <input
-              type="tel"
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
-            />
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Ticket Type
@@ -115,7 +126,7 @@ export default function RegistrationForm() {
                 onChange={(e) =>
                   setForm({ ...form, ticket_type: e.target.value })
                 }
-                className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="mt-1 w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
               >
                 <option>General</option>
                 <option>VIP</option>
@@ -132,7 +143,7 @@ export default function RegistrationForm() {
                 onChange={(e) =>
                   setForm({ ...form, payment_method: e.target.value })
                 }
-                className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+                className="mt-1 w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
               >
                 <option value="manual">Bank Transfer / Cash</option>
                 <option value="paypal">PayPal</option>
@@ -147,23 +158,26 @@ export default function RegistrationForm() {
             <input
               type="number"
               value={form.amount}
-              onChange={(e) => setForm({ ...form, amount: e.target.value })}
-              className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+              onChange={(e) =>
+                setForm({ ...form, amount: e.target.value })
+              }
+              className="mt-1 w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 font-semibold shadow-md transition-all"
+            className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 font-semibold shadow-md transition"
           >
             {loading ? "Submitting..." : "Register"}
           </button>
         </form>
 
+        {/* Success Message */}
         {result && result.success && (
-          <div className="mt-4 p-4 bg-green-100 text-green-800 rounded-lg">
-            <p>Registration successful!</p>
+          <div className="mt-4 p-4 bg-green-100 text-green-800 rounded-lg text-center">
+            <p className="font-medium">✅ Registration Successful!</p>
             <p>Reg No: {result.reg_no}</p>
             <a
               href={`http://localhost:4000${result.file}`}
@@ -176,9 +190,10 @@ export default function RegistrationForm() {
           </div>
         )}
 
+        {/* Error Message */}
         {result && result.error && (
-          <div className="mt-4 p-4 bg-red-100 text-red-800 rounded-lg">
-            {result.error}
+          <div className="mt-4 p-4 bg-red-100 text-red-800 rounded-lg text-center">
+            ❌ {result.error}
           </div>
         )}
       </div>
