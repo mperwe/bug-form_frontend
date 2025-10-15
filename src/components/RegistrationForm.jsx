@@ -3,6 +3,7 @@ import React, { useState } from "react";
 export default function RegistrationForm() {
   const [form, setForm] = useState({
     fullname: "",
+    passport: "",
     email: "",
     phone: "",
     ticket_type: "General",
@@ -15,6 +16,8 @@ export default function RegistrationForm() {
   async function submit(e) {
     e.preventDefault();
     setLoading(true);
+    setResult(null);
+
     try {
       const res = await fetch("http://localhost:4000/api/register", {
         method: "POST",
@@ -24,133 +27,161 @@ export default function RegistrationForm() {
       const data = await res.json();
       setResult(data);
     } catch (err) {
-      setResult({ success: false, message: "Failed to register. Try again." });
+      setResult({ success: false, error: "Submission failed." });
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <div className="bg-white shadow-lg rounded-2xl p-8 border border-gray-100 max-w-xl mx-auto">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-        Register for the Buganda Convention
-      </h2>
+    <div className="flex flex-col lg:flex-row bg-white shadow-lg rounded-2xl overflow-hidden border border-gray-100">
+      {/* Left Banner */}
+      <div className="hidden lg:block lg:w-1/3">
+        <img
+          src="/images/flyer.jpg"
+          alt="Event Banner"
+          className="h-full w-full object-cover"
+        />
+      </div>
 
-      <form onSubmit={submit} className="space-y-4">
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">
-            Full Name <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="text"
-            required
-            placeholder="John Doe"
-            value={form.fullname}
-            onChange={(e) => setForm({ ...form, fullname: e.target.value })}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500 transition"
-          />
-        </div>
+      {/* Form */}
+      <div className="w-full lg:w-2/3 p-6 md:p-8">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+          Register for the Convention
+        </h2>
+        <form onSubmit={submit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Full Name
+            </label>
+            <input
+              required
+              type="text"
+              value={form.fullname}
+              onChange={(e) =>
+                setForm({ ...form, fullname: e.target.value })
+              }
+              className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
 
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">
-            Email <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="email"
-            required
-            placeholder="john@example.com"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500 transition"
-          />
-        </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Passport Number
+            </label>
+            <input
+              required
+              type="text"
+              value={form.passport}
+              onChange={(e) =>
+                setForm({ ...form, passport: e.target.value })
+              }
+              className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
 
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">
-            Phone
-          </label>
-          <input
-            type="tel"
-            placeholder="+49 123 4567 890"
-            value={form.phone}
-            onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500 transition"
-          />
-        </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
+            <input
+              required
+              type="email"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
 
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">
-            Ticket Type
-          </label>
-          <select
-            value={form.ticket_type}
-            onChange={(e) =>
-              setForm({ ...form, ticket_type: e.target.value })
-            }
-            className="w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500 transition"
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Phone
+            </label>
+            <input
+              type="tel"
+              value={form.phone}
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Ticket Type
+              </label>
+              <select
+                value={form.ticket_type}
+                onChange={(e) =>
+                  setForm({ ...form, ticket_type: e.target.value })
+                }
+                className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+              >
+                <option>General</option>
+                <option>VIP</option>
+                <option>Student</option>
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Payment Method
+              </label>
+              <select
+                value={form.payment_method}
+                onChange={(e) =>
+                  setForm({ ...form, payment_method: e.target.value })
+                }
+                className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+              >
+                <option value="manual">Bank Transfer / Cash</option>
+                <option value="paypal">PayPal</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">
+              Amount (€)
+            </label>
+            <input
+              type="number"
+              value={form.amount}
+              onChange={(e) => setForm({ ...form, amount: e.target.value })}
+              className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-indigo-500 focus:border-indigo-500"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 font-semibold shadow-md transition-all"
           >
-            <option>General</option>
-            <option>VIP</option>
-            <option>Student</option>
-          </select>
-        </div>
+            {loading ? "Submitting..." : "Register"}
+          </button>
+        </form>
 
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">
-            Payment Method
-          </label>
-          <select
-            value={form.payment_method}
-            onChange={(e) =>
-              setForm({ ...form, payment_method: e.target.value })
-            }
-            className="w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500 transition"
-          >
-            <option value="manual">Bank Transfer / Cash</option>
-            <option value="paypal">PayPal</option>
-          </select>
-        </div>
+        {result && result.success && (
+          <div className="mt-4 p-4 bg-green-100 text-green-800 rounded-lg">
+            <p>Registration successful!</p>
+            <p>Reg No: {result.reg_no}</p>
+            <a
+              href={`http://localhost:4000${result.file}`}
+              target="_blank"
+              rel="noreferrer"
+              className="text-indigo-600 hover:underline"
+            >
+              Download Receipt (PDF)
+            </a>
+          </div>
+        )}
 
-        <div>
-          <label className="block text-gray-700 font-medium mb-1">Amount (€)</label>
-          <input
-            type="number"
-            min="1"
-            value={form.amount}
-            onChange={(e) => setForm({ ...form, amount: e.target.value })}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500 transition"
-          />
-        </div>
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-indigo-600 text-white font-semibold py-3 rounded-lg hover:bg-indigo-700 transition disabled:opacity-50"
-        >
-          {loading ? "Submitting..." : "Submit Registration"}
-        </button>
-      </form>
-
-      {result && result.success && (
-        <div className="mt-6 bg-green-50 border border-green-200 text-green-700 p-4 rounded-lg text-center">
-          <p className="font-semibold">Registration Successful!</p>
-          <p>Reg No: <span className="font-mono">{result.reg_no}</span></p>
-          <a
-            href={`http://localhost:4000${result.file}`}
-            target="_blank"
-            rel="noreferrer"
-            className="text-indigo-600 hover:underline mt-2 inline-block"
-          >
-            Download Receipt (PDF)
-          </a>
-        </div>
-      )}
-
-      {result && !result.success && (
-        <div className="mt-6 bg-red-50 border border-red-200 text-red-700 p-4 rounded-lg text-center">
-          {result.message || "Registration failed. Please try again."}
-        </div>
-      )}
+        {result && result.error && (
+          <div className="mt-4 p-4 bg-red-100 text-red-800 rounded-lg">
+            {result.error}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

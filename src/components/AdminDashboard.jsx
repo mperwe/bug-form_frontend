@@ -1,93 +1,96 @@
 import React, { useState, useEffect } from "react";
-import { RefreshCcw } from "lucide-react";
 
-export default function AdminDashboard() {
-  const [count, setCount] = useState(0);
-  const [list, setList] = useState([]);
+export default function AdminDashboard({ token }) {
+  const [registrations, setRegistrations] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Fetch total count on mount
-  useEffect(() => {
-    fetch("http://localhost:4000/api/admin/count")
-      .then((res) => res.json())
-      .then((data) => setCount(data.total))
-      .catch(() => setError("Failed to fetch registration count."));
-  }, []);
-
-  const loadList = async () => {
+  async function loadRegistrations() {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("http://localhost:4000/api/admin/list");
-      if (!res.ok) throw new Error("Network error");
+      const res = await fetch("http://localhost:4000/api/admin/list", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       const data = await res.json();
-      setList(data);
-    } catch {
-      setError("Failed to load registration list.");
+      if (data.error) {
+        setError(data.error);
+      } else {
+        setRegistrations(data);
+      }
+    } catch (err) {
+      setError("Failed to load data");
     } finally {
       setLoading(false);
     }
-  };
+  }
+
+  useEffect(() => {
+    if (token) loadRegistrations();
+  }, [token]);
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-        <h3 className="text-2xl font-bold text-gray-800">Admin Dashboard</h3>
-        <button
-          onClick={loadList}
-          disabled={loading}
-          className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 disabled:opacity-50 shadow-md transition"
-        >
-          <RefreshCcw size={18} />
-          {loading ? "Loading..." : "Refresh List"}
-        </button>
-      </div>
+    <div>
+      <p className="mb-4 text-gray-600">Showing all registered attendees:</p>
+      <button
+        onClick={loadRegistrations}
+        disabled={loading}
+        className="mb-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50"
+      >
+        {loading ? "Loading..." : "Refresh List"}
+      </button>
 
-      {/* Summary Card */}
-      <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-2xl p-6 shadow-lg text-center">
-        <p className="text-lg opacity-90">Total Registered Members</p>
-        <h2 className="text-5xl font-extrabold mt-2">{count}</h2>
-      </div>
+      {error && <div className="text-red-600 mb-4">{error}</div>}
 
-      {/* Error Message */}
-      {error && (
-        <div className="bg-red-100 text-red-700 px-4 py-2 rounded-lg border border-red-300">
-          {error}
-        </div>
-      )}
-
-      {/* Registered List Table */}
-      <div className="overflow-x-auto">
-        {list.length > 0 ? (
-          <table className="min-w-full bg-white rounded-2xl shadow-lg border border-gray-100 text-gray-700">
-            <thead className="bg-gray-100 uppercase text-gray-800 text-sm">
+      {registrations.length > 0 ? (
+        <div className="overflow-x-auto">
+          <table className="min-w-full text-left border-collapse">
+            <thead className="bg-gray-100">
               <tr>
-                <th className="py-3 px-4">Reg No</th>
-                <th className="py-3 px-4">Name</th>
-                <th className="py-3 px-4">Email</th>
+                <th className="px-4 py-2 border">Reg No</th>
+                <th className="px-4 py-2 border">Name</th>
+                <th className="px-4 py-2 border">Passport</th>
+                <th className="px-4 py-2 border">Email</th>
+                <th className="px-4 py-2 border">Phone</th>
+                <th className="px-4 py-2 border">Ticket</th>
+                <th className="px-4 py-2 border">Amount</th>
+                <th className="px-4 py-2 border">Payment Method</th>
+                <th className="px-4 py-2 border">Status</th>
+                <th className="px-4 py-2 border">Certificate</th>
               </tr>
             </thead>
             <tbody>
-              {list.map((r) => (
-                <tr
-                  key={r.id}
-                  className="border-t hover:bg-gray-50 transition-colors"
-                >
-                  <td className="py-3 px-4 font-mono text-sm">{r.reg_no}</td>
-                  <td className="py-3 px-4">{r.fullname}</td>
-                  <td className="py-3 px-4">{r.email}</td>
+              {registrations.map((r) => (
+                <tr key={r.id} className="hover:bg-gray-50">
+                  <td className="px-4 py-2 border font-mono">{r.reg_no}</td>
+                  <td className="px-4 py-2 border">{r.fullname}</td>
+                  <td className="px-4 py-2 border">{r.passport}</td>
+                  <td className="px-4 py-2 border">{r.email}</td>
+                  <td className="px-4 py-2 border">{r.phone}</td>
+                  <td className="px-4 py-2 border">{r.ticket_type}</td>
+                  <td className="px-4 py-2 border">{r.amount}</td>
+                  <td className="px-4 py-2 border">{r.payment_method}</td>
+                  <td className="px-4 py-2 border">{r.payment_status}</td>
+                  <td className="px-4 py-2 border">
+                    {r.reg_no && (
+                      <a
+                        href={`http://localhost:4000/uploads/${r.reg_no}.pdf`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-indigo-600 hover:underline"
+                      >
+                        Download
+                      </a>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        ) : (
-          <p className="text-gray-500 text-center mt-4">
-            {loading ? "Loading members..." : "No registrations yet."}
-          </p>
-        )}
-      </div>
+        </div>
+      ) : (
+        <p className="text-gray-500">{loading ? "Loading..." : "No registrations yet."}</p>
+      )}
     </div>
   );
 }
