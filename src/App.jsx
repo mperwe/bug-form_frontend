@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Home from "./pages/Home.jsx";
+import Register from "./pages/Register.jsx";
 import AdminLogin from "./pages/AdminLogin.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
 
 export default function App() {
+  const [adminToken, setAdminToken] = useState(localStorage.getItem("adminToken") || "");
+
+  function handleLogin(token) {
+    setAdminToken(token);
+    localStorage.setItem("adminToken", token);
+  }
+
   return (
     <Router>
       <Routes>
-        {/* Public site */}
         <Route path="/" element={<Home />} />
-
-        {/* Admin login page */}
-        <Route path="/admin" element={<AdminLogin />} />
-
-        {/* Admin dashboard - protected */}
-        <Route path="/dashboard" element={<AdminDashboard />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/admin/login" element={<AdminLogin onLogin={handleLogin} />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard token={adminToken} setToken={setAdminToken} />} />
       </Routes>
     </Router>
   );
