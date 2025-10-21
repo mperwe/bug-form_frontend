@@ -1,46 +1,60 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Nabvar.jsx";
+import Footer from "../components/Footer.jsx";
 import EventDescription from "../components/EventDescription.jsx";
-import FlyerCard from "../components/FlyerCard.jsx";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 text-gray-800 font-sans">
-      <section className="bg-gradient-to-r from-indigo-700 via-purple-600 to-pink-500 text-white py-16 px-6 text-center shadow-md">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">BBECO BERLIN CHAPTER</h1>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
-          Join us for a cultural celebration and networking event bringing together the Buganda community in the heart of Europe.
-        </p>
+    <>
+      <Navbar />
 
-        <Link
-          to="/register"
-          className="mt-6 inline-block px-8 py-3 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-lg hover:bg-yellow-300 transition-all"
-        >
-          Register Now
-        </Link>
-      </section>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-indigo-700 via-purple-600 to-pink-500 text-white py-12 px-4 text-center shadow-md">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-3">
+            BBECO BERLIN CHAPTER
+          </h1>
+          <p className="text-base md:text-lg max-w-2xl mx-auto opacity-90">
+            Join us for a cultural celebration and networking event bringing
+            together the Buganda community in the heart of Europe.
+          </p>
 
-      <section className="max-w-7xl mx-auto mt-10 px-4 grid grid-cols-1 lg:grid-cols-12 gap-6">
-        <div className="lg:col-span-3 hidden lg:block">
-          <FlyerCard
-            title="Event Flyer"
-            content="Download and share our official event flyer!"
-            imageSrc="/assets/flyer1.jpg"
-          />
-        </div>
-
-        <div className="lg:col-span-6 space-y-12">
-          <EventDescription />
-        </div>
-
-        <div className="lg:col-span-3 hidden lg:block">
-          <FlyerCard
-            title="Message from Organizers"
-            content="Stay tuned for our lineup of keynote speakers and entertainment!"
-            imageSrc="/assets/flyer1.jpg"
-          />
+          <Link
+            to="/register"
+            className="mt-6 inline-block px-6 py-2 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-md hover:bg-yellow-300 transition-all duration-300"
+          >
+            Register Now
+          </Link>
         </div>
       </section>
-    </main>
+
+      {/* Main Section */}
+      <main className="bg-gray-50 py-10 px-4 md:px-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          
+          {/* Prime Minister Image */}
+          <div className="flex justify-center">
+            <div className="rounded-2xl overflow-hidden shadow-lg bg-white max-w-sm">
+              <img
+                src="/buganda.png"
+                alt="Prime Minister of Buganda"
+                className="w-full h-auto object-contain"
+              />
+              <p className="text-center py-3 text-sm md:text-base font-medium text-gray-700">
+                Katikkiro of Buganda – The Rt. Hon. Charles Peter Mayiga
+              </p>
+            </div>
+          </div>
+
+          {/* Event Description */}
+          <div className="space-y-6">
+            <EventDescription />
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </>
   );
 }
