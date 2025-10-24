@@ -7,20 +7,14 @@ export default function Register() {
   return (
     <>
       <Navbar />
-      <main
-        className="min-h-screen text-gray-800 font-sans flex justify-center items-center p-10 bg-cover bg-center bg-no-repeat relative"
-        style={{ backgroundImage: "url('/bunganda.png')" }}
-      >
-        {/* Background Overlay */}
-        <div className="absolute inset-0 bg-black/50"></div>
-
+      <main className="min-h-screen text-gray-800 font-sans flex justify-center items-start pt-28 px-4 md:px-10 bg-[#1B2A49] relative">
         {/* Registration Form Section */}
         <div className="w-full max-w-3xl relative z-10">
-          <h1 className="text-4xl font-extrabold mb-8 text-center text-white tracking-wide drop-shadow-lg">
-            Online Registration
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-6 text-center text-white tracking-wide drop-shadow-lg">
+            Register for the Event
           </h1>
 
-          <div className="backdrop-blur-lg bg-white/95 rounded-3xl shadow-2xl border border-gray-200 p-10 transform transition-all duration-300 hover:scale-[1.01] hover:shadow-3xl">
+          <div className="backdrop-blur-lg bg-white/95 rounded-3xl shadow-2xl border border-gray-200 p-6 md:p-10 transform transition-all duration-300 hover:scale-[1.01] hover:shadow-3xl">
             <RegistrationForm />
           </div>
         </div>
