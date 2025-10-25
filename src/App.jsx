@@ -20,8 +20,10 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/admin/login" element={<AdminLogin onLogin={handleLogin} />} />
-        <Route path="/admin/dashboo
-        ard" element={<AdminDashboard token={adminToken} setToken={setAdminToken} />} />
+        <Route
+          path="/admin/dashboard"
+          element={<AdminDashboard token={adminToken} setToken={setAdminToken} />}
+        />
       </Routes>
     </Router>
   );

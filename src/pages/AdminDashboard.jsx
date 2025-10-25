@@ -1,117 +1,146 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
-export default function AdminDashboard() {
+export default function AdminDashboard({ token, setToken }) {
   const [registrations, setRegistrations] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const navigate = useNavigate();
-  const token = localStorage.getItem("adminToken");
 
+  // Fetch all registrations
   useEffect(() => {
-    if (!token) navigate("/admin");
-    else loadRegistrations();
-  }, [token]);
-
-  async function loadRegistrations() {
-    setLoading(true);
-    setError("");
-    try {
-      const res = await fetch("http://localhost:4000/api/admin/list", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (!res.ok) throw new Error("Failed to fetch registrations");
-      const data = await res.json();
-      setRegistrations(data);
-    } catch {
-      setError("Failed to load registrations");
-    } finally {
-      setLoading(false);
+    async function fetchRegistrations() {
+      try {
+        const res = await fetch("http://localhost:4000/api/admin/list", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!res.ok) throw new Error("Unauthorized or failed to fetch data");
+        const data = await res.json();
+        setRegistrations(data);
+      } catch (err) {
+        console.error(err);
+        setError("Failed to load registrations.");
+      } finally {
+        setLoading(false);
+      }
     }
-  }
+    fetchRegistrations();
+  }, [token]);
 
   function handleLogout() {
     localStorage.removeItem("adminToken");
-    navigate("/admin");
+    setToken("");
+    window.location.href = "/admin/login";
   }
 
-  async function downloadPDF() {
+  async function handleDownload() {
     try {
-      const res = await fetch("http://localhost:4000/api/admin/download/pdf", {
+      const res = await fetch("http://localhost:4000/api/admin/download", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      if (!res.ok) throw new Error("Failed to download PDF");
+
+      if (!res.ok) throw new Error("Download failed");
+
       const blob = await res.blob();
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "registrations.pdf";
-      document.body.appendChild(a);
+      a.download = "registrations.csv";
       a.click();
-      a.remove();
       window.URL.revokeObjectURL(url);
     } catch (err) {
       console.error(err);
-      alert("Error downloading PDF");
+      alert("Failed to download CSV file");
     }
   }
 
   return (
-    <div className="min-h-screen p-8 bg-gray-50">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-bold">Registered Attendees</h2>
-        <div className="flex gap-2">
-          <button
-            onClick={downloadPDF}
-            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
-          >
-            Download PDF
-          </button>
-          <button
-            onClick={handleLogout}
-            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
-          >
-            Logout
-          </button>
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-2xl border border-gray-200 p-6">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-indigo-700">
+            Admin Dashboard
+          </h2>
+          <div className="space-x-3">
+            <button
+              onClick={handleDownload}
+              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold"
+            >
+              ⬇️ Download CSV
+            </button>
+            <button
+              onClick={handleLogout}
+              className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold"
+            >
+              Logout
+            </button>
+          </div>
         </div>
-      </div>
 
-      <button
-        onClick={loadRegistrations}
-        disabled={loading}
-        className="mb-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50"
-      >
-        {loading ? "Loading..." : "Refresh List"}
-      </button>
+        {loading && (
+          <p className="text-center text-gray-500 py-10">Loading data...</p>
+        )}
 
-      {error && <p className="text-red-600">{error}</p>}
+        {error && (
+          <p className="text-center text-red-600 font-medium py-4">{error}</p>
+        )}
 
-      {registrations.length > 0 ? (
-        <div className="overflow-x-auto border rounded-lg">
-          <table className="min-w-full border-collapse">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="px-4 py-2 border">Reg No</th>
-                <th className="px-4 py-2 border">Name</th>
-                <th className="px-4 py-2 border">Passport</th>
-                <th className="px-4 py-2 border">Email</th>
-              </tr>
-            </thead>
-            <tbody>
-              {registrations.map((r) => (
-                <tr key={r.id}>
-                  <td className="px-4 py-2 border">{r.reg_no}</td>
-                  <td className="px-4 py-2 border">{r.fullname}</td>
-                  <td className="px-4 py-2 border">{r.passport}</td>
-                  <td className="px-4 py-2 border">{r.email}</td>
+        {!loading && !error && (
+          <div className="overflow-x-auto">
+            <table className="min-w-full border border-gray-200 text-sm md:text-base">
+              <thead className="bg-indigo-600 text-white">
+                <tr>
+                  <th className="px-3 py-2 border">Reg No</th>
+                  <th className="px-3 py-2 border">Full Name</th>
+                  <th className="px-3 py-2 border">Email</th>
+                  <th className="px-3 py-2 border">Phone</th>
+                  <th className="px-3 py-2 border">Ticket Type</th>
+                  <th className="px-3 py-2 border">Amount (€)</th>
+                  <th className="px-3 py-2 border">Payment Method</th>
+                  <th className="px-3 py-2 border">Payment Status</th>
+                  <th className="px-3 py-2 border">Date Registered</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        <p>{loading ? "Loading..." : "No registrations found."}</p>
-      )}
+              </thead>
+              <tbody>
+                {registrations.map((reg, index) => (
+                  <tr
+                    key={index}
+                    className={
+                      index % 2 === 0
+                        ? "bg-gray-50 hover:bg-gray-100"
+                        : "bg-white hover:bg-gray-100"
+                    }
+                  >
+                    <td className="px-3 py-2 border text-center">
+                      {reg.reg_no}
+                    </td>
+                    <td className="px-3 py-2 border">{reg.fullname}</td>
+                    <td className="px-3 py-2 border">{reg.email}</td>
+                    <td className="px-3 py-2 border">{reg.phone}</td>
+                    <td className="px-3 py-2 border">{reg.ticket_type}</td>
+                    <td className="px-3 py-2 border text-center">
+                      {reg.amount}
+                    </td>
+                    <td className="px-3 py-2 border">{reg.payment_method}</td>
+                    <td className="px-3 py-2 border text-center">
+                      {reg.payment_status || "Pending"}
+                    </td>
+                    <td className="px-3 py-2 border text-center text-gray-700">
+                      {new Date(reg.created_at).toLocaleString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            {registrations.length === 0 && (
+              <p className="text-center text-gray-500 py-6">
+                No registrations found.
+              </p>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
