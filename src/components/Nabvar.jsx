@@ -42,6 +42,7 @@ export default function Navbar() {
           ESAAZA RHINELAND
         </a>
 
+        {/* 
         <NavLink
           to="/register"
           className={({ isActive }) =>
@@ -55,13 +56,13 @@ export default function Navbar() {
           DONATE
         </NavLink>
 
-        {/* Admin Login Button */}
         <NavLink
           to="/admin/login"
           className="px-3 py-1.5 rounded-md bg-gray-200 text-gray-800 text-sm font-medium hover:bg-gray-300 transition-all duration-200"
         >
           Admin Login
         </NavLink>
+        */}
       </div>
 
       {/* Mobile Hamburger */}
@@ -125,6 +126,7 @@ export default function Navbar() {
             ESAAZA RHINELAND
           </a>
 
+          {/* 
           <NavLink
             to="/register"
             onClick={() => setIsOpen(false)}
@@ -133,7 +135,6 @@ export default function Navbar() {
             DONATE
           </NavLink>
 
-          {/* Admin Login Mobile */}
           <NavLink
             to="/admin/login"
             onClick={() => setIsOpen(false)}
@@ -141,6 +142,7 @@ export default function Navbar() {
           >
             Admin Login
           </NavLink>
+          */}
         </div>
       )}
     </nav>
