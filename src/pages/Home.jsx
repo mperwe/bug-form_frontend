@@ -13,8 +13,14 @@ export default function Home() {
       <section className="bg-[#1B2A49] text-white pt-24 pb-12 px-4 text-center relative">
         <div className="max-w-3xl mx-auto relative z-10">
           <h1 className="text-2xl md:text-3xl font-extrabold mb-3 tracking-tight">
-            BBECO Berlin Chapter
+            BUGANDA BUMU EUROPEAN CONVENTION
           </h1>
+
+          {/* New sub-header */}
+          <h2 className="text-base md:text-lg font-semibold text-yellow-400 mb-4">
+            Hosted By Germany In BERLIN
+          </h2>
+
           <p className="text-sm md:text-base max-w-2xl mx-auto opacity-90 leading-relaxed">
             Join us for a cultural celebration and networking event bringing together the Buganda community in the heart of Europe.
           </p>
@@ -105,7 +111,7 @@ export default function Home() {
                     <p className="text-gray-300 text-xs md:text-sm mt-1 leading-snug">
                       <strong>Bank:</strong> ABN AMRO Bank N.V.<br />
                       <strong>Account Name:</strong> HK NDUGGA<br />
-                      <strong>IBAN:</strong> NL80 ABNA  0875436439<br />
+                      <strong>IBAN:</strong> NL80 ABNA 0875436439<br />
                       Or get a <strong>TIKKIE</strong> from HAMZA: <span className="text-yellow-400">+31636556030</span><br />
                       <strong>Payment Reason:</strong> BBECO 2026
                     </p>
