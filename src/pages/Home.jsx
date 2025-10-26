@@ -20,7 +20,7 @@ export default function Home() {
           </p>
 
           <Link
-            to="/register"
+            to="https://forms.gle/PaD39jWRFeZJFxFLA"
             className="mt-4 inline-block px-6 py-3 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-yellow-300"
           >
             Register Now
@@ -39,7 +39,7 @@ export default function Home() {
                 Ttabamiruka 2026
               </h2>
               <p className="text-sm md:text-base mb-4 opacity-90">
-                Preserving Heritage & Navigating Modernity in the diaspora
+                Theme: Preserving Heritage & Navigating Modernity in the diaspora
               </p>
 
               {/* Event Details */}
@@ -105,7 +105,7 @@ export default function Home() {
                     <p className="text-gray-300 text-xs md:text-sm mt-1 leading-snug">
                       <strong>Bank:</strong> ABN AMRO Bank N.V.<br />
                       <strong>Account Name:</strong> HK NDUGGA<br />
-                      <strong>IBAN:</strong> NL13 ABNA 0506 4173 44<br />
+                      <strong>IBAN:</strong> NL80 ABNA  0875436439<br />
                       Or get a <strong>TIKKIE</strong> from HAMZA: <span className="text-yellow-400">+31636556030</span><br />
                       <strong>Payment Reason:</strong> BBECO 2026
                     </p>
