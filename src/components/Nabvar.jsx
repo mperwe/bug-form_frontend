@@ -14,7 +14,7 @@ export default function Navbar() {
           className="h-10 w-10 object-contain"
         />
         <span className="font-bold text-xl text-indigo-700 tracking-wide">
-          BBECO BERLIN CHAPTER
+          WELCOME TO BERLIN
         </span>
       </Link>
 
