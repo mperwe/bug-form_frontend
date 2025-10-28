@@ -4,6 +4,13 @@ import { Link, NavLink } from "react-router-dom";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navItemStyle = ({ isActive }) =>
+    `px-3 py-1.5 rounded-md font-medium text-sm transition-all duration-200 ${
+      isActive
+        ? "bg-indigo-600 text-white shadow"
+        : "bg-indigo-100 text-indigo-700 hover:bg-indigo-600 hover:text-white"
+    }`;
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-md py-2 px-6 flex items-center justify-between z-50">
       {/* Logo Section */}
@@ -13,56 +20,45 @@ export default function Navbar() {
           alt="BBECO Logo"
           className="h-10 w-10 object-contain"
         />
-        <span className="font-bold text-xl text-indigo-700 tracking-wide">
-          WELCOME TO BERLIN
+        <span className="font-bold text-lg md:text-xl text-indigo-700 tracking-wide">
+          TTABAMIRUKA - GERMANY 2026
         </span>
       </Link>
 
       {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center space-x-3">
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            `px-3 py-1.5 rounded-md font-medium text-sm transition-all duration-200 ${
-              isActive
-                ? "bg-indigo-600 text-white shadow"
-                : "bg-indigo-100 text-indigo-700 hover:bg-indigo-600 hover:text-white"
-            }`
-          }
-        >
+      <div className="hidden md:flex items-center space-x-2">
+        <NavLink to="/" className={navItemStyle}>
           HOME
         </NavLink>
 
-        <a
-          href="https://bugandarhinelands.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-3 py-1.5 rounded-md bg-indigo-100 text-indigo-700 text-sm font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
-        >
-          ESAAZA RHINELAND
-        </a>
+        {/* <NavLink to="/gallery" className={navItemStyle}>
+          GALLERY
+        </NavLink> */}
 
-        {/* 
-        <NavLink
+        <NavLink to="/tour" className={navItemStyle}>
+          VISIT BERLIN
+        </NavLink>
+
+        {/* <NavLink to="/about" className={navItemStyle}>
+          ABOUT US
+        </NavLink> */}
+
+        <NavLink to="/contact" className={navItemStyle}>
+          CONTACT
+        </NavLink>
+
+        {/* <NavLink
           to="/register"
           className={({ isActive }) =>
-            `px-3 py-1.5 rounded-md font-medium text-sm transition-all duration-200 ${
+            `ml-2 px-4 py-1.5 rounded-md font-semibold text-sm transition-all duration-200 ${
               isActive
                 ? "bg-green-600 text-white shadow"
-                : "bg-green-100 text-green-700 hover:bg-green-600 hover:text-white"
+                : "bg-green-500 text-white hover:bg-green-600"
             }`
           }
         >
-          DONATE
-        </NavLink>
-
-        <NavLink
-          to="/admin/login"
-          className="px-3 py-1.5 rounded-md bg-gray-200 text-gray-800 text-sm font-medium hover:bg-gray-300 transition-all duration-200"
-        >
-          Admin Login
-        </NavLink>
-        */}
+          REGISTER NOW
+        </NavLink> */}
       </div>
 
       {/* Mobile Hamburger */}
@@ -116,33 +112,45 @@ export default function Navbar() {
             HOME
           </NavLink>
 
-          <a
-            href="https://bugandarhinelands.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* <NavLink
+            to="/gallery"
             onClick={() => setIsOpen(false)}
             className="w-11/12 text-center px-3 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
           >
-            ESAAZA RHINELAND
-          </a>
+            GALLERY
+          </NavLink> */}
 
-          {/* 
           <NavLink
+            to="/tour"
+            onClick={() => setIsOpen(false)}
+            className="w-11/12 text-center px-3 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
+          >
+            VISIT BERLIN
+          </NavLink>
+
+          {/* <NavLink
+            to="/about"
+            onClick={() => setIsOpen(false)}
+            className="w-11/12 text-center px-3 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
+          >
+            ABOUT US
+          </NavLink> */}
+
+          <NavLink
+            to="/contact"
+            onClick={() => setIsOpen(false)}
+            className="w-11/12 text-center px-3 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
+          >
+            CONTACT
+          </NavLink>
+
+          {/* <NavLink
             to="/register"
             onClick={() => setIsOpen(false)}
-            className="w-11/12 text-center px-3 py-2 rounded-md bg-green-100 text-green-700 font-medium hover:bg-green-600 hover:text-white transition-all duration-200"
+            className="w-11/12 text-center px-3 py-2 rounded-md bg-green-500 text-white font-medium hover:bg-green-600 transition-all duration-200"
           >
-            DONATE
-          </NavLink>
-
-          <NavLink
-            to="/admin/login"
-            onClick={() => setIsOpen(false)}
-            className="w-11/12 text-center px-3 py-2 rounded-md bg-gray-200 text-gray-800 font-medium hover:bg-gray-300 transition-all duration-200"
-          >
-            Admin Login
-          </NavLink>
-          */}
+            REGISTER NOW
+          </NavLink> */}
         </div>
       )}
     </nav>
