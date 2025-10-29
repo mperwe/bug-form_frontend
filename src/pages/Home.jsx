@@ -235,7 +235,7 @@ export default function Home() {
               <li>
                 💻 <strong>PayPal</strong><br />
                 <span className="text-yellow-400 text-xs">hamuza@gmail.com</span><br />
-                <span className="text-yellow-400 text-xs">bbeco@gmail.com</span>
+                <span className="text-yellow-400 text-xs">bbecoberlin@gmail.com</span>
               </li>
               <li>
                 📲 <strong>Mobile Money (Uganda)</strong><br />
