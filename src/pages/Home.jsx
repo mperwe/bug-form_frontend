@@ -7,6 +7,7 @@ export default function Home() {
   const [filter, setFilter] = useState("All");
 
   const places = [
+    // Existing hotels
     {
       name: "Mondrian Suites Berlin am Checkpoint Charlie",
       address: "Markgrafenstraße 16/16a, 10969 Berlin",
@@ -52,6 +53,89 @@ export default function Home() {
       type: "Luxury",
       distance: "15 min walk",
     },
+
+    // ✅ New additions near Gloria Event Center
+    {
+      name: "Select Hotel Berlin Checkpoint Charlie",
+      address: "Hedemannstraße 11-12, 10969 Berlin",
+      url: "https://www.select-hotels.com/en/hotel/select-hotel-berlin-checkpoint-charlie/",
+      directions:
+        "https://www.google.com/maps/dir//Select+Hotel+Berlin+Checkpoint+Charlie,+Hedemannstraße+11-12,+10969+Berlin/",
+      type: "Mid-range",
+      distance: "4 min walk",
+    },
+    {
+      name: "NH Collection Berlin Mitte am Checkpoint Charlie",
+      address: "Leipziger Str. 106-111, 10117 Berlin",
+      url: "https://www.nh-hotels.com/hotel/nh-collection-berlin-mitte-checkpoint-charlie",
+      directions:
+        "https://www.google.com/maps/dir//NH+Collection+Berlin+Mitte+am+Checkpoint+Charlie,+Leipziger+Str.+106-111,+10117+Berlin/",
+      type: "Luxury",
+      distance: "6 min walk",
+    },
+    {
+      name: "Hotel Gat Point Charlie",
+      address: "Mauerstraße 81–82, 10117 Berlin",
+      url: "https://www.hotelgatpointcharlie.com/",
+      directions:
+        "https://www.google.com/maps/dir//Hotel+Gat+Point+Charlie,+Mauerstraße+81–82,+10117+Berlin/",
+      type: "Mid-range",
+      distance: "5 min walk",
+    },
+    {
+      name: "Novotel Suites Berlin City Potsdamer Platz",
+      address: "Anhalter Str. 2, 10963 Berlin",
+      url: "https://all.accor.com/hotel/3745/index.en.shtml",
+      directions:
+        "https://www.google.com/maps/dir//Novotel+Suites+Berlin+City+Potsdamer+Platz,+Anhalter+Str.+2,+10963+Berlin/",
+      type: "Mid-range",
+      distance: "9 min walk",
+    },
+    {
+      name: "Ibis Berlin City Potsdamer Platz",
+      address: "Anhalter Str. 4, 10963 Berlin",
+      url: "https://all.accor.com/hotel/3109/index.en.shtml",
+      directions:
+        "https://www.google.com/maps/dir//ibis+Berlin+City+Potsdamer+Platz,+Anhalter+Str.+4,+10963+Berlin/",
+      type: "Budget",
+      distance: "8 min walk",
+    },
+    {
+      name: "Relexa Hotel Stuttgarter Hof Berlin",
+      address: "Anhalter Str. 8-9, 10963 Berlin",
+      url: "https://www.relexa-hotel-berlin.de/",
+      directions:
+        "https://www.google.com/maps/dir//relexa+hotel+Stuttgarter+Hof,+Anhalter+Str.+8-9,+10963+Berlin/",
+      type: "Mid-range",
+      distance: "9 min walk",
+    },
+    {
+      name: "Mövenpick Hotel Berlin",
+      address: "Schöneberger Str. 3, 10963 Berlin",
+      url: "https://www.movenpick.com/",
+      directions:
+        "https://www.google.com/maps/dir//M%C3%B6venpick+Hotel+Berlin,+Sch%C3%B6neberger+Str.+3,+10963+Berlin/",
+      type: "Luxury",
+      distance: "10 min walk",
+    },
+    {
+      name: "Check In Hostel Berlin",
+      address: "Markgrafenstraße 68, 10969 Berlin",
+      url: "https://www.booking.com/hotel/de/check-in-hostel-berlin.html",
+      directions:
+        "https://www.google.com/maps/dir//Check+In+Hostel+Berlin,+Markgrafenstra%C3%9Fe+68,+10969+Berlin/",
+      type: "Budget",
+      distance: "2 min walk",
+    },
+    {
+      name: "MEININGER Hotel Berlin Mitte",
+      address: "Oranienburger Str. 67/68, 10117 Berlin",
+      url: "https://www.meininger-hotels.com/en/hotels/berlin/mitte-humboldthaus/",
+      directions:
+        "https://www.google.com/maps/dir//MEININGER+Hotel+Berlin+Mitte,+Oranienburger+Str.+67%2F68,+10117+Berlin/",
+      type: "Budget",
+      distance: "15 min walk",
+    },
   ];
 
   const filteredPlaces =
@@ -95,113 +179,69 @@ export default function Home() {
       <main className="flex-grow py-12 px-4 md:px-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
           {/* Left Panel – Event Info */}
-          <div className="flex-1 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transform transition-all duration-300 hover:-translate-y-1 text-white">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-yellow-400">
-                Ttabamiruka 2026
-              </h2>
-              <p className="text-sm md:text-base mb-6 opacity-90 italic">
-                Theme: “Preserving Heritage & Navigating Modernity in the Diaspora”
-              </p>
+          <div className="flex-1 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl p-6 md:p-8 shadow-lg text-white">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2 text-yellow-400">
+              Ttabamiruka 2026
+            </h2>
+            <p className="text-sm md:text-base mb-6 opacity-90 italic">
+              Theme: “Preserving Heritage & Navigating Modernity in the Diaspora”
+            </p>
 
-              {/* Event Details */}
-              <ul className="space-y-3 text-sm md:text-base mb-6">
-                <li className="flex items-start gap-2">
-                  <span className="text-lg">📅</span>
-                  <span><strong>Date:</strong> May 22–24, 2026</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-lg">📍</span>
-                  <span>
-                    <strong>Location:</strong> Gloria Events Center
-                    <p className="text-gray-300 text-xs mt-1">
-                      Markgrafenstraße 67, 10969 Berlin
-                    </p>
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-lg">🎶</span>
-                  <span>
-                    <strong>Activities:</strong> Cultural Workshops, Networking, Live Entertainment
-                  </span>
-                </li>
-              </ul>
+            <ul className="space-y-3 text-sm md:text-base mb-6">
+              <li>📅 <strong>Date:</strong> May 22–24, 2026</li>
+              <li>
+                📍 <strong>Location:</strong> Gloria Events Center  
+                <p className="text-gray-300 text-xs">Markgrafenstraße 67, 10969 Berlin</p>
+              </li>
+              <li>🎶 <strong>Activities:</strong> Cultural Workshops, Networking, Live Entertainment</li>
+            </ul>
 
-              {/* Ticket Categories */}
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-3 underline text-yellow-400">
-                  Ticket Categories
-                </h3>
-                <ul className="space-y-2 text-sm md:text-base">
-                  <li>💶 <strong>Early Bird:</strong> €100 (Oct – Dec)</li>
-                  <li>💶 <strong>Regular:</strong> €120 (Jan – Mar)</li>
-                  <li>💶 <strong>Late:</strong> €150 (Apr onwards)</li>
-                </ul>
-              </div>
+            <h3 className="text-xl font-semibold mb-3 underline text-yellow-400">
+              Ticket Categories
+            </h3>
+            <ul className="space-y-2 mb-6 text-sm md:text-base">
+              <li>💶 <strong>Early Bird:</strong> €100 (Oct – Dec)</li>
+              <li>💶 <strong>Regular:</strong> €120 (Jan – Mar)</li>
+              <li>💶 <strong>Late:</strong> €150 (Apr onwards)</li>
+            </ul>
 
-              {/* Contacts */}
-              <div>
-                <h3 className="text-xl font-semibold mb-3 underline text-yellow-400">
-                  Contact Information
-                </h3>
-                <ul className="space-y-2 text-sm md:text-base">
-                  <li>📞 Linda S – <span className="text-yellow-400">+31 6 85740954</span> (Esaaza Rhinelands)</li>
-                  <li>📞 Frank K – <span className="text-yellow-400">+49 1523 5867655</span> (Berlin)</li>
-                  <li>📞 Samuel S – <span className="text-yellow-400">+49 1520 8514008</span> (Munich)</li>
-                </ul>
-              </div>
-            </div>
+            <h3 className="text-xl font-semibold mb-3 underline text-yellow-400">
+              Contact Information
+            </h3>
+            <ul className="space-y-2 text-sm md:text-base">
+              <li>📞 Linda S – <span className="text-yellow-400">+31 6 85740954</span> (Esaaza Rhinelands)</li>
+              <li>📞 Frank K – <span className="text-yellow-400">+49 1523 5867655</span> (Berlin)</li>
+              <li>📞 Samuel S – <span className="text-yellow-400">+49 1520 8514008</span> (Munich)</li>
+            </ul>
           </div>
 
           {/* Right Panel – Payment Methods */}
-          <div className="flex-1 bg-gray-800 rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transform transition-all duration-300 hover:-translate-y-1 text-white">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-3 text-yellow-400">
-                Payment Methods
-              </h2>
-              <p className="text-sm md:text-base mb-6 opacity-90">
-                Choose one of the methods below to complete your registration payment:
-              </p>
-
-              <ul className="space-y-5 text-sm md:text-base">
-                <li className="flex items-start gap-3">
-                  <span className="text-xl">🏦</span>
-                  <div>
-                    <strong className="underline">Bank Transfer</strong>
-                    <p className="text-gray-300 text-xs md:text-sm mt-1 leading-snug">
-                      <strong>Bank:</strong> ABN AMRO Bank N.V.<br />
-                      <strong>Account Name:</strong> HK NDUGGA<br />
-                      <strong>IBAN:</strong> NL80 ABNA 0875436439<br />
-                      Request a <strong>Tikkie</strong> from Hamza:{" "}
-                      <span className="text-yellow-400">+31 636 556030</span><br />
-                      <strong>Reason:</strong> BBECO 2026
-                    </p>
-                  </div>
-                </li>
-
-                <li className="flex items-start gap-3">
-                  <span className="text-xl">💻</span>
-                  <div>
-                    <strong className="underline">PayPal</strong>
-                    <p className="text-gray-300 text-xs md:text-sm mt-1 leading-snug">
-                      Send payments to:<br />
-                      <span className="text-yellow-400">hamuza@gmail.com</span><br />
-                      <span className="text-yellow-400">bbeco@gmail.com</span>
-                    </p>
-                  </div>
-                </li>
-
-                <li className="flex items-start gap-3">
-                  <span className="text-xl">📲</span>
-                  <div>
-                    <strong className="underline">Mobile Money (Uganda)</strong>
-                    <p className="text-gray-300 text-xs md:text-sm mt-1 leading-snug">
-                      Send to: <span className="text-yellow-400">+256 757 595578</span> (Nsereko Justine)
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </div>
+          <div className="flex-1 bg-gray-800 rounded-2xl p-6 md:p-8 shadow-lg text-white">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-yellow-400">
+              Payment Methods
+            </h2>
+            <ul className="space-y-5 text-sm md:text-base">
+              <li>
+                🏦 <strong>Bank Transfer</strong><br />
+                <span className="text-gray-300 text-xs">
+                  <strong>Bank:</strong> ABN AMRO Bank N.V.<br />
+                  <strong>Account Name:</strong> HK NDUGGA<br />
+                  <strong>IBAN:</strong> NL80 ABNA 0875436439<br />
+                  Request a <strong>Tikkie</strong> from Hamza:{" "}
+                  <span className="text-yellow-400">+31 636 556030</span><br />
+                  <strong>Reason:</strong> BBECO 2026
+                </span>
+              </li>
+              <li>
+                💻 <strong>PayPal</strong><br />
+                <span className="text-yellow-400 text-xs">hamuza@gmail.com</span><br />
+                <span className="text-yellow-400 text-xs">bbeco@gmail.com</span>
+              </li>
+              <li>
+                📲 <strong>Mobile Money (Uganda)</strong><br />
+                <span className="text-yellow-400 text-xs">+256 757 595578 (Nsereko Justine)</span>
+              </li>
+            </ul>
           </div>
         </div>
       </main>
@@ -249,10 +289,14 @@ export default function Home() {
                 key={index}
                 className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 p-6"
               >
-                <h3 className="text-xl font-bold text-indigo-900 mb-2">{hotel.name}</h3>
+                <h3 className="text-xl font-bold text-indigo-900 mb-2">
+                  {hotel.name}
+                </h3>
                 <p className="text-sm text-gray-600 mb-1">{hotel.address}</p>
                 <p className="text-xs text-gray-500 mb-1 italic">{hotel.type}</p>
-                <p className="text-xs text-gray-500 mb-4">Distance: {hotel.distance}</p>
+                <p className="text-xs text-gray-500 mb-4">
+                  Distance: {hotel.distance}
+                </p>
 
                 <div className="flex flex-wrap gap-3">
                   <a
