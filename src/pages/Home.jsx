@@ -200,9 +200,9 @@ export default function Home() {
               Ticket Categories
             </h3>
             <ul className="space-y-2 mb-6 text-sm md:text-base">
-              <li>💶 <strong>Early Bird:</strong> €100 (Oct – Dec)</li>
-              <li>💶 <strong>Regular:</strong> €120 (Jan – Mar)</li>
-              <li>💶 <strong>Late:</strong> €150 (Apr onwards)</li>
+              <li>💶 <strong>Early Bird:</strong> €100 (Nov – Dec)</li>
+              <li>💶 <strong>Regular:</strong> €120 (Jan – Feb)</li>
+              <li>💶 <strong>Late:</strong> €150 (March onwards)</li>
             </ul>
 
             <h3 className="text-xl font-semibold mb-3 underline text-yellow-400">
