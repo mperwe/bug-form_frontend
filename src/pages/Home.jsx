@@ -209,9 +209,9 @@ export default function Home() {
               Contact Information
             </h3>
             <ul className="space-y-2 text-sm md:text-base">
-              <li>📞 Linda S – <span className="text-yellow-400">+31 6 85740954</span> (Esaaza Rhinelands)</li>
+              <li>📞 Linda S – <span className="text-yellow-400">+31 6 85740954</span> (Essaza Rhinelands)</li>
               <li>📞 Frank K – <span className="text-yellow-400">+49 1523 5867655</span> (Berlin)</li>
-              <li>📞 Samuel S – <span className="text-yellow-400">+49 1520 8514008</span> (Munich)</li>
+              <li>📞 Samuel M – <span className="text-yellow-400">+49 1520 8514008</span> (Munich)</li>
             </ul>
           </div>
 
@@ -234,12 +234,13 @@ export default function Home() {
               </li>
               <li>
                 💻 <strong>PayPal</strong><br />
-                <span className="text-yellow-400 text-xs">hamuza@gmail.com</span><br />
+                
                 <span className="text-yellow-400 text-xs">bbecoberlin@gmail.com</span>
               </li>
               <li>
                 📲 <strong>Mobile Money (Uganda)</strong><br />
                 <span className="text-yellow-400 text-xs">+256 757 595578 (Nsereko Justine)</span>
+                <span className="text-yellow-400 text-xs">Send confirmation on WhatsApp (+31 685 740954)</span>
               </li>
             </ul>
           </div>
