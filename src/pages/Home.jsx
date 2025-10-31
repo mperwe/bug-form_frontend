@@ -200,7 +200,7 @@ export default function Home() {
               <li>💶 <strong>Early Bird:</strong> €100 (Nov – Dec)</li>
               <li>💶 <strong>Regular:</strong> €120 (Jan – Feb)</li>
               <li>💶 <strong>Late:</strong> €150 (March onwards)</li>
-              <li>💶 <strong>Uganda:</strong> €350 (March onwards)</li>
+              <li>💶 <strong>Uganda:</strong> €350 </li>
               
             </ul>
 
