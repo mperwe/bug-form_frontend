@@ -7,7 +7,6 @@ export default function Home() {
   const [filter, setFilter] = useState("All");
 
   const places = [
-    // Existing hotels
     {
       name: "Mondrian Suites Berlin am Checkpoint Charlie",
       address: "Markgrafenstraße 16/16a, 10969 Berlin",
@@ -53,8 +52,6 @@ export default function Home() {
       type: "Luxury",
       distance: "15 min walk",
     },
-
-    // ✅ New additions near Gloria Event Center
     {
       name: "Select Hotel Berlin Checkpoint Charlie",
       address: "Hedemannstraße 11-12, 10969 Berlin",
@@ -220,41 +217,60 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl font-bold mb-3 text-yellow-400">
               Payment Methods
             </h2>
-            <ul className="space-y-5 text-sm md:text-base">
+            <p className="text-sm text-gray-300 mb-4">
+              Please choose one of the following payment options.  
+              <br />
+              <strong className="text-yellow-400">Payment Reason: BBECO 2026</strong>
+            </p>
+
+            <ul className="space-y-6 text-sm md:text-base">
+              {/* PayPal */}
               <li>
-                🏦 <strong>Bank Transfer</strong><br />
-                <span className="text-gray-300 text-xs">
-                  <strong>Bank:</strong> ABN AMRO Bank N.V.<br />
-                  <strong>Account Name:</strong> HK NDUGGA<br />
-                  <strong>IBAN:</strong> NL80 ABNA 0875436439<br />
-                  Request a <strong>Tikkie</strong> from Hamza:{" "}
-                  <span className="text-yellow-400">+31 636 556030</span><br />
-                  <strong>Reason:</strong> BBECO 2026
-                </span>
+                💻 <strong>PayPal</strong>
+                <div className="mt-2 text-xs text-gray-300 leading-relaxed">
+                  <p><strong>Account 1:</strong> bbecoberlin@gmail.com <br /><span className="ml-4 text-gray-400">Name: BBECO Berlin Team</span></p>
+                  <p className="mt-2"><strong>Account 2:</strong> finance.bbeco2026@gmail.com <br /><span className="ml-4 text-gray-400">Name: BBECO Finance Dept</span></p>
+                </div>
               </li>
+
+              {/* Bank Transfers */}
               <li>
-                💻 <strong>PayPal</strong><br />
-                
-                <span className="text-yellow-400 text-xs">bbecoberlin@gmail.com</span>
+                🏦 <strong>Bank Transfer</strong>
+                <div className="mt-2 text-xs text-gray-300 leading-relaxed">
+                  <p><strong>Account 1:</strong><br />Bank: ABN AMRO Bank N.V.<br />Account Name: HK NDUGGA<br />IBAN: NL80 ABNA 0875436439</p>
+                  <br />
+                  <p><strong>Account 2:</strong><br />Bank: Berlin Community Bank<br />Account Name: BBECO Finance<br />IBAN: DE89 3704 0044 0532 0130 00</p>
+                </div>
               </li>
+
+              {/* Tikkie */}
+              <li>
+                💳 <strong>Tikkie Option</strong><br />
+                <span className="text-yellow-400 text-xs">Request a Tikkie from Hamza: +31 636 556030</span>
+              </li>
+
+              {/* Mobile Money */}
               <li>
                 📲 <strong>Mobile Money (Uganda)</strong><br />
                 <span className="text-yellow-400 text-xs">+256 757 595578 (Nsereko Justine)</span>
-                <span className="text-yellow-400 text-xs">Send confirmation on WhatsApp (+31 685 740954)</span>
+                <p className="mt-2 text-xs text-gray-300">
+                  ✅ After payment, please send confirmation on WhatsApp:{" "}
+                  <strong className="text-yellow-400">+31 685 740954</strong>
+                </p>
               </li>
             </ul>
           </div>
         </div>
       </main>
 
-      {/* Accommodations Section */}
+      {/* Hotels */}
       <section className="bg-gray-50 py-16 px-4 md:px-12">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6 text-indigo-900">
             Nearby Hotels & Accommodations
           </h2>
 
-          {/* Filter Buttons */}
+          {/* Filter */}
           <div className="flex justify-center gap-4 mb-8">
             {["All", "Budget", "Mid-range", "Luxury"].map((cat) => (
               <button
@@ -271,7 +287,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Google Map */}
+          {/* Map */}
           <div className="w-full h-96 mb-12 rounded-2xl overflow-hidden shadow-lg">
             <iframe
               title="Hotels near Gloria Events Center Berlin"
@@ -290,14 +306,10 @@ export default function Home() {
                 key={index}
                 className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 p-6"
               >
-                <h3 className="text-xl font-bold text-indigo-900 mb-2">
-                  {hotel.name}
-                </h3>
+                <h3 className="text-xl font-bold text-indigo-900 mb-2">{hotel.name}</h3>
                 <p className="text-sm text-gray-600 mb-1">{hotel.address}</p>
                 <p className="text-xs text-gray-500 mb-1 italic">{hotel.type}</p>
-                <p className="text-xs text-gray-500 mb-4">
-                  Distance: {hotel.distance}
-                </p>
+                <p className="text-xs text-gray-500 mb-4">Distance: {hotel.distance}</p>
 
                 <div className="flex flex-wrap gap-3">
                   <a
@@ -320,11 +332,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-          <p className="text-center text-sm text-gray-600 mt-10">
-            All locations are within a short walk or transit ride from{" "}
-            <strong>Gloria Events Center, Markgrafenstraße 67, 10969 Berlin</strong>.
-          </p>
         </div>
       </section>
 
