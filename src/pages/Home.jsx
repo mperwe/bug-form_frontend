@@ -228,8 +228,10 @@ export default function Home() {
               <li>
                 💻 <strong>PayPal</strong>
                 <div className="mt-2 text-xs text-gray-300 leading-relaxed">
-                  <p><strong>Account 1:</strong> bbecoberlin@gmail.com <br /><span className="ml-4 text-gray-400">Name: BBECO Berlin Team</span></p>
-                  <p className="mt-2"><strong>Account 2:</strong> finance.bbeco2026@gmail.com <br /><span className="ml-4 text-gray-400">Name: BBECO Finance Dept</span></p>
+                  <p><strong>Account 1:</strong> bbecoberlin@gmail.com <br /><span className="ml-4 text-gray-400">Name: BBECO Berlin </span></p>
+                  
+                {/* <p className="mt-2"><strong>Account 2:</strong> finance.bbeco2026@gmail.com <br /><span className="ml-4 text-gray-400">Name: BBECO Finance Dept</span></p> */}
+                
                 </div>
               </li>
 
@@ -239,10 +241,14 @@ export default function Home() {
                 <div className="mt-2 text-xs text-gray-300 leading-relaxed">
                   <p><strong>Account 1:</strong><br />Bank: ABN AMRO Bank N.V.<br />Account Name: HK NDUGGA<br />IBAN: NL80 ABNA 0875436439</p>
                   <br />
-                  <p><strong>Account 2:</strong><br />Bank: Berlin Community Bank<br />Account Name: BBECO Finance<br />IBAN: DE89 3704 0044 0532 0130 00</p>
+                  
+                {/* <p><strong>Account 2:</strong><br />Bank: Berlin Community Bank<br />Account Name: BBECO Finance<br />IBAN: DE89 3704 0044 0532 0130 00</p> */}
+                
                 </div>
               </li>
-
+                {/*  <p><strong>Account 2:</strong><br />Bank: Berlin Community Bank<br />Account Name: BBECO Finance<br />IBAN: DE89 3704 0044 0532 0130 00</p>
+                </div>
+              </li> */} 
               {/* Tikkie */}
               <li>
                 💳 <strong>Tikkie Option</strong><br />
