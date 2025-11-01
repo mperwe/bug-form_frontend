@@ -153,7 +153,7 @@ export default function Home() {
           </h1>
 
           <h2 className="text-lg md:text-xl font-semibold text-yellow-400 mb-4 uppercase">
-            Hosted by Germany – Berlin 2026
+            Hosted by Berlin Chapter
           </h2>
 
           <p className="text-sm md:text-base max-w-2xl mx-auto opacity-90 leading-relaxed">
