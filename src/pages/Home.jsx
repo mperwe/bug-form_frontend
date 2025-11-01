@@ -208,9 +208,9 @@ export default function Home() {
               Contact Information
             </h3>
             <ul className="space-y-2 text-sm md:text-base">
-              <li>📞 Linda S – <span className="text-yellow-400">+31 6 85740954</span> (Essaza Rhinelands)</li>
-              <li>📞 Frank K – <span className="text-yellow-400">+49 1523 5867655</span> (Berlin)</li>
-              <li>📞 Samuel M – <span className="text-yellow-400">+49 1520 8514008</span> (Munich)</li>
+              <li>📞 Linda Sekayita – <span className="text-yellow-400">+31 6 85740954</span> (Essaza Rhinelands)</li>
+              <li>📞 Frank Kyambadde – <span className="text-yellow-400">+49 1523 5867655</span> (Berlin)</li>
+              <li>📞 Samuel Muwonge – <span className="text-yellow-400">+49 1520 8514008</span> (Munich)</li>
             </ul>
           </div>
 
@@ -230,7 +230,7 @@ export default function Home() {
               <li>
                 💻 <strong>PayPal</strong>
                 <div className="mt-2 text-xs text-gray-300 leading-relaxed">
-                  <p><strong>Account 1:</strong> bbecoberlin@gmail.com <br /><span className="ml-4 text-gray-400">Name: BBECO Berlin </span></p>
+                  <p><strong>Account :</strong> bbecoberlin@gmail.com <br /><span className="ml-4 text-gray-400">Name: Berlin Bbeco </span></p>
                   
                 {/* <p className="mt-2"><strong>Account 2:</strong> finance.bbeco2026@gmail.com <br /><span className="ml-4 text-gray-400">Name: BBECO Finance Dept</span></p> */}
                 
@@ -241,8 +241,11 @@ export default function Home() {
               <li>
                 🏦 <strong>Bank Transfer</strong>
                 <div className="mt-2 text-xs text-gray-300 leading-relaxed">
-                  <p><strong>Account 1:</strong><br />Bank: ABN AMRO Bank N.V.<br />Account Name: HK NDUGGA<br />IBAN: NL80 ABNA 0875436439</p>
-                  <br />
+
+                  
+                  
+                  <p><strong>Account :</strong><br />Bank: ABN AMRO Bank N.V.<br />Account Name: HK NDUGGA<br />IBAN: NL80 ABNA 0875436439</p>
+                  <strong>Netherlands</strong>
                   
                 {/* <p><strong>Account 2:</strong><br />Bank: Berlin Community Bank<br />Account Name: BBECO Finance<br />IBAN: DE89 3704 0044 0532 0130 00</p> */}
                 
@@ -262,8 +265,8 @@ export default function Home() {
                 📲 <strong>Mobile Money (Uganda)</strong><br />
                 <span className="text-yellow-400 text-xs">+256 757 595578 (Nsereko Justine)</span>
                 <p className="mt-2 text-xs text-gray-300">
-                  ✅ After payment, please send confirmation on WhatsApp:{" "}
-                  <strong className="text-yellow-400">+31 685 740954</strong>
+                  ✅ After payment, please send confirmation on WhatsApp: {" "}
+                  <strong className="text-yellow-400">+31 685 740954</strong> (Linda Sekayita)
                 </p>
               </li>
             </ul>
