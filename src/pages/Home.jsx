@@ -222,7 +222,7 @@ export default function Home() {
             <p className="text-sm text-gray-300 mb-4">
               Please choose one of the following payment options.  
               <br />
-              <strong className="text-yellow-400">Payment Reason: BBECO 2026</strong>
+              <strong className="text-yellow-400">Payment Reason: BBECO BERLIN 2026</strong>
             </p>
 
             <ul className="space-y-6 text-sm md:text-base">
