@@ -1,33 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="bg-[#0A1B3D] text-white py-12 mt-10">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        {/* Logo & Copy */}
-        <div className="flex flex-col items-start space-y-3">
-          <img src="/buganda.png" alt="Buganda Logo" className="h-12 w-12" />
+        {/* Copy & Email */}
+        <div className="flex flex-col space-y-3">
           <p className="text-sm md:text-base">
-            © {new Date().getFullYear()} Buganda Convention Berlin. All rights reserved.
+            © {new Date().getFullYear()} Berlin Bbeco. All rights reserved.
           </p>
+          <div className="flex items-center space-x-2 text-sm md:text-base">
+            <FaEnvelope className="text-yellow-400" />
+            <a href="mailto:bbecoberlin@gmail.com" className="hover:underline">
+              bbecoberlin@gmail.com
+            </a>
+          </div>
         </div>
 
         {/* Contact Info */}
         <div className="flex flex-col space-y-2">
           <h3 className="text-lg font-semibold mb-2 text-yellow-400">Contact</h3>
-       
           <p>📞 +49 1523 5867655</p>
-           <p>🌐 <a href="https://bugandaconvention.com" target="_blank" rel="noopener noreferrer" className="hover:underline">bugandaconvention.com</a></p>
-          <p>📍 Gloria Events Center, Markgrafenstraße 67, 10969 Berlin</p>
+          <p>📍 Berlin – Germany</p>
+          <p>🌐 <a href="https://bbecoberlin.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">bugandaconvention.com</a></p>
         </div>
 
         {/* Links & Social Media */}
         <div className="flex flex-col items-start space-y-4">
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-sm md:text-base">
-            <Link to="/about" className="hover:underline">About Us</Link>
+            <Link to="/visit-berlin" className="hover:underline">Visit Berlin</Link>
             <Link to="/contact" className="hover:underline">Contact</Link>
           </div>
 
