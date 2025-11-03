@@ -25,7 +25,7 @@ export default function Footer() {
           <h3 className="text-lg font-semibold mb-2 text-yellow-400">Contact</h3>
           <p>📞 +49 1523 5867655</p>
           <p>📍 Berlin – Germany</p>
-          <p>🌐 <a href="https://bbecoberlin.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">bugandaconvention.com</a></p>
+          <p>🌐 <a href="https://bbecoberlin.netlify.app/" target="_blank" rel="noopener noreferrer" className="hover:underline">bbecoberlin.org</a></p>
         </div>
 
         {/* Links & Social Media */}

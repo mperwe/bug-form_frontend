@@ -181,7 +181,7 @@ export default function Home() {
               <ul className="space-y-2 text-sm sm:text-base md:text-lg mb-6">
                 <li><strong>Date:</strong> May 22–24, 2026</li>
                 <li>
-                  <strong>Location:</strong> Gloria Events Center  
+                  <strong>Location:</strong> Gloria Events Center
                   <p className="text-gray-300 text-xs sm:text-sm md:text-base">Markgrafenstraße 67, 10969 Berlin</p>
                 </li>
                 <li><strong>Activities:</strong> Cultural Workshops, Networking, Live Entertainment</li>
@@ -194,7 +194,6 @@ export default function Home() {
                 { title: "Early Bird", price: "€100", period: "Nov – Dec" },
                 { title: "Regular", price: "€120", period: "Jan – Feb" },
                 { title: "Late", price: "€150", period: "March onwards" },
-                { title: "Uganda", price: "€350", period: "Special" },
               ].map((ticket, index) => (
                 <div
                   key={index}
@@ -205,7 +204,22 @@ export default function Home() {
                   <p className="text-xs md:text-sm text-gray-300">{ticket.period}</p>
                 </div>
               ))}
+
+              {/* Children Free Note */}
+              <div className="bg-gray-800 p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 text-white flex flex-col justify-center items-center text-center">
+                <h3 className="text-lg md:text-xl font-bold text-yellow-400 mb-1">Children</h3>
+                <p className="text-base md:text-lg font-semibold mb-1">Below 12 years – Free</p>
+              </div>
             </div>
+
+            {/* Ugandan Delegates Banner */}
+            <div className="bg-yellow-400 text-indigo-900 font-semibold rounded-2xl shadow-lg p-4 md:p-6 text-center mt-4 transition-all duration-300 transform hover:scale-105 hover:bg-yellow-300">
+              Ugandan Delegates, please contact{" "}
+              <span className="underline font-bold">Omuk Linda Sekayita</span><br />
+              <span className="text-sm sm:text-base">📞 +31 6 85740954 (Essaza Rhinelands)</span>
+            </div>
+
+
 
             {/* Contact Info */}
             <div className="bg-gray-900 rounded-3xl p-6 md:p-8 shadow-2xl text-white transform hover:scale-102 transition-transform duration-300">
@@ -226,7 +240,7 @@ export default function Home() {
               Payment Methods
             </h2>
             <p className="text-sm sm:text-base md:text-base text-gray-300 mb-4">
-              Please choose one of the following payment options.  
+              Please choose one of the following payment options.
               <br />
               <strong className="text-yellow-400">Payment Reason: BBECO BERLIN 2026</strong>
             </p>
@@ -283,11 +297,10 @@ export default function Home() {
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-4 py-2 rounded-full font-semibold transition ${
-                  filter === cat
-                    ? "bg-yellow-400 text-indigo-900 shadow-lg"
-                    : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-                }`}
+                className={`px-4 py-2 rounded-full font-semibold transition ${filter === cat
+                  ? "bg-yellow-400 text-indigo-900 shadow-lg"
+                  : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                  }`}
               >
                 {cat}
               </button>
