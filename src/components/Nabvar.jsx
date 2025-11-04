@@ -21,7 +21,7 @@ export default function Navbar() {
           className="h-10 w-10 object-contain"
         />
         <span className="font-bold text-lg md:text-xl text-indigo-700 tracking-wide">
-          TTABAMIRUKA - GERMANY 2026
+          BBECO - GERMANY 2026
         </span>
       </Link>
 
