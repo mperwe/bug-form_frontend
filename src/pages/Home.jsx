@@ -80,6 +80,7 @@ export default function Home() {
                 { title: "Early Bird", price: "€100", period: "Nov – Dec" },
                 { title: "Regular", price: "€120", period: "Jan – Feb" },
                 { title: "Late", price: "€150", period: "March onwards" },
+                { title: "Ugandan Delegates", price: "€350", period: "" },
               ].map((ticket, index) => (
                 <div
                   key={index}
