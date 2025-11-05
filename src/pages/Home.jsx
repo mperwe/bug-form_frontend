@@ -97,12 +97,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Ugandan Delegates */}
+            {/* Ugandan Delegates 
             <div className="bg-yellow-400 text-indigo-900 font-semibold rounded-2xl shadow-lg p-4 md:p-6 text-center mt-4 transition-all duration-300 transform hover:scale-105 hover:bg-yellow-300">
               Ugandan Delegates, please contact{" "}
               <span className="underline font-bold">Omuk Linda Sekayita</span><br />
               <span className="text-sm sm:text-base">📞 +31 6 85740954 (Essaza Rhinelands)</span>
-            </div>
+            </div> */}
 
             {/* Contact Info */}
             <div className="bg-gray-900 rounded-3xl p-6 md:p-8 shadow-2xl text-white transform hover:scale-102 transition-transform duration-300">
