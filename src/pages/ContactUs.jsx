@@ -35,6 +35,17 @@ export default function ContactUs() {
             
           </a>
 
+          <a
+            href="https://wa.me/31685740954"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center bg-white shadow-lg p-6 rounded-xl hover:shadow-2xl transition"
+          >
+            <FaWhatsapp className="text-green-500 mb-3" size={30} />
+            <h3 className="text-lg font-semibold mb-1">WhatsApp Chat</h3>
+            
+          </a>
+
           {/* Phone */}
           <a
             href="tel:+4915235867655"
@@ -43,7 +54,7 @@ export default function ContactUs() {
             <FaPhone className="text-indigo-600 mb-3" size={30} />
             <h3 className="text-lg font-semibold mb-1">Call Us</h3>
             <p className="text-sm text-gray-600">+49 1523 5867655 </p>
-            <p className="text-sm text-gray-600">+256 759 555 517 </p>
+            <p className="text-sm text-gray-600">+31 6 85740954 </p>
           </a>
 
           {/* Address */}
@@ -51,8 +62,18 @@ export default function ContactUs() {
             <FaMapMarkerAlt className="text-red-500 mb-3" size={30} />
             <h3 className="text-lg font-semibold mb-1">Office Location</h3>
             <p className="text-sm text-gray-600">
-              MaxHermann Str 14<br />
+              <br />
               Berlin, Germany
+            </p>
+            <p className="text-sm text-gray-500 mt-2">Working Hours: Mon–Fri, 9am–5pm</p>
+          </div>
+
+          <div className="flex flex-col items-center bg-white shadow-lg p-6 rounded-xl">
+            <FaMapMarkerAlt className="text-red-500 mb-3" size={30} />
+            <h3 className="text-lg font-semibold mb-1">Office Location</h3>
+            <p className="text-sm text-gray-600">
+              Essaza Rhinelands<br />
+             
             </p>
             <p className="text-sm text-gray-500 mt-2">Working Hours: Mon–Fri, 9am–5pm</p>
           </div>
