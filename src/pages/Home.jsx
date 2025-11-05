@@ -129,12 +129,14 @@ export default function Home() {
             </p>
             <ul className="space-y-4 md:space-y-6 text-sm sm:text-base md:text-base">
               <li className="bg-gray-700 p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                
+                {/* Payment Methods 
                 💻 <strong>PayPal</strong>
                 <div className="mt-2 text-xs sm:text-sm text-gray-300 leading-relaxed">
                   <p><strong>Account :</strong> bbecoberlin@gmail.com <br /><span className="ml-4 text-gray-400">Name: Berlin Bbeco</span></p>
                 </div>
               </li>
-              <li className="bg-gray-700 p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <li className="bg-gray-700 p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"> */}
                 🏦 <strong>Bank Transfer</strong>
                 <div className="mt-2 text-xs sm:text-sm text-gray-300 leading-relaxed">
                   <p><strong>Account Details :</strong><br />Bank: Rabobank<br />Account Name: M.VORSTENBOSCH<br />STICHTING BUGANDA RHINELANDS<br />IBAN: NL76 RABO 0162 8971 89</p>
