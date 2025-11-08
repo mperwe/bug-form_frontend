@@ -1,10 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Nabvar";
 import Footer from "../components/Footer";
 
 export default function Home() {
   const [filter, setFilter] = useState("All");
+
+  // 🎯 Countdown setup
+  const eventDate = new Date("May 22, 2026 00:00:00").getTime();
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setTimeLeft({ days, hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const places = [
     { name: "Mondrian Suites Berlin am Checkpoint Charlie", address: "Markgrafenstraße 16/16a, 10969 Berlin", url: "https://www.mondriansuites.com/", directions: "https://www.google.com/maps/dir//Mondrian+Suites+Berlin+am+Checkpoint+Charlie,+Markgrafenstraße+16%2F16a,+10969+Berlin/", type: "Luxury", distance: "3 min walk" },
@@ -30,7 +61,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero Section with Timer */}
       <section className="relative bg-gradient-to-b from-[#1B2A49] via-[#1B2A49]/95 to-[#10182B] text-white pt-24 pb-16 px-4 text-center overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('/berlin1.jpg')] bg-cover bg-center"></div>
         <div className="max-w-3xl mx-auto relative z-10">
@@ -43,19 +74,43 @@ export default function Home() {
           <p className="text-sm sm:text-base md:text-lg max-w-2xl mx-auto opacity-90 leading-relaxed">
             Join us for a grand cultural celebration uniting the Buganda community across Europe — fostering heritage, networking, and development in the heart of Berlin.
           </p>
+
+          {/* 🌟 Countdown Timer */}
+          <div className="mt-8 flex justify-center gap-6 sm:gap-10">
+            {[
+              { label: "Days", value: timeLeft.days },
+              { label: "Hours", value: timeLeft.hours },
+              { label: "Minutes", value: timeLeft.minutes },
+              { label: "Seconds", value: timeLeft.seconds },
+            ].map((unit, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-2xl p-4 w-20 sm:w-24 shadow-lg border border-yellow-400/40 animate-pulse"
+              >
+                <span className="text-2xl sm:text-3xl font-extrabold text-yellow-400 drop-shadow-md">
+                  {unit.value}
+                </span>
+                <span className="text-xs sm:text-sm text-gray-200 uppercase">
+                  {unit.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
           <Link
             to="https://forms.gle/PaD39jWRFeZJFxFLA"
             target="_blank"
-            className="mt-6 inline-block px-6 sm:px-8 py-3 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-yellow-300"
+            className="mt-8 inline-block px-8 py-3 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-yellow-300"
           >
             Register Now
           </Link>
         </div>
       </section>
 
+      {/* Convention Info, Tickets, Payment, Hotels, and Footer */}
       <main className="flex-grow py-12 px-4 sm:px-6 md:px-12">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
-          {/* Convention Info & Tickets */}
+          {/* Convention Info */}
           <div className="flex-1 flex flex-col gap-6 w-full">
             <div className="bg-gray-900 rounded-3xl p-6 md:p-8 shadow-2xl text-white transform hover:scale-102 transition-transform duration-300">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-yellow-400 drop-shadow">
@@ -97,13 +152,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Ugandan Delegates 
-            <div className="bg-yellow-400 text-indigo-900 font-semibold rounded-2xl shadow-lg p-4 md:p-6 text-center mt-4 transition-all duration-300 transform hover:scale-105 hover:bg-yellow-300">
-              Ugandan Delegates, please contact{" "}
-              <span className="underline font-bold">Omuk Linda Sekayita</span><br />
-              <span className="text-sm sm:text-base">📞 +31 6 85740954 (Essaza Rhinelands)</span>
-            </div> */}
-
             {/* Contact Info */}
             <div className="bg-gray-900 rounded-3xl p-6 md:p-8 shadow-2xl text-white transform hover:scale-102 transition-transform duration-300">
               <h3 className="text-2xl sm:text-3xl font-semibold mb-3 underline text-yellow-400 drop-shadow">
@@ -129,14 +177,6 @@ export default function Home() {
             </p>
             <ul className="space-y-4 md:space-y-6 text-sm sm:text-base md:text-base">
               <li className="bg-gray-700 p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                
-                {/* Payment Methods 
-                💻 <strong>PayPal</strong>
-                <div className="mt-2 text-xs sm:text-sm text-gray-300 leading-relaxed">
-                  <p><strong>Account :</strong> bbecoberlin@gmail.com <br /><span className="ml-4 text-gray-400">Name: Berlin Bbeco</span></p>
-                </div>
-              </li>
-              <li className="bg-gray-700 p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"> */}
                 🏦 <strong>Bank Transfer</strong>
                 <div className="mt-2 text-xs sm:text-sm text-gray-300 leading-relaxed">
                   <p><strong>Account Details :</strong><br />Bank: Rabobank<br />Account Name: M.VORSTENBOSCH<br />STICHTING BUGANDA RHINELANDS<br />IBAN: NL76 RABO 0162 8971 89</p>
@@ -157,7 +197,7 @@ export default function Home() {
                     href="https://forms.gle/PaD39jWRFeZJFxFLA"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-6 py-3 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-lg hover:opacity-90 transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
+                    className="inline-block px-6 py-2 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:bg-yellow-300"
                   >
                     Register Now
                   </a>
@@ -166,48 +206,64 @@ export default function Home() {
             </ul>
           </div>
         </div>
-      </main>
 
-      {/* Hotels Section */}
-      <section className="bg-gray-50 py-12 px-4 sm:px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center mb-6 text-indigo-900 drop-shadow">
-            Nearby Hotels & Accommodations
+        {/* Hotels Section */}
+        <div className="max-w-7xl mx-auto mt-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900">
+            Nearby Hotels
           </h2>
-          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
-            {["All", "Budget", "Mid-range", "Luxury"].map((cat) => (
+          <div className="flex justify-center mb-6 space-x-3">
+            {["All", "Luxury", "Mid-range", "Budget"].map((type) => (
               <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`px-4 py-2 rounded-full font-semibold transition ${
-                  filter === cat
-                    ? "bg-yellow-400 text-indigo-900 shadow-lg"
-                    : "bg-gray-200 text-gray-800 hover:bg-gray-300"
+                key={type}
+                onClick={() => setFilter(type)}
+                className={`px-4 py-2 rounded-full text-sm sm:text-base font-semibold border transition-all ${
+                  filter === type
+                    ? "bg-yellow-400 text-indigo-900 border-yellow-400"
+                    : "bg-gray-200 text-gray-800 border-gray-300 hover:bg-yellow-200"
                 }`}
               >
-                {cat}
+                {type}
               </button>
             ))}
           </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPlaces.map((hotel, index) => (
+            {filteredPlaces.map((place, index) => (
               <div
                 key={index}
-                className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 p-4 md:p-6"
+                className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
               >
-                <h3 className="text-lg md:text-xl font-bold text-indigo-900 mb-2">{hotel.name}</h3>
-                <p className="text-xs sm:text-sm md:text-sm text-gray-600 mb-1">{hotel.address}</p>
-                <p className="text-xs sm:text-sm md:text-sm text-gray-500 mb-1 italic">{hotel.type}</p>
-                <p className="text-xs sm:text-sm md:text-sm text-gray-500 mb-4">Distance: {hotel.distance}</p>
-                <div className="flex flex-wrap gap-2 md:gap-3">
-                  <a href={hotel.url} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-indigo-900 font-semibold px-3 py-2 rounded-full hover:bg-yellow-300 text-xs sm:text-sm md:text-sm transition">Book Now</a>
-                  <a href={hotel.directions} target="_blank" rel="noopener noreferrer" className="bg-indigo-900 text-white font-semibold px-3 py-2 rounded-full hover:bg-indigo-800 text-xs sm:text-sm md:text-sm transition">Directions</a>
+                <h3 className="text-lg sm:text-xl font-bold text-indigo-900 mb-1">
+                  {place.name}
+                </h3>
+                <p className="text-gray-600 text-sm mb-2">{place.address}</p>
+                <p className="text-gray-800 text-sm font-medium mb-2">
+                  🏷️ {place.type} — 🚶 {place.distance}
+                </p>
+                <div className="flex justify-between text-sm">
+                  <a
+                    href={place.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-yellow-500 hover:text-yellow-600 font-semibold"
+                  >
+                    Website ↗
+                  </a>
+                  <a
+                    href={place.directions}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:text-blue-600 font-semibold"
+                  >
+                    Directions ↗
+                  </a>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </main>
 
       <Footer />
     </div>
