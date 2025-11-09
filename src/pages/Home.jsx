@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Nabvar";
 import Footer from "../components/Footer";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 
 export default function Home() {
   const [filter, setFilter] = useState("All");
-  const [date, setDate] = useState(new Date());
   const [currentTime, setCurrentTime] = useState(new Date());
   const eventDate = new Date("May 22, 2026 00:00:00").getTime();
   const [timeLeft, setTimeLeft] = useState({
@@ -37,7 +34,17 @@ export default function Home() {
   }, []);
 
   const formatTime = (num) => num.toString().padStart(2, "0");
-  const digitalTime = currentTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+  const digitalTime = currentTime.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+  const dateString = currentTime.toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
 
   const places = [
     { name: "Mondrian Suites Berlin am Checkpoint Charlie", address: "Markgrafenstraße 16/16a, 10969 Berlin", url: "https://www.mondriansuites.com/", directions: "https://www.google.com/maps/dir//Mondrian+Suites+Berlin+am+Checkpoint+Charlie/", type: "Luxury", distance: "3 min walk" },
@@ -53,8 +60,6 @@ export default function Home() {
     { name: "Relexa Hotel Stuttgarter Hof Berlin", address: "Anhalter Str. 8-9, 10963 Berlin", url: "https://www.relexa-hotel-berlin.de/", directions: "https://www.google.com/maps/dir//relexa+hotel+Stuttgarter+Hof/", type: "Mid-range", distance: "9 min walk" },
     { name: "Mövenpick Hotel Berlin", address: "Schöneberger Str. 3, 10963 Berlin", url: "https://www.movenpick.com/", directions: "https://www.google.com/maps/dir//Mövenpick+Hotel+Berlin/", type: "Luxury", distance: "10 min walk" },
     { name: "Check In Hostel Berlin", address: "Markgrafenstraße 68, 10969 Berlin", url: "https://www.booking.com/hotel/de/check-in-hostel-berlin.html", directions: "https://www.google.com/maps/dir//Check+In+Hostel+Berlin/", type: "Budget", distance: "2 min walk" },
-    { name: "MEININGER Hotel Berlin Mitte", address: "Oranienburger Str. 67/68, 10117 Berlin", url: "https://www.meininger-hotels.com/en/hotels/berlin/mitte-humboldthaus/", directions: "https://www.google.com/maps/dir//MEININGER+Hotel+Berlin+Mitte/", type: "Budget", distance: "15 min walk" },
-    { name: "TITANIC Chaussee Berlin", address: "Chausseestraße 30, 10115 Berlin", url: "https://www.titanic.com.tr/titanic-chaussee-berlin", directions: "https://www.google.com/maps/dir//TITANIC+Chaussee+Berlin/", type: "Luxury", distance: "10 min walk" },
   ];
 
   const filteredPlaces = filter === "All" ? places : places.filter((p) => p.type === filter);
@@ -116,13 +121,13 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Right - Calendar */}
-          <div className="bg-white/10 p-4 rounded-2xl shadow-lg backdrop-blur-md w-[260px] md:w-[300px]">
-            <Calendar
-              onChange={setDate}
-              value={date}
-              className="rounded-xl text-black text-sm scale-[0.95] origin-center"
-            />
+          {/* Right - Digital Mini Calendar */}
+          <div className="bg-white/10 p-5 rounded-2xl shadow-lg backdrop-blur-md w-[260px] text-center">
+            <div className="text-yellow-400 text-2xl font-bold mb-2">
+              📅 {currentTime.toLocaleDateString("en-US", { day: "2-digit" })}
+            </div>
+            <div className="text-white font-semibold mb-2">{dateString}</div>
+            
           </div>
         </div>
       </section>
@@ -152,11 +157,11 @@ export default function Home() {
             <h2 className="text-2xl font-bold mb-4 text-yellow-400">Tickets</h2>
             <div className="space-y-2">
               {[
-                { title: "Early Bird", price: "€100" },
-                { title: "Regular", price: "€120" },
-                { title: "Late", price: "€150" },
+                { title: "Early Bird (Nov–Dec)", price: "€100" },
+                { title: "Regular (Jan–Feb)", price: "€120" },
+                { title: "Late (March onwards)", price: "€150" },
                 { title: "Ugandan Delegates", price: "€350" },
-                { title: "Children", price: "Free (Below 12 years)" },
+                { title: "Children (Below 12)", price: "Free" },
               ].map((ticket, i) => (
                 <div key={i} className="bg-gray-700 rounded-lg px-3 py-2 flex justify-between items-center text-sm">
                   <span>{ticket.title}</span>
