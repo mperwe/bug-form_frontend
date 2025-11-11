@@ -35,11 +35,25 @@ export default function Home() {
     { name: "Titanic Chaussee Berlin", address: "Chausseestraße 30, 10115 Berlin", url: "https://www.titanic.com.tr/titanic-chaussee-berlin", directions: "https://www.google.com/maps/dir//Titanic+Chaussee+Berlin/", type: "Luxury", distance: "10 min walk" },
     { name: "Mondrian Suites Berlin", address: "Markgrafenstraße 16/16a, 10969 Berlin", url: "https://www.mondriansuites.com/", directions: "https://www.google.com/maps/dir//Mondrian+Suites+Berlin/", type: "Luxury", distance: "3 min walk" },
     { name: "Adina Apartment Hotel Berlin", address: "Krausenstraße 35-36, 10117 Berlin", url: "https://www.adinahotels.com/de/apartments/berlin-checkpoint-charlie/", directions: "https://www.google.com/maps/dir//Adina+Apartment+Hotel+Berlin/", type: "Luxury", distance: "10 min walk" },
+    { name: "Hilton Berlin", address: "Mohrenstraße 30, 10117 Berlin", url: "https://www.hilton.com/en/hotels/berhitw-hilton-berlin/", directions: "https://www.google.com/maps/dir//Hilton+Berlin/", type: "Luxury", distance: "15 min walk" },
+    { name: "NH Collection Berlin Mitte", address: "Leipziger Str. 106-111, 10117 Berlin", url: "https://www.nh-hotels.com/hotel/nh-collection-berlin-mitte-checkpoint-charlie", directions: "https://www.google.com/maps/dir//NH+Collection+Berlin+Mitte/", type: "Luxury", distance: "6 min walk" },
+    { name: "Select Hotel Berlin Checkpoint Charlie", address: "Hedemannstraße 11-12, 10969 Berlin", url: "https://www.select-hotels.com/en/hotel/select-hotel-berlin-checkpoint-charlie/", directions: "https://www.google.com/maps/dir//Select+Hotel+Berlin+Checkpoint+Charlie/", type: "Mid-range", distance: "4 min walk" },
+    { name: "Novotel Suites Berlin City", address: "Anhalter Str. 2, 10963 Berlin", url: "https://all.accor.com/hotel/3745/index.en.shtml", directions: "https://www.google.com/maps/dir//Novotel+Suites+Berlin+City+Potsdamer+Platz/", type: "Mid-range", distance: "9 min walk" },
+    { name: "Mövenpick Hotel Berlin", address: "Schöneberger Str. 3, 10963 Berlin", url: "https://www.movenpick.com/", directions: "https://www.google.com/maps/dir//Mövenpick+Hotel+Berlin/", type: "Luxury", distance: "10 min walk" },
+    { name: "Hotel Gat Point Charlie", address: "Mauerstraße 81–82, 10117 Berlin", url: "https://www.hotelgatpointcharlie.com/", directions: "https://www.google.com/maps/dir//Hotel+Gat+Point+Charlie/", type: "Mid-range", distance: "5 min walk" },
+    { name: "Wilde Aparthotels Berlin", address: "Friedrichstraße, Berlin", url: "https://www.wilde-aparthotels.com/en/berlin-friedrichstrasse", directions: "https://www.google.com/maps/dir//Wilde+Aparthotels+Berlin+Friedrichstrasse/", type: "Mid-range", distance: "8 min walk" }
   ];
 
   // Hostels
   const hostels = [
     { name: "Check In Hostel Berlin", address: "Markgrafenstraße 68, 10969 Berlin", url: "https://www.booking.com/hotel/de/check-in-hostel-berlin.html", directions: "https://www.google.com/maps/dir//Check+In+Hostel+Berlin/", type: "Budget", distance: "2 min walk" },
+    { name: "Acama Hotel & Hostel Kreuzberg", address: "Tempelhofer Ufer 8/9, 10963 Berlin", url: "https://www.booking.com/hotel/de/acama-hotel-hostel-kreuzberg.html", directions: "https://www.google.com/maps/dir//acama+Hotel+%26+Hostel+Kreuzberg/", type: "Budget", distance: "12 min walk" },
+    { name: "36 Rooms Hostel Berlin Kreuzberg", address: "Spreewaldplatz 8, 10999 Berlin", url: "https://www.booking.com/hotel/de/36-rooms-berlin-kreuzberg.html", directions: "https://www.google.com/maps/dir//36+Rooms+Hostel+Berlin/", type: "Budget", distance: "15 min walk" },
+    { name: "Generator Berlin Mitte", address: "Berlin Mitte", url: "https://staygenerator.com/hostels/berlin/mitte?lang=en-GB", directions: "https://www.google.com/maps/dir//Generator+Berlin+Mitte/", type: "Budget", distance: "7 min walk" },
+    { name: "Heart of Gold Hostel Berlin", address: "Berlin Mitte", url: "https://www.heartofgold-hostel.de/", directions: "https://www.google.com/maps/dir//Heart+of+Gold+Hostel+Berlin/", type: "Budget", distance: "8 min walk" },
+    { name: "Metropol Hostel Berlin", address: "Berlin Kreuzberg", url: "https://www.momondo.com/hotels/berlin/Metropol-Hostel-Berlin.mhd349548.ksp", directions: "https://www.google.com/maps/dir//Metropol+Hostel+Berlin/", type: "Budget", distance: "10 min walk" },
+    { name: "Nena Hostel Berlin Mitte", address: "Provinzstraße 16, Berlin", url: "https://www.nena-apartments.de/en/locations/berlin/nena-hostel-berlin-mitte/", directions: "https://www.google.com/maps/dir//Nena+Hostel+Berlin+Mitte/", type: "Budget", distance: "9 min walk" },
+    { name: "Ballhaus Berlin Hostel", address: "Chausseestraße 102, Berlin", url: "https://www.ballist-haus-berlin-hostel.de/", directions: "https://www.google.com/maps/dir//Ballhaus+Berlin+Hostel/", type: "Budget", distance: "11 min walk" }
   ];
 
   return (
@@ -111,7 +125,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Tickets Card (Improved Boxed Format) */}
+          {/* Tickets Card */}
           <div className="bg-gray-800 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
             <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Tickets</h2>
             <div className="bg-gray-900 rounded-xl p-6 border border-yellow-400/30 shadow-inner">
@@ -149,28 +163,16 @@ export default function Home() {
           {/* Payment Card */}
           <div className="bg-gray-800 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
             <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Payment Methods</h2>
-            
-            
             <div className="bg-white/5 border-l-4 border-yellow-400 rounded-lg p-4 mb-4 text-sm font-semibold text-white-900">
               ⚠️ <span className="text-white font-bold uppercase">IMPORTANT:</span> For <strong>ALL</strong> payments, please include: <span className="text-yellow-400 font-bold uppercase">BBECO BERLIN 2026</span>
             </div>
             <ul className="space-y-3 text-sm leading-relaxed">
               <li>🏦 <strong>Bank NL:</strong><br />Rabobank – M.VORSTENBOSCH / STICHTING BUGANDA RHINELANDS<br />IBAN: <strong>NL76 RABO 0162 8971 89</strong></li>
-
-              {/* 🏦 Bank DE (hidden)
-              <li>🏦 <strong>Bank DE:</strong><br />Deutsche Bank – M. Vorstenbosch / Buganda Berlin 2026<br />IBAN: <strong>DE89 1007 0000 0123 4567 00</strong></li>
-              */}
-
               <li>💳 <strong>Tikkie Option:</strong> +31 681 941613 (Margret)</li>
               <li>📲 <strong>Mobile Money:</strong> +256 757 595578 (Nsereko Justine)</li>
               <p className="text-xs italic text-yellow-300 mt-1">
                 ⚠️ Please contact <strong>Linda Sekayita – +31 6 85740954</strong> with proof after sending via Mobile Money.
               </p>
-
-              {/* 💻 PayPal options (hidden)
-              <li>💻 <strong>PayPal 1:</strong> paypal.me/bugandabumu</li>
-              <li>💻 <strong>PayPal 2:</strong> bbeco2026@gmail.com</li>
-              */}
             </ul>
           </div>
         </div>
@@ -211,19 +213,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      {/* Partnerships Section (Hidden)
-      <section className="bg-blue-100 py-14">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-            Our Partners
-          </h2>
-          <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
-            We proudly collaborate with organizations that share our vision of unity, culture, and community development.
-          </p>
-        </div>
-      </section>
-      */}
 
       <Footer />
     </div>
