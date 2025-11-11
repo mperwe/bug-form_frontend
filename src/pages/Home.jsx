@@ -113,7 +113,7 @@ export default function Home() {
 
           {/* Tickets Card (Improved Boxed Format) */}
           <div className="bg-gray-800 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
-            <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">🎟️ Tickets</h2>
+            <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Tickets</h2>
             <div className="bg-gray-900 rounded-xl p-6 border border-yellow-400/30 shadow-inner">
               <ul className="space-y-3 text-gray-200">
                 <li className="flex justify-between border-b border-gray-700 pb-2">
