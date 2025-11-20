@@ -56,9 +56,6 @@ export default function Home() {
     { name: "Ballhaus Berlin Hostel", address: "Chausseestraße 102, Berlin", url: "https://www.ballist-haus-berlin-hostel.de/", directions: "https://www.google.com/maps/dir//Ballhaus+Berlin+Hostel/", type: "Budget", distance: "11 min walk" }
   ];
 
-  // PayPal Link Generator
-  const paypalLink = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=frankmperwe@gmail.com&item_name=BBECO+BERLIN+2026&currency_code=EUR`;
-
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
@@ -104,8 +101,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Info Cards */}
+      {/* Main Content */}
       <main className="flex-grow py-10 px-4 sm:px-6 md:px-12">
+        {/* Cards Section */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
 
           {/* Convention Card */}
@@ -185,11 +183,8 @@ export default function Home() {
                 </span>
               </li>
               <li>
-                <strong>Pay with PayPal:</strong><br />
-                Account: <span className="text-yellow-400 font-bold">frankmperwe@gmail.com</span><br />
-                <a href={paypalLink} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 px-5 py-2 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-500 transition">
-                  Pay with PayPal
-                </a>
+                💻 <strong>PayPal Account:</strong><br />
+                frankmperwe@gmail.com<br />
                 <span className="block text-xs italic mt-1 text-yellow-300">
                   ⚠️ Include payment reason: <strong>BBECO BERLIN 2026</strong>
                 </span>
@@ -234,7 +229,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-
       </main>
 
       <Footer />
