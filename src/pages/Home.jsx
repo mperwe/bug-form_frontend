@@ -164,34 +164,54 @@ export default function Home() {
           {/* Payment Card */}
           <div className="bg-gray-800 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
             <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Payment Methods</h2>
-            <div className="bg-white/5 border-l-4 border-yellow-400 rounded-lg p-4 mb-4 text-sm font-semibold text-white-900">
-              ⚠️ <span className="text-white font-bold uppercase">IMPORTANT:</span> For <strong>ALL</strong> payments, please include: <span className="text-yellow-400 font-bold uppercase">BBECO BERLIN 2026</span>
-            </div>
-            <ul className="space-y-4 text-sm leading-relaxed text-gray-200">
-              <li>
-                🏦 <strong>Bank NL:</strong><br />
-                Rabobank – M.VORSTENBOSCH / STICHTING BUGANDA RHINELANDS<br />
-                IBAN: <strong>NL76 RABO 0162 8971 89</strong>
-              </li>
-              <li>
-                💳 <strong>Tikkie Option:</strong> +31 681 941613 (Margret)
-              </li>
-              <li>
-                📲 <strong>Mobile Money:</strong> +256 757 595578 (Nsereko Justine)<br />
-                <span className="text-xs italic text-yellow-300 mt-1 block">
-                  ⚠️ Please contact <strong>Linda Sekayita – +31 6 85740954</strong> with proof after sending via Mobile Money.
-                </span>
-              </li>
-              <li>
-                💻 <strong>PayPal Account:</strong><br />
-                frankmperwe@gmail.com<br />
-                <span className="block text-xs italic mt-1 text-yellow-300">
-                  ⚠️ Include payment reason: <strong>BBECO BERLIN 2026</strong>
-                </span>
-              </li>
-            </ul>
-          </div>
 
+            <div className="bg-white/5 border-l-4 border-yellow-400 rounded-lg p-4 mb-6 text-sm font-semibold text-white-900">
+              ⚠️ <span className="text-white font-bold uppercase">IMPORTANT:</span>
+              For <strong>ALL</strong> payments, please include:
+              <span className="text-yellow-400 font-bold uppercase"> BBECO BERLIN 2026</span>
+            </div>
+
+            <div className="space-y-6 text-sm leading-relaxed text-gray-200">
+
+              {/* PayPal */}
+              <div>
+                <h3 className="font-bold text-yellow-400 text-lg mb-1">💻 PayPal</h3>
+                <p>frankmperwe@gmail.com</p>
+                <p className="text-xs italic mt-1 text-yellow-300">
+                  ⚠️ Include payment reason: <strong>BBECO BERLIN 2026</strong>
+                </p>
+              </div>
+
+              <hr className="border-gray-600" />
+
+              {/* Bank */}
+              <div>
+                <h3 className="font-bold text-yellow-400 text-lg mb-1">🏦 Bank NL</h3>
+                <p>Rabobank – M.VORSTENBOSCH / STICHTING BUGANDA RHINELANDS</p>
+                <p>IBAN: <strong>NL76 RABO 0162 8971 89</strong></p>
+              </div>
+
+              <hr className="border-gray-600" />
+
+              {/* Tikkie */}
+              <div>
+                <h3 className="font-bold text-yellow-400 text-lg mb-1">💳 Tikkie</h3>
+                <p>+31 681 941613 (Margret)</p>
+              </div>
+
+              <hr className="border-gray-600" />
+
+              {/* Mobile Money */}
+              <div>
+                <h3 className="font-bold text-yellow-400 text-lg mb-1">📲 Mobile Money</h3>
+                <p>+256 757 595578 (Nsereko Justine)</p>
+                <p className="text-xs italic text-yellow-300 mt-1">
+                  ⚠️ Please contact <strong>Linda Sekayita – +31 6 85740954</strong> with proof after sending.
+                </p>
+              </div>
+
+            </div>
+          </div>
         </div>
 
         {/* Hotels Section */}
