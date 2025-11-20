@@ -30,6 +30,9 @@ export default function Home() {
   const digitalTime = currentTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
   const dateString = currentTime.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
 
+  // PayPal link with pre-filled email and reason
+  const paypalLink = "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=frankmperwe@gmail.com&currency_code=EUR&item_name=BBECO+BERLIN+2026";
+
   // Hotels
   const hotels = [
     { name: "Titanic Chaussee Berlin", address: "Chausseestraße 30, 10115 Berlin", url: "https://www.titanic.com.tr/titanic-chaussee-berlin", directions: "https://www.google.com/maps/dir//Titanic+Chaussee+Berlin/", type: "Luxury", distance: "10 min walk" },
@@ -63,25 +66,25 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-[black] via-[#1B2A49]/95 to-[#10182B] text-white pt-16 pb-10 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center justify-center text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-wide mb-2">
+          <h1 className="text-5xl md:text-6xl font-extrabold uppercase tracking-wide mb-2">
             Buganda Bumu European Convention
           </h1>
-          <p className="text-white text-2xl md:text-3xl font-bold mb-2">
+          <p className="text-3xl md:text-4xl font-bold mb-2">
             Hosted by the Berlin Chapter in Berlin, Germany
           </p>
-          <p className="text-white text-base md:text-lg max-w-2xl mb-4">
+          <p className="text-white text-lg md:text-xl max-w-2xl mb-4">
             Join us in celebrating our heritage, connecting with fellow Buganda community members, and being part of an unforgettable European Convention experience!
           </p>
-          <p className="text-yellow-400 text-lg md:text-xl font-semibold mb-6">
+          <p className="text-yellow-400 text-2xl md:text-3xl font-semibold mb-6">
             May 22–24, 2026 | Gloria Events Center, Berlin
           </p>
 
           {/* Countdown */}
           <div className="flex flex-wrap justify-center gap-4 mb-4">
             {["Days", "Hours", "Minutes", "Seconds"].map((unit, i) => (
-              <div key={i} className="flex flex-col items-center bg-white/10 rounded-xl p-3 w-20 shadow border border-yellow-400/40">
-                <span className="text-2xl font-extrabold text-yellow-400">{formatTime(timeLeft[unit.toLowerCase()])}</span>
-                <span className="text-xs text-gray-200 uppercase">{unit}</span>
+              <div key={i} className="flex flex-col items-center bg-white/10 rounded-xl p-3 w-24 shadow border border-yellow-400/40">
+                <span className="text-3xl font-extrabold text-yellow-400">{formatTime(timeLeft[unit.toLowerCase()])}</span>
+                <span className="text-sm text-gray-200 uppercase">{unit}</span>
               </div>
             ))}
           </div>
@@ -108,11 +111,11 @@ export default function Home() {
           {/* Convention Card */}
           <div className="bg-gray-900 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
             <div>
-              <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Convention 2026</h2>
-              <p className="text-lg mb-4 italic text-gray-200 leading-relaxed">
+              <h2 className="text-4xl font-bold mb-5 text-yellow-400 text-center">Convention 2026</h2>
+              <p className="text-2xl mb-4 italic text-gray-200 leading-relaxed text-center">
                 Theme: “Preserving Heritage & Navigating Modernity in the Diaspora”
               </p>
-              <ul className="text-base space-y-2 leading-relaxed mb-4">
+              <ul className="text-lg space-y-2 leading-relaxed mb-4">
                 <li><strong>Date:</strong> May 22–24, 2026</li>
                 <li><strong>Location:</strong> Gloria Events Center<p className="text-gray-300 text-sm">Markgrafenstraße 67, 10969 Berlin</p></li>
                 <li><strong>Activities:</strong> Cultural Workshops, Networking, Entertainment</li>
@@ -129,7 +132,7 @@ export default function Home() {
           <div className="bg-gray-800 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
             <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Tickets</h2>
             <div className="bg-gray-900 rounded-xl p-6 border border-yellow-400/30 shadow-inner">
-              <ul className="space-y-3 text-gray-200">
+              <ul className="space-y-4 text-gray-200 text-lg">
                 <li className="flex justify-between border-b border-gray-700 pb-2">
                   <span>Early Bird (Nov–Dec)</span>
                   <span className="font-semibold text-yellow-400">€100</span>
@@ -153,7 +156,7 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="mt-6 bg-indigo-900 text-white rounded-xl py-4 px-4 text-center text-sm space-y-2">
+            <div className="mt-6 bg-indigo-900 text-white rounded-xl py-4 px-4 text-center text-lg space-y-2">
               <p>📞 Linda Sekayita – <span className="text-yellow-400">+31 6 85740954</span></p>
               <p>📞 Frank Kyambadde – <span className="text-yellow-400">+49 1523 5867655</span></p>
               <p>📞 Samuel Muwonge – <span className="text-yellow-400">+49 1520 8514008</span></p>
@@ -162,18 +165,45 @@ export default function Home() {
 
           {/* Payment Card */}
           <div className="bg-gray-800 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
-            <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Payment Methods</h2>
-            <div className="bg-white/5 border-l-4 border-yellow-400 rounded-lg p-4 mb-4 text-sm font-semibold text-white-900">
+            <h2 className="text-3xl font-bold mb-6 text-yellow-400 text-center">Payment Methods</h2>
+            <div className="bg-white/5 border-l-4 border-yellow-400 rounded-lg p-4 mb-6 text-sm font-semibold text-white-900">
               ⚠️ <span className="text-white font-bold uppercase">IMPORTANT:</span> For <strong>ALL</strong> payments, please include: <span className="text-yellow-400 font-bold uppercase">BBECO BERLIN 2026</span>
             </div>
-            <ul className="space-y-3 text-sm leading-relaxed">
-              <li>🏦 <strong>Bank NL:</strong><br />Rabobank – M.VORSTENBOSCH / STICHTING BUGANDA RHINELANDS<br />IBAN: <strong>NL76 RABO 0162 8971 89</strong></li>
-              <li>💳 <strong>Tikkie Option:</strong> +31 681 941613 (Margret)</li>
-              <li>📲 <strong>Mobile Money:</strong> +256 757 595578 (Nsereko Justine)</li>
-              <p className="text-xs italic text-yellow-300 mt-1">
-                ⚠️ Please contact <strong>Linda Sekayita – +31 6 85740954</strong> with proof after sending via Mobile Money.
-              </p>
-            </ul>
+            <div className="space-y-6 text-lg">
+              {/* Bank Payment */}
+              <div className="bg-gray-900 p-4 rounded-xl border border-yellow-400 shadow-md">
+                <h3 className="text-yellow-400 font-bold mb-2">🏦 Bank Payment (NL)</h3>
+                <p className="text-gray-200 mb-1">Rabobank – M.VORSTENBOSCH / STICHTING BUGANDA RHINELANDS</p>
+                <p className="text-gray-200">IBAN: <span className="font-bold text-yellow-400">NL76 RABO 0162 8971 89</span></p>
+              </div>
+
+              {/* Tikkie */}
+              <div className="bg-gray-900 p-4 rounded-xl border border-yellow-400 shadow-md">
+                <h3 className="text-yellow-400 font-bold mb-2">💳 Tikkie</h3>
+                <p className="text-gray-200">Send payment to: <span className="font-bold">+31 681 941613 (Margret)</span></p>
+              </div>
+
+              {/* Mobile Money */}
+              <div className="bg-gray-900 p-4 rounded-xl border border-yellow-400 shadow-md">
+                <h3 className="text-yellow-400 font-bold mb-2">📲 Mobile Money</h3>
+                <p className="text-gray-200">Send payment to: <span className="font-bold">+256 757 595578 (Nsereko Justine)</span></p>
+                <p className="text-xs italic text-yellow-300 mt-1">
+                  ⚠️ Please contact <strong>Linda Sekayita – +31 6 85740954</strong> with proof after sending via Mobile Money.
+                </p>
+              </div>
+
+              {/* PayPal */}
+              <div className="bg-gray-900 p-4 rounded-xl border border-yellow-400 shadow-md">
+                <h3 className="text-yellow-400 font-bold mb-2">💻 Pay with PayPal</h3>
+                <p className="text-gray-200">Account: <span className="font-bold text-yellow-400">frankmperwe@gmail.com</span></p>
+                <a href={paypalLink} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 px-5 py-2 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-500 transition">
+                  Pay with PayPal
+                </a>
+                <p className="text-xs italic mt-1 text-yellow-300">
+                  ⚠️ Include payment reason: <strong>BBECO BERLIN 2026</strong>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
