@@ -63,30 +63,30 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-[black] via-[#1B2A49]/95 to-[#10182B] text-white pt-16 pb-10 px-4 overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center justify-center text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold uppercase tracking-wide mb-2">
+          <h1 className="text-5xl md:text-6xl font-extrabold uppercase tracking-wide mb-4">
             Buganda Bumu European Convention
           </h1>
-          <p className="text-white text-2xl md:text-3xl font-bold mb-2">
+          <p className="text-white text-2xl md:text-3xl font-bold mb-3">
             Hosted by the Berlin Chapter in Berlin, Germany
           </p>
-          <p className="text-white text-base md:text-lg max-w-2xl mb-4">
-            Join us in celebrating our heritage, connecting with fellow Buganda community members, and being part of an unforgettable European Convention experience!
+          <p className="text-white text-lg md:text-xl max-w-2xl mb-5 leading-relaxed">
+            Celebrate our heritage, connect with fellow Buganda community members, and experience an unforgettable European Convention!
           </p>
-          <p className="text-yellow-400 text-lg md:text-xl font-semibold mb-6">
+          <p className="text-yellow-400 text-xl md:text-2xl font-semibold mb-6">
             May 22–24, 2026 | Gloria Events Center, Berlin
           </p>
 
           {/* Countdown */}
           <div className="flex flex-wrap justify-center gap-4 mb-4">
             {["Days", "Hours", "Minutes", "Seconds"].map((unit, i) => (
-              <div key={i} className="flex flex-col items-center bg-white/10 rounded-xl p-3 w-20 shadow border border-yellow-400/40">
-                <span className="text-2xl font-extrabold text-yellow-400">{formatTime(timeLeft[unit.toLowerCase()])}</span>
-                <span className="text-xs text-gray-200 uppercase">{unit}</span>
+              <div key={i} className="flex flex-col items-center bg-white/10 rounded-2xl p-4 w-24 shadow-lg border border-yellow-400/40">
+                <span className="text-3xl font-extrabold text-yellow-400">{formatTime(timeLeft[unit.toLowerCase()])}</span>
+                <span className="text-sm text-gray-200 uppercase">{unit}</span>
               </div>
             ))}
           </div>
 
-          <div className="text-yellow-300 font-mono text-lg md:text-xl mb-4">
+          <div className="text-yellow-300 font-mono text-lg md:text-xl mb-5">
             🕒 {digitalTime} | 📅 {dateString}
           </div>
 
@@ -94,31 +94,32 @@ export default function Home() {
             href="https://forms.gle/PaD39jWRFeZJFxFLA"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-lg hover:scale-105 hover:bg-yellow-300 transition"
+            className="inline-block px-8 py-3 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-lg hover:scale-105 hover:bg-yellow-300 transition"
           >
             Register Now
           </a>
         </div>
       </section>
 
-      {/* Info Cards */}
+      {/* Main Content */}
       <main className="flex-grow py-10 px-4 sm:px-6 md:px-12">
+        {/* Cards Section */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
 
           {/* Convention Card */}
           <div className="bg-gray-900 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
             <div>
-              <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Convention 2026</h2>
-              <p className="text-lg mb-4 italic text-gray-200 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-bold mb-5 text-yellow-400 text-center">Convention 2026</h2>
+              <p className="text-2xl md:text-3xl font-extrabold mb-4 text-center text-gray-200">
                 Theme: “Preserving Heritage & Navigating Modernity in the Diaspora”
               </p>
-              <ul className="text-base space-y-2 leading-relaxed mb-4">
+              <ul className="text-lg space-y-2 leading-relaxed mb-4">
                 <li><strong>Date:</strong> May 22–24, 2026</li>
                 <li><strong>Location:</strong> Gloria Events Center<p className="text-gray-300 text-sm">Markgrafenstraße 67, 10969 Berlin</p></li>
                 <li><strong>Activities:</strong> Cultural Workshops, Networking, Entertainment</li>
               </ul>
               <div className="text-center mt-4 mb-4">
-                <a href="https://forms.gle/PaD39jWRFeZJFxFLA" target="_blank" rel="noopener noreferrer" className="inline-block px-5 py-2 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-md hover:bg-yellow-300 transition">
+                <a href="https://forms.gle/PaD39jWRFeZJFxFLA" target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-2 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-md hover:bg-yellow-300 transition">
                   Register Now
                 </a>
               </div>
@@ -129,7 +130,7 @@ export default function Home() {
           <div className="bg-gray-800 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
             <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Tickets</h2>
             <div className="bg-gray-900 rounded-xl p-6 border border-yellow-400/30 shadow-inner">
-              <ul className="space-y-3 text-gray-200">
+              <ul className="space-y-3 text-gray-200 text-lg">
                 <li className="flex justify-between border-b border-gray-700 pb-2">
                   <span>Early Bird (Nov–Dec)</span>
                   <span className="font-semibold text-yellow-400">€100</span>
@@ -166,15 +167,31 @@ export default function Home() {
             <div className="bg-white/5 border-l-4 border-yellow-400 rounded-lg p-4 mb-4 text-sm font-semibold text-white-900">
               ⚠️ <span className="text-white font-bold uppercase">IMPORTANT:</span> For <strong>ALL</strong> payments, please include: <span className="text-yellow-400 font-bold uppercase">BBECO BERLIN 2026</span>
             </div>
-            <ul className="space-y-3 text-sm leading-relaxed">
-              <li>🏦 <strong>Bank NL:</strong><br />Rabobank – M.VORSTENBOSCH / STICHTING BUGANDA RHINELANDS<br />IBAN: <strong>NL76 RABO 0162 8971 89</strong></li>
-              <li>💳 <strong>Tikkie Option:</strong> +31 681 941613 (Margret)</li>
-              <li>📲 <strong>Mobile Money:</strong> +256 757 595578 (Nsereko Justine)</li>
-              <p className="text-xs italic text-yellow-300 mt-1">
-                ⚠️ Please contact <strong>Linda Sekayita – +31 6 85740954</strong> with proof after sending via Mobile Money.
-              </p>
+            <ul className="space-y-4 text-sm leading-relaxed text-gray-200">
+              <li>
+                🏦 <strong>Bank NL:</strong><br />
+                Rabobank – M.VORSTENBOSCH / STICHTING BUGANDA RHINELANDS<br />
+                IBAN: <strong>NL76 RABO 0162 8971 89</strong>
+              </li>
+              <li>
+                💳 <strong>Tikkie Option:</strong> +31 681 941613 (Margret)
+              </li>
+              <li>
+                📲 <strong>Mobile Money:</strong> +256 757 595578 (Nsereko Justine)<br />
+                <span className="text-xs italic text-yellow-300 mt-1 block">
+                  ⚠️ Please contact <strong>Linda Sekayita – +31 6 85740954</strong> with proof after sending via Mobile Money.
+                </span>
+              </li>
+              <li>
+                💻 <strong>PayPal Account:</strong><br />
+                frankmperwe@gmail.com<br />
+                <span className="block text-xs italic mt-1 text-yellow-300">
+                  ⚠️ Include payment reason: <strong>BBECO BERLIN 2026</strong>
+                </span>
+              </li>
             </ul>
           </div>
+
         </div>
 
         {/* Hotels Section */}
