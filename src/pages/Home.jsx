@@ -173,14 +173,14 @@ export default function Home() {
 
             <div className="space-y-6 text-sm leading-relaxed text-gray-200">
 
-              {/* PayPal */}
+              {/* PayPal 
               <div>
                 <h3 className="font-bold text-yellow-400 text-lg mb-1">💻 PayPal</h3>
                 <p>frankmperwe@gmail.com</p>
                 <p className="text-xs italic mt-1 text-yellow-300">
                   ⚠️ Include payment reason: <strong>BBECO BERLIN 2026</strong>
                 </p>
-              </div>
+              </div>*/}
 
               <hr className="border-gray-600" />
 
