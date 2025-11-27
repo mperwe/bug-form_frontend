@@ -12,17 +12,20 @@ export default function Home() {
       const now = new Date();
       setCurrentTime(now);
       const distance = eventDate - now.getTime();
+
       if (distance <= 0) {
         clearInterval(timer);
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
         return;
       }
+
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
       setTimeLeft({ days, hours, minutes, seconds });
     }, 1000);
+
     return () => clearInterval(timer);
   }, []);
 
@@ -30,218 +33,164 @@ export default function Home() {
   const digitalTime = currentTime.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" });
   const dateString = currentTime.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
 
-  // PayPal link with pre-filled email and reason
-  const paypalLink = "https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=frankmperwe@gmail.com&currency_code=EUR&item_name=BBECO+BERLIN+2026";
-
-  // Hotels
+  // Hotels sorted by distance (nearest first)
   const hotels = [
-    { name: "Titanic Chaussee Berlin", address: "Chausseestraße 30, 10115 Berlin", url: "https://www.titanic.com.tr/titanic-chaussee-berlin", directions: "https://www.google.com/maps/dir//Titanic+Chaussee+Berlin/", type: "Luxury", distance: "10 min walk" },
-    { name: "Mondrian Suites Berlin", address: "Markgrafenstraße 16/16a, 10969 Berlin", url: "https://www.mondriansuites.com/", directions: "https://www.google.com/maps/dir//Mondrian+Suites+Berlin/", type: "Luxury", distance: "3 min walk" },
-    { name: "Adina Apartment Hotel Berlin", address: "Krausenstraße 35-36, 10117 Berlin", url: "https://www.adinahotels.com/de/apartments/berlin-checkpoint-charlie/", directions: "https://www.google.com/maps/dir//Adina+Apartment+Hotel+Berlin/", type: "Luxury", distance: "10 min walk" },
-    { name: "Hilton Berlin", address: "Mohrenstraße 30, 10117 Berlin", url: "https://www.hilton.com/en/hotels/berhitw-hilton-berlin/", directions: "https://www.google.com/maps/dir//Hilton+Berlin/", type: "Luxury", distance: "15 min walk" },
-    { name: "NH Collection Berlin Mitte", address: "Leipziger Str. 106-111, 10117 Berlin", url: "https://www.nh-hotels.com/hotel/nh-collection-berlin-mitte-checkpoint-charlie", directions: "https://www.google.com/maps/dir//NH+Collection+Berlin+Mitte/", type: "Luxury", distance: "6 min walk" },
+    { name: "Mondrian Suites Berlin", address: "Markgrafenstraße 16/16a, 10969 Berlin", url: "https://www.mondriansuites.com/", directions: "https://www.google.com/maps/dir//Mondrian+Suites+Berlin/", type: "Luxury", distance: "2 min walk" },
     { name: "Select Hotel Berlin Checkpoint Charlie", address: "Hedemannstraße 11-12, 10969 Berlin", url: "https://www.select-hotels.com/en/hotel/select-hotel-berlin-checkpoint-charlie/", directions: "https://www.google.com/maps/dir//Select+Hotel+Berlin+Checkpoint+Charlie/", type: "Mid-range", distance: "4 min walk" },
-    { name: "Novotel Suites Berlin City", address: "Anhalter Str. 2, 10963 Berlin", url: "https://all.accor.com/hotel/3745/index.en.shtml", directions: "https://www.google.com/maps/dir//Novotel+Suites+Berlin+City+Potsdamer+Platz/", type: "Mid-range", distance: "9 min walk" },
-    { name: "Mövenpick Hotel Berlin", address: "Schöneberger Str. 3, 10963 Berlin", url: "https://www.movenpick.com/", directions: "https://www.google.com/maps/dir//Mövenpick+Hotel+Berlin/", type: "Luxury", distance: "10 min walk" },
     { name: "Hotel Gat Point Charlie", address: "Mauerstraße 81–82, 10117 Berlin", url: "https://www.hotelgatpointcharlie.com/", directions: "https://www.google.com/maps/dir//Hotel+Gat+Point+Charlie/", type: "Mid-range", distance: "5 min walk" },
-    { name: "Wilde Aparthotels Berlin", address: "Friedrichstraße, Berlin", url: "https://www.wilde-aparthotels.com/en/berlin-friedrichstrasse", directions: "https://www.google.com/maps/dir//Wilde+Aparthotels+Berlin+Friedrichstrasse/", type: "Mid-range", distance: "8 min walk" }
+    { name: "NH Collection Berlin Mitte", address: "Leipziger Str. 106-111, 10117 Berlin", url: "https://www.nh-hotels.com/hotel/nh-collection-berlin-mitte-checkpoint-charlie", directions: "https://www.google.com/maps/dir//NH+Collection+Berlin+Mitte/", type: "Luxury", distance: "6 min walk" },
+    { name: "Novotel Suites Berlin City", address: "Anhalter Str. 2, 10963 Berlin", url: "https://all.accor.com/hotel/3745/index.en.shtml", directions: "https://www.google.com/maps/dir//Novotel+Suites+Berlin+City+Potsdamer+Platz/", type: "Mid-range", distance: "9 min walk" },
+    { name: "Titanic Chaussee Berlin", address: "Chausseestraße 30, 10115 Berlin", url: "https://www.titanic.com.tr/titanic-chaussee-berlin", directions: "https://www.google.com/maps/dir//Titanic+Chaussee+Berlin/", type: "Luxury", distance: "10 min walk" },
+    { name: "Adina Apartment Hotel Berlin", address: "Krausenstraße 35-36, 10117 Berlin", url: "https://www.adinahotels.com/de/apartments/berlin-checkpoint-charlie/", directions: "https://www.google.com/maps/dir//Adina+Apartment+Hotel+Berlin/", type: "Luxury", distance: "10 min walk" },
+    { name: "Mövenpick Hotel Berlin", address: "Schöneberger Str. 3, 10963 Berlin", url: "https://www.movenpick.com/", directions: "https://www.google.com/maps/dir//Mövenpick+Hotel+Berlin/", type: "Luxury", distance: "10 min walk" },
+    { name: "Hilton Berlin", address: "Mohrenstraße 30, 10117 Berlin", url: "https://www.hilton.com/en/hotels/berhitw-hilton-berlin/", directions: "https://www.google.com/maps/dir//Hilton+Berlin/", type: "Luxury", distance: "15 min walk" }
   ];
 
-  // Hostels
+  // Hostels sorted by distance
   const hostels = [
     { name: "Check In Hostel Berlin", address: "Markgrafenstraße 68, 10969 Berlin", url: "https://www.booking.com/hotel/de/check-in-hostel-berlin.html", directions: "https://www.google.com/maps/dir//Check+In+Hostel+Berlin/", type: "Budget", distance: "2 min walk" },
-    { name: "Acama Hotel & Hostel Kreuzberg", address: "Tempelhofer Ufer 8/9, 10963 Berlin", url: "https://www.booking.com/hotel/de/acama-hotel-hostel-kreuzberg.html", directions: "https://www.google.com/maps/dir//acama+Hotel+%26+Hostel+Kreuzberg/", type: "Budget", distance: "12 min walk" },
-    { name: "36 Rooms Hostel Berlin Kreuzberg", address: "Spreewaldplatz 8, 10999 Berlin", url: "https://www.booking.com/hotel/de/36-rooms-berlin-kreuzberg.html", directions: "https://www.google.com/maps/dir//36+Rooms+Hostel+Berlin/", type: "Budget", distance: "15 min walk" },
+    { name: "Nena Hostel Berlin Mitte", address: "Provinzstraße 16, Berlin", url: "https://www.nena-apartments.de/en/locations/berlin/nena-hostel-berlin-mitte/", directions: "https://www.google.com/maps/dir//Nena+Hostel+Berlin+Mitte/", type: "Budget", distance: "5 min walk" },
     { name: "Generator Berlin Mitte", address: "Berlin Mitte", url: "https://staygenerator.com/hostels/berlin/mitte?lang=en-GB", directions: "https://www.google.com/maps/dir//Generator+Berlin+Mitte/", type: "Budget", distance: "7 min walk" },
     { name: "Heart of Gold Hostel Berlin", address: "Berlin Mitte", url: "https://www.heartofgold-hostel.de/", directions: "https://www.google.com/maps/dir//Heart+of+Gold+Hostel+Berlin/", type: "Budget", distance: "8 min walk" },
     { name: "Metropol Hostel Berlin", address: "Berlin Kreuzberg", url: "https://www.momondo.com/hotels/berlin/Metropol-Hostel-Berlin.mhd349548.ksp", directions: "https://www.google.com/maps/dir//Metropol+Hostel+Berlin/", type: "Budget", distance: "10 min walk" },
-    { name: "Nena Hostel Berlin Mitte", address: "Provinzstraße 16, Berlin", url: "https://www.nena-apartments.de/en/locations/berlin/nena-hostel-berlin-mitte/", directions: "https://www.google.com/maps/dir//Nena+Hostel+Berlin+Mitte/", type: "Budget", distance: "9 min walk" },
-    { name: "Ballhaus Berlin Hostel", address: "Chausseestraße 102, Berlin", url: "https://www.ballist-haus-berlin-hostel.de/", directions: "https://www.google.com/maps/dir//Ballhaus+Berlin+Hostel/", type: "Budget", distance: "11 min walk" }
+    { name: "Ballhaus Berlin Hostel", address: "Chausseestraße 102, Berlin", url: "https://www.ballist-haus-berlin-hostel.de/", directions: "https://www.google.com/maps/dir//Ballhaus+Berlin+Hostel/", type: "Budget", distance: "11 min walk" },
+    { name: "Acama Hotel & Hostel Kreuzberg", address: "Tempelhofer Ufer 8/9, 10963 Berlin", url: "https://www.booking.com/hotel/de/acama-hotel-hostel-kreuzberg.html", directions: "https://www.google.com/maps/dir//acama+Hotel+%26+Hostel+Kreuzberg/", type: "Budget", distance: "12 min walk" },
+    { name: "36 Rooms Hostel Berlin Kreuzberg", address: "Spreewaldplatz 8, 10999 Berlin", url: "https://www.booking.com/hotel/de/36-rooms-berlin-kreuzberg.html", directions: "https://www.google.com/maps/dir//36+Rooms+Hostel+Berlin/", type: "Budget", distance: "15 min walk" }
+  ];
+
+  const tickets = [
+    { type: "Early Bird (Nov–Dec)", price: "€100" },
+    { type: "Regular (Jan–Feb)", price: "€120" },
+    { type: "Late (Mar onwards)", price: "€150" },
+    { type: "Ugandan Delegates", price: "€350" },
+    { type: "Children (Below 12)", price: "Free" }
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-[#0B1B3D] text-white">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-[black] via-[#1B2A49]/95 to-[#10182B] text-white pt-16 pb-10 px-4 overflow-hidden">
-        <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center justify-center text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold uppercase tracking-wide mb-2">
-            Buganda Bumu European Convention
-          </h1>
-          <p className="text-3xl md:text-4xl font-bold mb-2">
-            Hosted by the Berlin Chapter in Berlin, Germany
-          </p>
-          <p className="text-white text-lg md:text-xl max-w-2xl mb-4">
-            Join us in celebrating our heritage, connecting with fellow Buganda community members, and being part of an unforgettable European Convention experience!
-          </p>
-          <p className="text-yellow-400 text-2xl md:text-3xl font-semibold mb-6">
-            May 22–24, 2026 | Gloria Events Center, Berlin
-          </p>
+      <section className="relative bg-gradient-to-b from-[#0B1B3D] via-[#1B2A49]/95 to-[#10182B] text-white pt-20 pb-14 px-4 overflow-hidden">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-extrabold uppercase tracking-wide mb-4">Buganda Bumu European Convention</h1>
+          <p className="text-2xl md:text-3xl font-bold mb-3">Hosted by the Berlin Chapter in Berlin, Germany</p>
+          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-5">Celebrate our heritage, connect with the community, and experience an unforgettable European Convention!</p>
+          <p className="text-yellow-400 text-xl md:text-2xl font-semibold mb-6">May 22–24, 2026 | Gloria Events Center, Berlin</p>
 
           {/* Countdown */}
-          <div className="flex flex-wrap justify-center gap-4 mb-4">
+          <div className="flex flex-wrap justify-center gap-4 mb-6">
             {["Days", "Hours", "Minutes", "Seconds"].map((unit, i) => (
-              <div key={i} className="flex flex-col items-center bg-white/10 rounded-xl p-3 w-24 shadow border border-yellow-400/40">
+              <div key={i} className="flex flex-col items-center bg-white/10 rounded-2xl p-4 w-24 shadow-lg border border-yellow-400/40">
                 <span className="text-3xl font-extrabold text-yellow-400">{formatTime(timeLeft[unit.toLowerCase()])}</span>
                 <span className="text-sm text-gray-200 uppercase">{unit}</span>
               </div>
             ))}
           </div>
 
-          <div className="text-yellow-300 font-mono text-lg md:text-xl mb-4">
-            🕒 {digitalTime} | 📅 {dateString}
-          </div>
+          <div className="text-yellow-300 font-mono text-lg md:text-xl mb-6">🕒 {digitalTime} | 📅 {dateString}</div>
 
-          <a
-            href="https://forms.gle/PaD39jWRFeZJFxFLA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-lg hover:scale-105 hover:bg-yellow-300 transition"
-          >
+          <a href="https://forms.gle/PaD39jWRFeZJFxFLA" target="_blank" rel="noopener noreferrer"
+            className="inline-block px-8 py-3 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-lg hover:scale-105 hover:bg-yellow-300 transition">
             Register Now
           </a>
         </div>
       </section>
 
-      {/* Info Cards */}
-      <main className="flex-grow py-10 px-4 sm:px-6 md:px-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Main Content */}
+      <main className="flex-grow py-12 px-4 sm:px-6 md:px-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
 
-          {/* Convention Card */}
-          <div className="bg-gray-900 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
-            <div>
-              <h2 className="text-4xl font-bold mb-5 text-yellow-400 text-center">Convention 2026</h2>
-              <p className="text-2xl mb-4 italic text-gray-200 leading-relaxed text-center">
-                Theme: “Preserving Heritage & Navigating Modernity in the Diaspora”
-              </p>
-              <ul className="text-lg space-y-2 leading-relaxed mb-4">
-                <li><strong>Date:</strong> May 22–24, 2026</li>
-                <li><strong>Location:</strong> Gloria Events Center<p className="text-gray-300 text-sm">Markgrafenstraße 67, 10969 Berlin</p></li>
-                <li><strong>Activities:</strong> Cultural Workshops, Networking, Entertainment</li>
-              </ul>
-              <div className="text-center mt-4 mb-4">
-                <a href="https://forms.gle/PaD39jWRFeZJFxFLA" target="_blank" rel="noopener noreferrer" className="inline-block px-5 py-2 bg-yellow-400 text-indigo-900 font-bold rounded-full shadow-md hover:bg-yellow-300 transition">
-                  Register Now
-                </a>
-              </div>
-            </div>
-          </div>
+          {/* Convention & Tickets */}
+          <div className="bg-[#1B2A49] rounded-2xl p-6 shadow-xl hover:shadow-2xl transition">
+            <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Convention 2026</h2>
+            <p className="text-2xl font-extrabold mb-4 text-center text-gray-200">“Preserving Heritage & Navigating Modernity in the Diaspora”</p>
+            <ul className="text-lg space-y-2 leading-relaxed mb-6">
+              <li><strong>Date:</strong> May 22–24, 2026</li>
+              <li><strong>Location:</strong> Gloria Events Center, Markgrafenstraße 67, 10969 Berlin</li>
+              <li><strong>Activities:</strong> Cultural Workshops, Networking, Entertainment</li>
+            </ul>
 
-          {/* Tickets Card */}
-          <div className="bg-gray-800 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
             <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Tickets</h2>
-            <div className="bg-gray-900 rounded-xl p-6 border border-yellow-400/30 shadow-inner">
-              <ul className="space-y-4 text-gray-200 text-lg">
-                <li className="flex justify-between border-b border-gray-700 pb-2">
-                  <span>Early Bird (Nov–Dec)</span>
-                  <span className="font-semibold text-yellow-400">€100</span>
-                </li>
-                <li className="flex justify-between border-b border-gray-700 pb-2">
-                  <span>Regular (Jan–Feb)</span>
-                  <span className="font-semibold text-yellow-400">€120</span>
-                </li>
-                <li className="flex justify-between border-b border-gray-700 pb-2">
-                  <span>Late (March onwards)</span>
-                  <span className="font-semibold text-yellow-400">€150</span>
-                </li>
-                <li className="flex justify-between border-b border-gray-700 pb-2">
-                  <span>Ugandan Delegates</span>
-                  <span className="font-semibold text-yellow-400">€350</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Children (Below 12)</span>
-                  <span className="font-semibold text-green-400">Free</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="mt-6 bg-indigo-900 text-white rounded-xl py-4 px-4 text-center text-lg space-y-2">
-              <p>📞 Linda Sekayita – <span className="text-yellow-400">+31 6 85740954</span></p>
-              <p>📞 Frank Kyambadde – <span className="text-yellow-400">+49 1523 5867655</span></p>
-              <p>📞 Samuel Muwonge – <span className="text-yellow-400">+49 1520 8514008</span></p>
-            </div>
+            <ul className="space-y-3 text-gray-200 text-lg">
+              {tickets.map((ticket, i) => (
+                <li key={i} className="flex justify-between border-b border-gray-600 pb-2">{ticket.type} <span className="text-yellow-400 font-semibold">{ticket.price}</span></li>
+              ))}
+            </ul>
           </div>
 
-          {/* Payment Card */}
-          <div className="bg-gray-800 rounded-2xl p-6 shadow-xl text-white flex flex-col justify-between hover:shadow-2xl transition">
-            <h2 className="text-3xl font-bold mb-6 text-yellow-400 text-center">Payment Methods</h2>
-            <div className="bg-white/5 border-l-4 border-yellow-400 rounded-lg p-4 mb-6 text-sm font-semibold text-white-900">
-              ⚠️ <span className="text-white font-bold uppercase">IMPORTANT:</span> For <strong>ALL</strong> payments, please include: <span className="text-yellow-400 font-bold uppercase">BBECO BERLIN 2026</span>
-            </div>
-            <div className="space-y-6 text-lg">
-              {/* Bank Payment */}
-              <div className="bg-gray-900 p-4 rounded-xl border border-yellow-400 shadow-md">
-                <h3 className="text-yellow-400 font-bold mb-2">🏦 Bank Payment (NL)</h3>
-                <p className="text-gray-200 mb-1">Rabobank – M.VORSTENBOSCH / STICHTING BUGANDA RHINELANDS</p>
-                <p className="text-gray-200">IBAN: <span className="font-bold text-yellow-400">NL76 RABO 0162 8971 89</span></p>
-              </div>
+          {/* Payments */}
+          <div className="bg-[#1B2A49] rounded-2xl p-6 shadow-xl hover:shadow-2xl transition md:col-span-2">
+            <h2 className="text-3xl font-bold mb-5 text-yellow-400 text-center">Payment Methods</h2>
 
-              {/* Tikkie */}
-              <div className="bg-gray-900 p-4 rounded-xl border border-yellow-400 shadow-md">
-                <h3 className="text-yellow-400 font-bold mb-2">💳 Tikkie</h3>
-                <p className="text-gray-200">Send payment to: <span className="font-bold">+31 681 941613 (Margret)</span></p>
-              </div>
-
-              {/* Mobile Money */}
-              <div className="bg-gray-900 p-4 rounded-xl border border-yellow-400 shadow-md">
-                <h3 className="text-yellow-400 font-bold mb-2">📲 Mobile Money</h3>
-                <p className="text-gray-200">Send payment to: <span className="font-bold">+256 757 595578 (Nsereko Justine)</span></p>
-                <p className="text-xs italic text-yellow-300 mt-1">
-                  ⚠️ Please contact <strong>Linda Sekayita – +31 6 85740954</strong> with proof after sending via Mobile Money.
-                </p>
-              </div>
+            <div className="space-y-6 text-gray-200">
 
               {/* PayPal */}
-              <div className="bg-gray-900 p-4 rounded-xl border border-yellow-400 shadow-md">
-                <h3 className="text-yellow-400 font-bold mb-2">💻 Pay with PayPal</h3>
-                <p className="text-gray-200">Account: <span className="font-bold text-yellow-400">frankmperwe@gmail.com</span></p>
-                <a href={paypalLink} target="_blank" rel="noopener noreferrer" className="inline-block mt-2 px-5 py-2 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-500 transition">
-                  Pay with PayPal
-                </a>
-                <p className="text-xs italic mt-1 text-yellow-300">
-                  ⚠️ Include payment reason: <strong>BBECO BERLIN 2026</strong>
-                </p>
+              <div className="bg-[#0B1B3D] p-4 rounded-xl border border-yellow-400">
+                <h3 className="text-yellow-400 font-bold mb-2">💻 PayPal</h3>
+                <p>frankmperwe@gmail.com</p>
+                <p className="text-xs italic text-yellow-300 mt-1">⚠️ Include purpose: <strong>BBECO BERLIN 2026</strong></p>
               </div>
+
+              {/* Netherlands */}
+              <div className="bg-[#0B1B3D] p-4 rounded-xl border border-yellow-400">
+                <h3 className="text-yellow-400 font-bold mb-2">🏦 Netherlands Account</h3>
+                <p>Bank: <strong>Rabobank</strong></p>
+                <p>Account Holder: <strong>STICHTING BUGANDA RHINELANDS</strong></p>
+                <p>IBAN: <strong>NL76 RABO 0162 8971 89</strong></p>
+                <p>Swift Code: <strong>RABONL2U</strong></p>
+                <p><strong>Theofrankelhof 46, 1087KD, Amsterdam</strong></p>
+
+                <h4 className="text-yellow-300 font-bold mt-2">💳 Tikkie</h4>
+                <p>+31 681 941613 (Margret)</p>
+              </div>
+
+              {/* Uganda */}
+              <div className="bg-[#0B1B3D] p-4 rounded-xl border border-yellow-400">
+                <h3 className="text-yellow-400 font-bold mb-2">🇺🇬 Uganda Payments</h3>
+                <p>Mobile Money: +256 757 595578 (Nsereko Justine)</p>
+                <p className="text-xs italic text-yellow-300 mt-1">⚠️ Contact <strong>Linda Sekayita – +31 6 85740954</strong> after sending.</p>
+              </div>
+
             </div>
           </div>
         </div>
 
         {/* Hotels Section */}
-        <div className="max-w-7xl mx-auto mt-14">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900">Nearby Hotels</h2>
+        <section className="mt-14 max-w-7xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-200">Nearby Hotels</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {hotels.map((place, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-md p-5 border border-gray-200 hover:shadow-lg hover:bg-[#D2B48C] hover:text-white transition-all">
-                <h3 className="text-xl font-semibold mb-1">{place.name}</h3>
-                <p className="text-gray-600 mb-2">{place.address}</p>
-                <p className="text-gray-500 text-sm mb-3">🏷️ {place.type} — 🚶 {place.distance}</p>
-                <div className="flex justify-between text-sm font-medium">
-                  <a href={place.url} target="_blank" rel="noopener noreferrer" className="hover:underline">Website</a>
-                  <a href={place.directions} target="_blank" rel="noopener noreferrer" className="hover:underline">Directions</a>
+            {hotels.map((hotel, i) => (
+              <div key={i} className="bg-[#1B2A49] rounded-xl shadow-md p-5 border border-yellow-400 hover:shadow-lg hover:bg-yellow-400 hover:text-[#0B1B3D] transition-all">
+                <h3 className="text-xl font-semibold mb-1">{hotel.name}</h3>
+                <p className="text-gray-300 mb-2">{hotel.address}</p>
+                <p className="text-gray-400 text-sm mb-3">{hotel.type} • {hotel.distance}</p>
+                <div className="flex justify-between">
+                  <a href={hotel.url} target="_blank" rel="noopener noreferrer" className="text-blue-400 font-semibold hover:underline">Website</a>
+                  <a href={hotel.directions} target="_blank" rel="noopener noreferrer" className="text-blue-400 font-semibold hover:underline">Directions</a>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Hostels Section */}
-        <div className="max-w-7xl mx-auto mt-12 mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900">Nearby Hostels</h2>
+        <section className="mt-12 max-w-7xl mx-auto mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-200">Nearby Hostels</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {hostels.map((place, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-md p-5 border border-gray-200 hover:shadow-lg hover:bg-[#D2B48C] hover:text-white transition-all">
-                <h3 className="text-xl font-semibold mb-1">{place.name}</h3>
-                <p className="text-gray-600 mb-2">{place.address}</p>
-                <p className="text-gray-500 text-sm mb-3">🏷️ {place.type} — 🚶 {place.distance}</p>
-                <div className="flex justify-between text-sm font-medium">
-                  <a href={place.url} target="_blank" rel="noopener noreferrer" className="hover:underline">Website</a>
-                  <a href={place.directions} target="_blank" rel="noopener noreferrer" className="hover:underline">Directions</a>
+            {hostels.map((hostel, i) => (
+              <div key={i} className="bg-[#1B2A49] rounded-xl shadow-md p-5 border border-yellow-400 hover:shadow-lg hover:bg-yellow-400 hover:text-[#0B1B3D] transition-all">
+                <h3 className="text-xl font-semibold mb-1">{hostel.name}</h3>
+                <p className="text-gray-300 mb-2">{hostel.address}</p>
+                <p className="text-gray-400 text-sm mb-3">{hostel.type} • {hostel.distance}</p>
+                <div className="flex justify-between">
+                  <a href={hostel.url} target="_blank" rel="noopener noreferrer" className="text-blue-400 font-semibold hover:underline">Website</a>
+                  <a href={hostel.directions} target="_blank" rel="noopener noreferrer" className="text-blue-400 font-semibold hover:underline">Directions</a>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </section>
       </main>
 
       <Footer />

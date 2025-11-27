@@ -5,60 +5,39 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItemStyle = ({ isActive }) =>
-    `px-3 py-1.5 rounded-md font-medium text-sm transition-all duration-200 ${
+    `px-4 py-2 rounded-md font-medium text-base transition-all duration-200 ${
       isActive
         ? "bg-indigo-600 text-white shadow"
         : "bg-indigo-100 text-indigo-700 hover:bg-indigo-600 hover:text-white"
     }`;
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white shadow-md py-2 px-6 flex items-center justify-between z-50">
+    <nav className="fixed top-0 left-0 w-full bg-white shadow-md py-4 px-6 flex items-center justify-between z-50">
       {/* Logo Section */}
-      <Link to="/" className="flex items-center space-x-2">
+      <Link to="/" className="flex items-center space-x-3">
         <img
           src="/buganda.png"
           alt="BBECO Logo"
-          className="h-10 w-10 object-contain"
+          className="h-12 w-12 object-contain"
         />
-        <span className="font-bold text-lg md:text-xl text-indigo-700 tracking-wide">
+        <span className="font-bold text-lg md:text-2xl text-indigo-700 tracking-wide">
           BBECO - GERMANY 2026
         </span>
       </Link>
 
       {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center space-x-2">
+      <div className="hidden md:flex items-center space-x-3">
         <NavLink to="/" className={navItemStyle}>
           HOME
         </NavLink>
-
-        {/* <NavLink to="/gallery" className={navItemStyle}>
-          GALLERY
-        </NavLink> */}
 
         <NavLink to="/tour" className={navItemStyle}>
           VISIT BERLIN
         </NavLink>
 
-        {/* <NavLink to="/about" className={navItemStyle}>
-          ABOUT US
-        </NavLink> */}
-
         <NavLink to="/contact" className={navItemStyle}>
           CONTACT
         </NavLink>
-
-        {/* <NavLink
-          to="/register"
-          className={({ isActive }) =>
-            `ml-2 px-4 py-1.5 rounded-md font-semibold text-sm transition-all duration-200 ${
-              isActive
-                ? "bg-green-600 text-white shadow"
-                : "bg-green-500 text-white hover:bg-green-600"
-            }`
-          }
-        >
-          REGISTER NOW
-        </NavLink> */}
       </div>
 
       {/* Mobile Hamburger */}
@@ -107,50 +86,26 @@ export default function Navbar() {
           <NavLink
             to="/"
             onClick={() => setIsOpen(false)}
-            className="w-11/12 text-center px-3 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
+            className="w-11/12 text-center px-4 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
           >
             HOME
           </NavLink>
 
-          {/* <NavLink
-            to="/gallery"
-            onClick={() => setIsOpen(false)}
-            className="w-11/12 text-center px-3 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
-          >
-            GALLERY
-          </NavLink> */}
-
           <NavLink
             to="/tour"
             onClick={() => setIsOpen(false)}
-            className="w-11/12 text-center px-3 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
+            className="w-11/12 text-center px-4 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
           >
             VISIT BERLIN
           </NavLink>
 
-          {/* <NavLink
-            to="/about"
-            onClick={() => setIsOpen(false)}
-            className="w-11/12 text-center px-3 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
-          >
-            ABOUT US
-          </NavLink> */}
-
           <NavLink
             to="/contact"
             onClick={() => setIsOpen(false)}
-            className="w-11/12 text-center px-3 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
+            className="w-11/12 text-center px-4 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
           >
             CONTACT
           </NavLink>
-
-          {/* <NavLink
-            to="/register"
-            onClick={() => setIsOpen(false)}
-            className="w-11/12 text-center px-3 py-2 rounded-md bg-green-500 text-white font-medium hover:bg-green-600 transition-all duration-200"
-          >
-            REGISTER NOW
-          </NavLink> */}
         </div>
       )}
     </nav>

@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaEnvelope } from "reac
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A1B3D] text-white py-12 mt-10">
+    <footer className="bg-[#112B4C] text-white py-12 mt-10">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
 
         {/* Copy & Email */}
