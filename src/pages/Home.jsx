@@ -69,53 +69,71 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-[#0B1B3D] text-white">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative bg-white text-[#0B1B3D] pt-32 pb-12 px-4 overflow-hidden">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl font-extrabold uppercase tracking-wide mb-3 text-black">
-            Buganda Bumu European Convention
-          </h1>
-          <p className="text-lg md:text-xl font-semibold mb-2 text-gray-700">
-            Hosted by the Berlin Chapter in Berlin, Germany
-          </p>
-          <p className="text-sm md:text-base max-w-2xl mx-auto mb-4 text-gray-600">
-            Celebrate our heritage, connect with the community, and experience an unforgettable European Convention!
-          </p>
-          <p className="text-blue-900 text-lg md:text-xl font-bold mb-6">
-            May 22–24, 2026 | Gloria Events Center, Berlin
-          </p>
+  {/* Hero Section */}
+<section
+  className="relative bg-white text-[#0B1B3D] pt-32 pb-32 px-4 flex items-center justify-center"
+  style={{
+    backgroundImage: "url('/bbeco.jpg')",
+    backgroundSize: "cover",           // cover entire hero
+    backgroundPosition: "center 30%",  // shift image slightly down
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  {/* Overlay: lighten image + subtle dark gradient */}
+  <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-black/20"></div>
 
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
-            {["Days", "Hours", "Minutes", "Seconds"].map((unit, i) => (
-              <div key={i} className="flex flex-col items-center bg-[#F5E6D3]/20 rounded-2xl p-3 w-20 shadow-lg border border-[#C18F5B]">
-                <span className="text-2xl font-extrabold text-[#8B5E3C]">{formatTime(timeLeft[unit.toLowerCase()])}</span>
-                <span className="text-xs md:text-sm text-[#8B5E3C] uppercase">{unit}</span>
-              </div>
-            ))}
-          </div>
+  {/* Hero content */}
+  <div className="relative max-w-3xl text-center">
+    <h1 className="text-3xl md:text-5xl font-extrabold uppercase tracking-wide mb-3 text-black">
+      Buganda Bumu European Convention
+    </h1>
+    <p className="text-lg md:text-xl font-semibold mb-2 text-gray-700">
+      Hosted by the Berlin Chapter in Berlin, Germany
+    </p>
+    <p className="text-sm md:text-base mb-4 text-gray-600">
+      Celebrate our heritage, connect with the community, and experience an unforgettable European Convention!
+    </p>
+    <p className="text-blue-900 text-lg md:text-xl font-bold mb-6">
+      May 22–24, 2026 | Gloria Events Center, Berlin
+    </p>
 
-          <div className="text-[#8B5E3C] font-mono text-sm md:text-base mb-6">
-            🕒 {digitalTime} | 📅 {dateString}
-          </div>
-
-          <a
-            href="https://forms.gle/PaD39jWRFeZJFxFLA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 md:px-8 py-2.5 md:py-3 bg-[#C18F5B] text-white font-bold rounded-full shadow-lg hover:scale-105 hover:bg-[#A46B3C] transition"
-          >
-            Register Now
-          </a>
+    {/* Countdown Timer */}
+    <div className="flex flex-wrap justify-center gap-4 mb-6">
+      {["Days", "Hours", "Minutes", "Seconds"].map((unit, i) => (
+        <div key={i} className="flex flex-col items-center bg-[#F5E6D3]/20 rounded-2xl p-3 w-20 shadow-lg border border-[#0B1B3D]">
+          <span className="text-2xl font-extrabold text-[#8B5E3C]">{formatTime(timeLeft[unit.toLowerCase()])}</span>
+          <span className="text-xs md:text-sm text-[#8B5E3C] uppercase">{unit}</span>
         </div>
-      </section>
+      ))}
+    </div>
+
+    <div className="text-[#0B1B3D] font-mono text-sm md:text-base mb-6">
+      🕒 {digitalTime} | 📅 {dateString}
+    </div>
+
+    <a
+      href="https://forms.gle/PaD39jWRFeZJFxFLA"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block px-6 md:px-8 py-2.5 md:py-3 bg-[#0B1B3D] text-white font-bold rounded-full shadow-lg hover:scale-105 hover:bg-[#1A2B5C] transition"
+    >
+      Register Now
+    </a>
+  </div>
+</section>
+
+
+
+
 
       {/* Main Content */}
       <main className="flex-grow py-12 px-4 sm:px-6 md:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          
           {/* Convention & Tickets */}
           <div className="bg-[#1B2A49] rounded-2xl p-6 shadow-xl hover:shadow-2xl transition">
             <h2 className="text-3xl font-bold mb-5 text-white text-center">Convention 2026</h2>
-            <p className="text-2xl font-extrabold mb-4 text-center text-gray-200">“Preserving Heritage & Navigating Modernity in the Diaspora”</p>
+            <p className="text-2xl font-extrabold mb-4 text-center text-gray-200">"Preserving Heritage & Navigating Modernity in the Diaspora"</p>
 
             <ul className="text-lg space-y-2 leading-relaxed mb-6">
               <li><strong>Date:</strong> May 22–24, 2026</li>
@@ -131,18 +149,15 @@ export default function Home() {
             </ul>
           </div>
 
-          {/* Payments */}
+          {/* Payment Methods */}
           <div className="bg-[#1B2A49] rounded-2xl p-6 shadow-xl hover:shadow-2xl transition md:col-span-2">
             <h2 className="text-3xl font-bold mb-5 text-white text-center">Payment Methods</h2>
             <div className="space-y-6 text-gray-200">
-              {/* PayPal */}
               <div className="bg-[#0B1B3D] p-4 rounded-xl border border-yellow-400">
                 <h3 className="text-yellow-400 font-bold mb-2">💻 PayPal</h3>
                 <p>frankmperwe@gmail.com</p>
                 <p className="text-xs italic text-yellow-300 mt-1">⚠️ Include purpose: <strong>BBECO BERLIN 2026</strong></p>
               </div>
-
-              {/* Netherlands */}
               <div className="bg-[#0B1B3D] p-4 rounded-xl border border-yellow-400">
                 <h3 className="text-yellow-400 font-bold mb-2">🏦 Netherlands Account</h3>
                 <p>Bank: <strong>Rabobank</strong></p>
@@ -150,12 +165,7 @@ export default function Home() {
                 <p>IBAN: <strong>NL76 RABO 0162 8971 89</strong></p>
                 <p>Swift Code: <strong>RABONL2U</strong></p>
                 <p><strong>Theofrankelhof 46, 1087KD, Amsterdam</strong></p>
-
-                <h4 className="text-yellow-300 font-bold mt-2">💳 Tikkie</h4>
-                <p>+31 681 941613 (Margret)</p>
               </div>
-
-              {/* Uganda */}
               <div className="bg-[#0B1B3D] p-4 rounded-xl border border-yellow-400">
                 <h3 className="text-yellow-400 font-bold mb-2">🇺🇬 Uganda Payments</h3>
                 <p>Mobile Money: +256 757 595578 (Nsereko Justine)</p>
