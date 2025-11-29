@@ -153,12 +153,12 @@ export default function Home() {
           <div className="bg-[#1B2A49] rounded-2xl p-6 shadow-xl hover:shadow-2xl transition md:col-span-2">
             <h2 className="text-3xl font-bold mb-5 text-white text-center">Payment Methods</h2>
             <div className="space-y-6 text-gray-200">
-              <div className="bg-[#0B1B3D] p-4 rounded-xl border border-yellow-400">
+              <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
                 <h3 className="text-yellow-400 font-bold mb-2">💻 PayPal</h3>
                 <p>frankmperwe@gmail.com</p>
                 <p className="text-xs italic text-yellow-300 mt-1">⚠️ Include purpose: <strong>BBECO BERLIN 2026</strong></p>
               </div>
-              <div className="bg-[#0B1B3D] p-4 rounded-xl border border-yellow-400">
+              <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
                 <h3 className="text-yellow-400 font-bold mb-2">🏦 Netherlands Account</h3>
                 <p>Bank: <strong>Rabobank</strong></p>
                 <p>Account Holder: <strong>STICHTING BUGANDA RHINELANDS</strong></p>
@@ -166,11 +166,15 @@ export default function Home() {
                 <p>Swift Code: <strong>RABONL2U</strong></p>
                 <p><strong>Theofrankelhof 46, 1087KD, Amsterdam</strong></p>
               </div>
-              <div className="bg-[#0B1B3D] p-4 rounded-xl border border-yellow-400">
-                <h3 className="text-yellow-400 font-bold mb-2">🇺🇬 Uganda Payments</h3>
-                <p>Mobile Money: +256 757 595578 (Nsereko Justine)</p>
-                <p className="text-xs italic text-yellow-300 mt-1">⚠️ Contact <strong>Linda Sekayita – +31 6 85740954</strong> after sending.</p>
+
+                <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
+                <h3 className="text-yellow-400 font-bold mb-2">🏦 Uganda Account</h3>
+                <p>Bank: <strong>Centenary Bank Rubaga Branch</strong></p>
+                <p>Account Name: <strong>GLB ML.G.</strong></p>
+                <p>Account No: <strong>3100046659</strong></p>
+                
               </div>
+             
             </div>
           </div>
         </div>
