@@ -395,21 +395,22 @@ export default function Home() {
                   Account No: <strong>3100046659</strong>
                 </p>
 
-                <div className="mt-4 p-3 bg-yellow-300/10 border border-white-300 rounded-lg">
-                  <p className="text-yellow-300 font-semibold">
-                    Uganda Delegates:
-                    <br />
-                    Please email your payment records to{" "}
-                    <span className="underline">bbumugermany@gmail.com</span>
-                  </p>
-                </div>
+               <div className="mt-4 p-3 bg-yellow-300/10 border border-white-300 rounded-lg">
+  <p className="text-yellow-300 font-semibold">
+    Uganda Delegates:
+    <br />
+    Please send your payment records to{" "}
+    <span className="underline">linda2000uk@yahoo.co.uk</span>
+    <br />
+    or WhatsApp Linda on{" "}
+    <span className="underline">+31 6 85740954</span>
+  </p>
+</div>
+
               </div>
 
               <div className="text-center text-gray-300 pt-4">
-                <p>
-                  For Inquiries please contact:{" "}
-                  <strong>Linda, +31 6 85740954</strong>
-                </p>
+               
               </div>
             </div>
           </div>
