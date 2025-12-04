@@ -337,6 +337,19 @@ export default function Home() {
               ))}
             </ul>
 
+
+            {/* Registration Button */}
+            <div className="text-center mt-6">
+              <a
+                href="https://forms.gle/PaD39jWRFeZJFxFLA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 md:px-8 py-2.5 md:py-3 bg-[#0B1B3D] text-white font-bold rounded-full shadow-lg hover:scale-105 hover:bg-[#1A2B5C] transition"
+              >
+                Register Now
+              </a>
+            </div>
+
             {/* DISCLAIMER ADDED HERE — NOTHING REMOVED ABOVE */}
             <p className="mt-4 text-yellow-300 text-sm text-center font-semibold">
               Payment deadline for Ugandan Delegates:{" "}
@@ -351,7 +364,29 @@ export default function Home() {
             </h2>
 
             <div className="space-y-6 text-gray-200">
+              {/* Germany Bank + PayPal combined */}
               <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
+                {/* Germany Bank */}
+                <h3 className="text-yellow-400 font-bold mb-2">🏦 Germany Bank</h3>
+                <p>
+                  Bank: <strong>Finom</strong>
+                </p>
+                <p>
+                  Account Name: <strong>Ugandische Deutsche Gemeinde Berlin-Brandenburg e. V.</strong>
+                </p>
+                <p>
+                  IBAN: <strong>DE51 1001 8000 0790 3176 89</strong>
+                </p>
+                <p>
+                  BIC: <strong>FNOMDEB2</strong>
+                </p>
+
+                {/* Divider line */}
+                <div className="my-4 border-t border-gray-500 text-center text-gray-400">
+
+                </div>
+
+                {/* PayPal */}
                 <h3 className="text-yellow-400 font-bold mb-2">💻 PayPal</h3>
                 <p>frankmperwe@gmail.com</p>
                 <p className="text-xs italic text-yellow-300 mt-1">
@@ -359,15 +394,14 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* Netherlands Account */}
               <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
-                <h3 className="text-yellow-400 font-bold mb-2">
-                  🏦 Netherlands Account
-                </h3>
+                <h3 className="text-yellow-400 font-bold mb-2">🏦 Netherlands Account</h3>
                 <p>
                   Bank: <strong>Rabobank</strong>
                 </p>
                 <p>
-                  Account Holder: <strong>STICHTING BUGANDA RHINELANDS</strong>
+                  Account Name: <strong>STICHTING BUGANDA RHINELANDS</strong>
                 </p>
                 <p>
                   IBAN: <strong>NL76 RABO 0162 8971 89</strong>
@@ -380,11 +414,9 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* Uganda Account */}
               <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
-                <h3 className="text-yellow-400 font-bold mb-2">
-                  🏦 Uganda Account
-                </h3>
-
+                <h3 className="text-yellow-400 font-bold mb-2">🏦 Uganda Account</h3>
                 <p>
                   Bank: <strong>Centenary Bank Rubaga Branch</strong>
                 </p>
@@ -395,22 +427,26 @@ export default function Home() {
                   Account No: <strong>3100046659</strong>
                 </p>
 
-               <div className="mt-4 p-3 bg-yellow-300/10 border border-white-300 rounded-lg">
-  <p className="text-yellow-300 font-semibold">
-    Uganda Delegates:
-    <br />
-    Please send your payment records to{" "}
-    <span className="underline">linda2000uk@yahoo.co.uk</span>
-    <br />
-    or WhatsApp Linda on{" "}
-    <span className="underline">+31 6 85740954</span>
-  </p>
-</div>
-
+                <div className="mt-4 p-3 bg-yellow-300/10 border border-white-300 rounded-lg">
+                  <p className="text-yellow-300 font-semibold">
+                    Uganda Delegates:
+                    <br />
+                    Please send your payment records to{" "}
+                    <span className="underline">linda2000uk@yahoo.co.uk</span>
+                    <br />
+                    or WhatsApp Linda on <span className="underline">+31 6 85740954</span>
+                  </p>
+                </div>
               </div>
 
+
+
+
+
+
+
               <div className="text-center text-gray-300 pt-4">
-               
+
               </div>
             </div>
           </div>
@@ -420,21 +456,19 @@ export default function Home() {
         <div className="mt-12 max-w-7xl mx-auto flex justify-center gap-4">
           <button
             onClick={() => setActiveFilter("hotels")}
-            className={`px-6 py-2 rounded-full font-bold ${
-              activeFilter === "hotels"
+            className={`px-6 py-2 rounded-full font-bold ${activeFilter === "hotels"
                 ? "bg-[#8B5E3C]"
                 : "bg-[#1B2A49]"
-            } hover:bg-[#8B5E3C] transition`}
+              } hover:bg-[#8B5E3C] transition`}
           >
             Hotels
           </button>
           <button
             onClick={() => setActiveFilter("hostels")}
-            className={`px-6 py-2 rounded-full font-bold ${
-              activeFilter === "hostels"
+            className={`px-6 py-2 rounded-full font-bold ${activeFilter === "hostels"
                 ? "bg-[#8B5E3C]"
                 : "bg-[#1B2A49]"
-            } hover:bg-[#8B5E3C] transition`}
+              } hover:bg-[#8B5E3C] transition`}
           >
             Hostels
           </button>
@@ -447,11 +481,10 @@ export default function Home() {
               (place, i) => (
                 <div
                   key={i}
-                  className={`bg-[#1B2A49] rounded-xl shadow-md p-5 border ${
-                    place.recommended
+                  className={`bg-[#1B2A49] rounded-xl shadow-md p-5 border ${place.recommended
                       ? "border-yellow-400 shadow-yellow-400"
                       : "border-gray-600"
-                  } hover:shadow-lg hover:bg-[#8B5E3C] hover:text-white transition-all`}
+                    } hover:shadow-lg hover:bg-[#8B5E3C] hover:text-white transition-all`}
                 >
                   <h3 className="text-xl font-semibold mb-1 flex items-center gap-2">
                     {place.name}
