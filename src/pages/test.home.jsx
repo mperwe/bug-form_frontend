@@ -344,70 +344,93 @@ export default function Home() {
             </p>
           </div>
 
-          {/* PAYMENT METHODS */}
-          <div className="bg-[#1B2A49] rounded-2xl p-6 shadow-xl hover:shadow-2xl transition md:col-span-2">
-            <h2 className="text-3xl font-bold mb-5 text-white text-center">
-              Payment Methods
-            </h2>
+{/* PAYMENT METHODS */}
+<div className="bg-[#1B2A49] rounded-2xl p-6 shadow-xl hover:shadow-2xl transition md:col-span-2">
+  <h2 className="text-3xl font-bold mb-5 text-white text-center">
+    Payment Methods
+  </h2>
 
-            <div className="space-y-6 text-gray-200">
-              <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
-                <h3 className="text-yellow-400 font-bold mb-2">💻 PayPal</h3>
-                <p>frankmperwe@gmail.com</p>
-                <p className="text-xs italic text-yellow-300 mt-1">
-                  ⚠️ Include purpose: <strong>BBECO BERLIN 2026</strong>
-                </p>
-              </div>
+  <div className="space-y-6 text-gray-200">
+    {/* Germany Bank + PayPal combined */}
+    <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
+      {/* Germany Bank */}
+      <h3 className="text-yellow-400 font-bold mb-2">🏦 Germany Bank</h3>
+      <p>
+        Bank: <strong>Finom</strong>
+      </p>
+      <p>
+        Account Name: <strong>Ugandische Deutsche Gemeinde Berlin-Brandenburg e. V.</strong>
+      </p>
+      <p>
+        IBAN: <strong>DE51 1001 8000 0790 3176 89</strong>
+      </p>
+      <p>
+        BIC: <strong>FNOMDEB2</strong>
+      </p>
 
-              <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
-                <h3 className="text-yellow-400 font-bold mb-2">
-                  🏦 Netherlands Account
-                </h3>
-                <p>
-                  Bank: <strong>Rabobank</strong>
-                </p>
-                <p>
-                  Account Holder: <strong>STICHTING BUGANDA RHINELANDS</strong>
-                </p>
-                <p>
-                  IBAN: <strong>NL76 RABO 0162 8971 89</strong>
-                </p>
-                <p>
-                  Swift Code: <strong>RABONL2U</strong>
-                </p>
-                <p>
-                  <strong>Theofrankelhof 46, 1087KD, Amsterdam</strong>
-                </p>
-              </div>
+      {/* Divider line */}
+      <div className="my-4 border-t border-gray-500 text-center text-gray-400">
+        
+      </div>
 
-              <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
-                <h3 className="text-yellow-400 font-bold mb-2">
-                  🏦 Uganda Account
-                </h3>
+      {/* PayPal */}
+      <h3 className="text-yellow-400 font-bold mb-2">💻 PayPal</h3>
+      <p>frankmperwe@gmail.com</p>
+      <p className="text-xs italic text-yellow-300 mt-1">
+        ⚠️ Include purpose: <strong>BBECO BERLIN 2026</strong>
+      </p>
+    </div>
 
-                <p>
-                  Bank: <strong>Centenary Bank Rubaga Branch</strong>
-                </p>
-                <p>
-                  Account Name: <strong>GLB ML.G.</strong>
-                </p>
-                <p>
-                  Account No: <strong>3100046659</strong>
-                </p>
+    {/* Netherlands Account */}
+    <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
+      <h3 className="text-yellow-400 font-bold mb-2">🏦 Netherlands Account</h3>
+      <p>
+        Bank: <strong>Rabobank</strong>
+      </p>
+      <p>
+        Account Holder: <strong>STICHTING BUGANDA RHINELANDS</strong>
+      </p>
+      <p>
+        IBAN: <strong>NL76 RABO 0162 8971 89</strong>
+      </p>
+      <p>
+        Swift Code: <strong>RABONL2U</strong>
+      </p>
+      <p>
+        <strong>Theofrankelhof 46, 1087KD, Amsterdam</strong>
+      </p>
+    </div>
 
-               <div className="mt-4 p-3 bg-yellow-300/10 border border-white-300 rounded-lg">
-  <p className="text-yellow-300 font-semibold">
-    Uganda Delegates:
-    <br />
-    Please send your payment records to{" "}
-    <span className="underline">linda2000uk@yahoo.co.uk</span>
-    <br />
-    or WhatsApp Linda on{" "}
-    <span className="underline">+31 6 85740954</span>
-  </p>
-</div>
+    {/* Uganda Account */}
+    <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
+      <h3 className="text-yellow-400 font-bold mb-2">🏦 Uganda Account</h3>
+      <p>
+        Bank: <strong>Centenary Bank Rubaga Branch</strong>
+      </p>
+      <p>
+        Account Name: <strong>GLB ML.G.</strong>
+      </p>
+      <p>
+        Account No: <strong>3100046659</strong>
+      </p>
 
-              </div>
+      <div className="mt-4 p-3 bg-yellow-300/10 border border-white-300 rounded-lg">
+        <p className="text-yellow-300 font-semibold">
+          Uganda Delegates:
+          <br />
+          Please send your payment records to{" "}
+          <span className="underline">linda2000uk@yahoo.co.uk</span>
+          <br />
+          or WhatsApp Linda on <span className="underline">+31 6 85740954</span>
+        </p>
+      </div>
+    </div>
+  
+
+
+
+
+             
 
               <div className="text-center text-gray-300 pt-4">
                
