@@ -26,12 +26,8 @@ export default function Home() {
       }
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor(
-        (distance % (1000 * 60 * 60)) / (1000 * 60)
-      );
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
       setTimeLeft({ days, hours, minutes, seconds });
@@ -72,8 +68,7 @@ export default function Home() {
       name: "Select Hotel Berlin Checkpoint Charlie",
       address: "Hedemannstraße 11-12, 10969 Berlin",
       url: "https://www.select-hotels.com/en/hotel/select-hotel-berlin-checkpoint-charlie/",
-      directions:
-        "https://www.google.com/maps/dir//Select+Hotel+Berlin+Checkpoint+Charlie/",
+      directions: "https://www.google.com/maps/dir//Select+Hotel+Berlin+Checkpoint+Charlie/",
       type: "Mid-range",
       distance: "4 min walk",
     },
@@ -81,8 +76,7 @@ export default function Home() {
       name: "Hotel Gat Point Charlie",
       address: "Mauerstraße 81–82, 10117 Berlin",
       url: "https://www.hotelgatpointcharlie.com/",
-      directions:
-        "https://www.google.com/maps/dir//Hotel+Gat+Point+Charlie/",
+      directions: "https://www.google.com/maps/dir//Hotel+Gat+Point+Charlie/",
       type: "Mid-range",
       distance: "5 min walk",
     },
@@ -90,8 +84,7 @@ export default function Home() {
       name: "NH Collection Berlin Mitte",
       address: "Leipziger Str. 106-111, 10117 Berlin",
       url: "https://www.nh-hotels.com/hotel/nh-collection-berlin-mitte-checkpoint-charlie",
-      directions:
-        "https://www.google.com/maps/dir//NH+Collection+Berlin+Mitte/",
+      directions: "https://www.google.com/maps/dir//NH+Collection+Berlin+Mitte/",
       type: "Luxury",
       distance: "6 min walk",
     },
@@ -99,8 +92,7 @@ export default function Home() {
       name: "Novotel Suites Berlin City",
       address: "Anhalter Str. 2, 10963 Berlin",
       url: "https://all.accor.com/hotel/3745/index.en.shtml",
-      directions:
-        "https://www.google.com/maps/dir//Novotel+Suites+Berlin+City+Potsdamer+Platz/",
+      directions: "https://www.google.com/maps/dir//Novotel+Suites+Berlin+City+Potsdamer+Platz/",
       type: "Mid-range",
       distance: "9 min walk",
     },
@@ -108,8 +100,7 @@ export default function Home() {
       name: "Titanic Chaussee Berlin",
       address: "Chausseestraße 30, 10115 Berlin",
       url: "https://www.titanic.com.tr/titanic-chaussee-berlin",
-      directions:
-        "https://www.google.com/maps/dir//Titanic+Chaussee+Berlin/",
+      directions: "https://www.google.com/maps/dir//Titanic+Chaussee+Berlin/",
       type: "Luxury",
       distance: "10 min walk",
     },
@@ -117,8 +108,7 @@ export default function Home() {
       name: "Adina Apartment Hotel Berlin",
       address: "Krausenstraße 35-36, 10117 Berlin",
       url: "https://www.adinahotels.com/de/apartments/berlin-checkpoint-charlie/",
-      directions:
-        "https://www.google.com/maps/dir//Adina+Apartment+Hotel+Berlin/",
+      directions: "https://www.google.com/maps/dir//Adina+Apartment+Hotel+Berlin/",
       type: "Luxury",
       distance: "10 min walk",
     },
@@ -126,8 +116,7 @@ export default function Home() {
       name: "Mövenpick Hotel Berlin",
       address: "Schöneberger Str. 3, 10963 Berlin",
       url: "https://www.movenpick.com/",
-      directions:
-        "https://www.google.com/maps/dir//Mövenpick+Hotel+Berlin/",
+      directions: "https://www.google.com/maps/dir//Mövenpick+Hotel+Berlin/",
       type: "Luxury",
       distance: "10 min walk",
     },
@@ -177,8 +166,7 @@ export default function Home() {
       name: "Heart of Gold Hostel Berlin",
       address: "Berlin Mitte",
       url: "https://www.heartofgold-hostel.de/",
-      directions:
-        "https://www.google.com/maps/dir//Heart+of+Gold+Hostel+Berlin/",
+      directions: "https://www.google.com/maps/dir//Heart+of+Gold+Hostel+Berlin/",
       type: "Budget",
       distance: "8 min walk",
     },
@@ -186,8 +174,7 @@ export default function Home() {
       name: "Metropol Hostel Berlin",
       address: "Berlin Kreuzberg",
       url: "https://www.momondo.com/hotels/berlin/Metropol-Hostel-Berlin.mhd349548.ksp",
-      directions:
-        "https://www.google.com/maps/dir//Metropol+Hostel+Berlin/",
+      directions: "https://www.google.com/maps/dir//Metropol+Hostel+Berlin/",
       type: "Budget",
       distance: "10 min walk",
     },
@@ -195,8 +182,7 @@ export default function Home() {
       name: "Ballhaus Berlin Hostel",
       address: "Chausseestraße 102, Berlin",
       url: "https://www.ballist-haus-berlin-hostel.de/",
-      directions:
-        "https://www.google.com/maps/dir//Ballhaus+Berlin+Hostel/",
+      directions: "https://www.google.com/maps/dir//Ballhaus+Berlin+Hostel/",
       type: "Budget",
       distance: "11 min walk",
     },
@@ -204,8 +190,7 @@ export default function Home() {
       name: "Acama Hotel & Hostel Kreuzberg",
       address: "Tempelhofer Ufer 8/9, 10963 Berlin",
       url: "https://www.booking.com/hotel/de/acama-hotel-hostel-kreuzberg.html",
-      directions:
-        "https://www.google.com/maps/dir//acama+Hotel+%26+Hostel+Kreuzberg/",
+      directions: "https://www.google.com/maps/dir//acama+Hotel+%26+Hostel+Kreuzberg/",
       type: "Budget",
       distance: "12 min walk",
     },
@@ -213,8 +198,7 @@ export default function Home() {
       name: "36 Rooms Hostel Berlin Kreuzberg",
       address: "Spreewaldplatz 8, 10999 Berlin",
       url: "https://www.booking.com/hotel/de/36-rooms-berlin-kreuzberg.html",
-      directions:
-        "https://www.google.com/maps/dir//36+Rooms+Hostel+Berlin/",
+      directions: "https://www.google.com/maps/dir//36+Rooms+Hostel+Berlin/",
       type: "Budget",
       distance: "15 min walk",
     },
@@ -337,8 +321,6 @@ export default function Home() {
               ))}
             </ul>
 
-
-            {/* Registration Button */}
             <div className="text-center mt-6">
               <a
                 href="https://forms.gle/PaD39jWRFeZJFxFLA"
@@ -350,7 +332,6 @@ export default function Home() {
               </a>
             </div>
 
-            {/* DISCLAIMER ADDED HERE — NOTHING REMOVED ABOVE */}
             <p className="mt-4 text-yellow-300 text-sm text-center font-semibold">
               Payment deadline for Ugandan Delegates:{" "}
               <span className="underline">15 February 2026</span>
@@ -364,15 +345,17 @@ export default function Home() {
             </h2>
 
             <div className="space-y-6 text-gray-200">
-              {/* Germany Bank + PayPal combined */}
+              {/* Germany Bank + PayPal */}
               <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
-                {/* Germany Bank */}
                 <h3 className="text-yellow-400 font-bold mb-2">🏦 Germany Bank</h3>
                 <p>
                   Bank: <strong>Finom</strong>
                 </p>
                 <p>
-                  Account Name: <strong>Ugandische Deutsche Gemeinde Berlin-Brandenburg e. V.</strong>
+                  Account Name:{" "}
+                  <strong>
+                    Ugandische Deutsche Gemeinde Berlin-Brandenburg e. V.
+                  </strong>
                 </p>
                 <p>
                   IBAN: <strong>DE51 1001 8000 0790 3176 89</strong>
@@ -381,12 +364,8 @@ export default function Home() {
                   BIC: <strong>FNOMDEB2</strong>
                 </p>
 
-                {/* Divider line */}
-                <div className="my-4 border-t border-gray-500 text-center text-gray-400">
+                <div className="my-4 border-t border-gray-500"></div>
 
-                </div>
-
-                {/* PayPal */}
                 <h3 className="text-yellow-400 font-bold mb-2">💻 PayPal</h3>
                 <p>frankmperwe@gmail.com</p>
                 <p className="text-xs italic text-yellow-300 mt-1">
@@ -394,14 +373,17 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Netherlands Account */}
+              {/* Netherlands */}
               <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
-                <h3 className="text-yellow-400 font-bold mb-2">🏦 Netherlands Account</h3>
+                <h3 className="text-yellow-400 font-bold mb-2">
+                  🏦 Netherlands Account
+                </h3>
                 <p>
                   Bank: <strong>Rabobank</strong>
                 </p>
                 <p>
-                  Account Name: <strong>STICHTING BUGANDA RHINELANDS</strong>
+                  Account Name:{" "}
+                  <strong>STICHTING BUGANDA RHINELANDS</strong>
                 </p>
                 <p>
                   IBAN: <strong>NL76 RABO 0162 8971 89</strong>
@@ -414,9 +396,11 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Uganda Account */}
+              {/* Uganda */}
               <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
-                <h3 className="text-yellow-400 font-bold mb-2">🏦 Uganda Account</h3>
+                <h3 className="text-yellow-400 font-bold mb-2">
+                  🏦 Uganda Account
+                </h3>
                 <p>
                   Bank: <strong>Centenary Bank Rubaga Branch</strong>
                 </p>
@@ -434,19 +418,10 @@ export default function Home() {
                     Please send your payment records to{" "}
                     <span className="underline">linda2000uk@yahoo.co.uk</span>
                     <br />
-                    or WhatsApp Linda on <span className="underline">+31 6 85740954</span>
+                    or WhatsApp Linda on{" "}
+                    <span className="underline">+31 6 85740954</span>
                   </p>
                 </div>
-              </div>
-
-
-
-
-
-
-
-              <div className="text-center text-gray-300 pt-4">
-
               </div>
             </div>
           </div>
@@ -456,19 +431,22 @@ export default function Home() {
         <div className="mt-12 max-w-7xl mx-auto flex justify-center gap-4">
           <button
             onClick={() => setActiveFilter("hotels")}
-            className={`px-6 py-2 rounded-full font-bold ${activeFilter === "hotels"
+            className={`px-6 py-2 rounded-full font-bold ${
+              activeFilter === "hotels"
                 ? "bg-[#8B5E3C]"
                 : "bg-[#1B2A49]"
-              } hover:bg-[#8B5E3C] transition`}
+            } hover:bg-[#8B5E3C] transition`}
           >
             Hotels
           </button>
+
           <button
             onClick={() => setActiveFilter("hostels")}
-            className={`px-6 py-2 rounded-full font-bold ${activeFilter === "hostels"
+            className={`px-6 py-2 rounded-full font-bold ${
+              activeFilter === "hostels"
                 ? "bg-[#8B5E3C]"
                 : "bg-[#1B2A49]"
-              } hover:bg-[#8B5E3C] transition`}
+            } hover:bg-[#8B5E3C] transition`}
           >
             Hostels
           </button>
@@ -481,10 +459,11 @@ export default function Home() {
               (place, i) => (
                 <div
                   key={i}
-                  className={`bg-[#1B2A49] rounded-xl shadow-md p-5 border ${place.recommended
+                  className={`bg-[#1B2A49] rounded-xl shadow-md p-5 border ${
+                    place.recommended
                       ? "border-yellow-400 shadow-yellow-400"
                       : "border-gray-600"
-                    } hover:shadow-lg hover:bg-[#8B5E3C] hover:text-white transition-all`}
+                  } hover:shadow-lg hover:bg-[#8B5E3C] hover:text-white transition-all`}
                 >
                   <h3 className="text-xl font-semibold mb-1 flex items-center gap-2">
                     {place.name}
@@ -523,7 +502,35 @@ export default function Home() {
             )}
           </div>
         </section>
-      </main>
+
+{/* CONTACT SECTION (POLISHED) */}
+<section className="mt-12 bg-[#1B2A49] p-6 rounded-2xl max-w-4xl mx-auto shadow-lg">
+  <h2 className="text-3xl font-bold text-center mb-4 text-white">General Inquiries</h2>
+
+  <p className="text-center text-gray-300 mb-4">
+    For inquiries, assistance, or additional information about the Buganda Bumu European Convention 2026,
+    please contact our team below.
+  </p>
+
+  <div className="grid grid-cols-1 gap-6 text-gray-200">
+    <div className="bg-[#0B1B3D] p-4 rounded-xl border border-gray-600">
+      
+
+      <div className="space-y-1 text-justify">
+        <p className="font-semibold">Linda Sekayita • Tel: +31 6 85740954 • Esaaza Rhinelands</p>
+        <p className="font-semibold">Frank Mperwe Kyambadde • Tel: +49 1523 5867655 • Berlin, Germany</p>
+        <p className="font-semibold">Precious Fisher • Tel: +49 173 9399094 • Hamburg, Germany</p>
+        <p className="font-semibold">Samuel Muwonge • Tel: +49 1523 5867655 • Munich, Germany</p>
+      </div>
+
+     <p className="mt-3 italic text-yellow-300 text-justify">
+For formal inquiries, please write to: <strong className="text-lg">bbumugermany@gmail.com</strong>
+</p>
+    </div>
+  </div>
+</section>
+</main>
+
 
       <Footer />
     </div>
