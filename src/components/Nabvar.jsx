@@ -34,10 +34,6 @@ export default function Navbar() {
         <NavLink to="/tour" className={navItemStyle}>
           VISIT BERLIN
         </NavLink>
-
-        <NavLink to="/contact" className={navItemStyle}>
-          CONTACT
-        </NavLink>
       </div>
 
       {/* Mobile Hamburger */}
@@ -97,14 +93,6 @@ export default function Navbar() {
             className="w-11/12 text-center px-4 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
           >
             VISIT BERLIN
-          </NavLink>
-
-          <NavLink
-            to="/contact"
-            onClick={() => setIsOpen(false)}
-            className="w-11/12 text-center px-4 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
-          >
-            CONTACT
           </NavLink>
         </div>
       )}
