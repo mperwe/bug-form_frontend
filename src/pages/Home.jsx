@@ -416,7 +416,7 @@ export default function Home() {
                     Uganda Delegates:
                     <br />
                     Please send your payment records to{" "}
-                    <span className="underline">linda2000uk@yahoo.co.uk</span>
+                    <span className="underline">bbumugermany@gmail.com</span>
                     <br />
                     or WhatsApp Linda on{" "}
                     <span className="underline">+31 6 85740954</span>
