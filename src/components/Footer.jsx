@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="flex items-center space-x-2 text-sm md:text-base">
             <FaEnvelope className="text-yellow-400" />
             <a href="mailto:bbecoberlin@gmail.com" className="hover:underline">
-              bbecoberlin@gmail.com
+              bbumugermany@gmail.com
             </a>
           </div>
         </div>
