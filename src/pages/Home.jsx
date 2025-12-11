@@ -405,7 +405,7 @@ export default function Home() {
                   Bank: <strong>Centenary Bank Rubaga Branch</strong>
                 </p>
                 <p>
-                  Account Name: <strong>GLB ML.G.</strong>
+                  Account Name: <strong>Gwanika lya Buganda Ministry of local government</strong>
                 </p>
                 <p>
                   Account No: <strong>3100046659</strong>
