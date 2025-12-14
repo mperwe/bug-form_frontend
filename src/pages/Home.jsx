@@ -510,18 +510,61 @@ export default function Home() {
   <p className="text-center text-gray-300 mb-4">
     For inquiries, assistance, or additional information about the Buganda Bumu European Convention 2026,
     please contact our team below.
+    <p className="font-semibold"> +31 6 85740954 | +49 1523 5867655 |+49 173 9399094 | +49 1520 8514008</p>
   </p>
+
+  <p className="mt-3 italic text-yellow-300 text-center">
+For formal inquiries, please write to: <strong className="text-lg">bbumugermany@gmail.com</strong>
+</p>
+
+  
+  
 
   <div className="grid grid-cols-1 gap-6 text-gray-200">
     <div className="bg-[#0B1B3D] p-4 rounded-xl border border-gray-600">
       
 
       <div className="space-y-1 text-justify">
-        <p className="font-semibold">Linda Sekayita • Tel: +31 6 85740954 • Esaaza Rhinelands</p>
-        <p className="font-semibold">Frank Mperwe Kyambadde • Tel: +49 1523 5867655 • Berlin, Germany</p>
-        <p className="font-semibold">Precious Fisher • Tel: +49 173 9399094 • Hamburg, Germany</p>
-        <p className="font-semibold">Samuel Muwonge • Tel: +49 1523 5867655 • Munich, Germany</p>
-      </div>
+        
+             </div>
+
+      {/* VISA DISCLAIMER */}
+<div className="mt-6 bg-[#0B1B3D] p-5 rounded-xl border border-yellow-400 shadow-md">
+  <h3 className="text-2xl font-bold text-yellow-300 mb-3 text-center">
+    Visa Disclaimer
+  </h3>
+
+  <p className="text-gray-200 text-sm leading-relaxed mb-4 text-justify">
+    
+    BBECO and UGDBB e.V. are solely the organisers of this convention and do not provide visa assistance, sponsorship, or guarantees of visa approval. 
+    All participants are responsible for obtaining the appropriate German (Schengen) visa and for meeting all entry requirements. 
+    Participants travelling from Uganda require a visa to enter Germany.
+  </p>
+
+  <p className="text-gray-200 text-sm mb-2">
+    For official visa information, please visit the German Federal Foreign Office:
+  </p>
+  <a
+    href="https://www.auswaertiges-amt.de/en/visa-service"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-300 font-semibold hover:underline break-all"
+  >
+    https://www.auswaertiges-amt.de/en/visa-service
+  </a>
+
+  <p className="text-gray-200 text-sm mt-4 mb-2">
+    For applicants in Uganda, please consult the German Embassy in Kampala:
+  </p>
+  <a
+    href="https://kampala.diplo.de"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-300 font-semibold hover:underline break-all"
+  >
+    https://kampala.diplo.de
+  </a>
+</div>
 
      <p className="mt-3 italic text-yellow-300 text-justify">
 For formal inquiries, please write to: <strong className="text-lg">bbumugermany@gmail.com</strong>
