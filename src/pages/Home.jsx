@@ -208,11 +208,12 @@ export default function Home() {
   // TICKETS
   //
   const tickets = [
-    { type: "Early Bird (Nov–Dec)", price: "€100" },
+    
     { type: "Regular (Jan–Feb)", price: "€120" },
     { type: "Late (Mar onwards)", price: "€150" },
+    { type: "Children (12yrs - 18 yrs)", price: "€50" },
     { type: "Ugandan Delegates", price: "1,500,000 UGX" },
-    { type: "Children (Below 12)", price: "Free" },
+   
   ];
 
   return (
