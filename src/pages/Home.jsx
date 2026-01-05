@@ -352,7 +352,7 @@ export default function Home() {
                 <p>
                   Bank: <strong>Finom</strong>
                 </p>
-                <p>
+                
                   Account Name:{" "}
                   {/* <strong>
                     Ugandische Deutsche Gemeinde Berlin-Brandenburg e. V.
@@ -376,6 +376,7 @@ export default function Home() {
                   ⚠️ Include purpose: <strong>BBECO BERLIN 2026</strong>
                 </p>
               </div>
+
 
               {/* Netherlands */}
               <div className="bg-[#0B1B3D] p-4 rounded-xl border border-white-400">
