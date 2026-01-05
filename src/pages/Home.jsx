@@ -354,12 +354,15 @@ export default function Home() {
                 </p>
                 <p>
                   Account Name:{" "}
-                  <strong>
+                  {/* <strong>
                     Ugandische Deutsche Gemeinde Berlin-Brandenburg e. V.
                   </strong>
-                </p>
-                <p>
+                  <p>
                   IBAN: <strong>DE51 1001 8000 0790 3176 89</strong>
+                </p> */}
+                
+                <p>
+                  IBAN: <strong>DE51 1001 8000 0790 3176 70</strong>
                 </p>
                 <p>
                   BIC: <strong>FNOMDEB2</strong>
