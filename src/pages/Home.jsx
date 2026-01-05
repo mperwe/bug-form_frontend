@@ -362,7 +362,7 @@ export default function Home() {
                 </p> */}
                 
                 <p>
-                  IBAN: <strong>DE51 1001 8000 0790 3176 70</strong>
+                  IBAN: <strong>DE51 1001 8000 0790 3176</strong>
                 </p>
                 <p>
                   BIC: <strong>FNOMDEB2</strong>
