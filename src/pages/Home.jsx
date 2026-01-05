@@ -391,7 +391,7 @@ export default function Home() {
                   <strong>STICHTING BUGANDA RHINELANDS</strong>
                 </p>
                 <p>
-                  IBAN: <strong>NL76 RABO 0162 8971 89</strong>
+                  IBAN: <strong>NL76 RABO 0162 8971 </strong>
                 </p>
                 <p>
                   Swift Code: <strong>RABONL2U</strong>
