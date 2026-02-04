@@ -11,6 +11,9 @@ export default function Navbar() {
         : "bg-indigo-100 text-indigo-700 hover:bg-indigo-600 hover:text-white"
     }`;
 
+  const externalLinkStyle =
+    "px-4 py-2 rounded-md font-medium text-base bg-indigo-100 text-indigo-700 hover:bg-indigo-600 hover:text-white transition-all duration-200";
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-md py-4 px-6 flex items-center justify-between z-50">
       {/* Logo Section */}
@@ -33,6 +36,15 @@ export default function Navbar() {
 
         <NavLink to="/tour" className={navItemStyle}>
           VISIT BERLIN
+        </NavLink>
+
+        <NavLink to="/gallery" className={navItemStyle}>
+          PROGRAM
+        </NavLink>
+
+      
+        <NavLink to="/contact" className={navItemStyle}>
+          CONTACT US
         </NavLink>
       </div>
 
@@ -93,6 +105,32 @@ export default function Navbar() {
             className="w-11/12 text-center px-4 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
           >
             VISIT BERLIN
+          </NavLink>
+
+          <NavLink
+            to="/gallery"
+            onClick={() => setIsOpen(false)}
+            className="w-11/12 text-center px-4 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
+          >
+            ACTIVITIES
+          </NavLink>
+
+          <a
+            href="https://buganda.or.ug/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setIsOpen(false)}
+            className="w-11/12 text-center px-4 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
+          >
+            BUGANDA KINGDOM
+          </a>
+
+          <NavLink
+            to="/contact"
+            onClick={() => setIsOpen(false)}
+            className="w-11/12 text-center px-4 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
+          >
+            CONTACT US
           </NavLink>
         </div>
       )}
