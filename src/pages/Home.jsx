@@ -335,7 +335,7 @@ export default function Home() {
 
             <p className="mt-4 text-yellow-300 text-sm text-center font-semibold">
               Payment deadline for Ugandan Delegates:{" "}
-              <span className="underline">15 February 2026</span>
+              <span className="underline">28 February 2026</span>
             </p>
           </div>
 
