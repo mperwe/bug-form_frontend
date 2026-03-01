@@ -34,6 +34,11 @@ export default function Navbar() {
           HOME
         </NavLink>
 
+        {/* ✅ ADDED ABOUT US */}
+        <NavLink to="/about" className={navItemStyle}>
+          ABOUT US
+        </NavLink>
+
         <NavLink to="/tour" className={navItemStyle}>
           VISIT BERLIN
         </NavLink>
@@ -42,7 +47,6 @@ export default function Navbar() {
           PROGRAM
         </NavLink>
 
-      
         <NavLink to="/contact" className={navItemStyle}>
           CONTACT US
         </NavLink>
@@ -97,6 +101,15 @@ export default function Navbar() {
             className="w-11/12 text-center px-4 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
           >
             HOME
+          </NavLink>
+
+          {/* ✅ ADDED ABOUT US */}
+          <NavLink
+            to="/about"
+            onClick={() => setIsOpen(false)}
+            className="w-11/12 text-center px-4 py-2 rounded-md bg-indigo-100 text-indigo-700 font-medium hover:bg-indigo-600 hover:text-white transition-all duration-200"
+          >
+            ABOUT US
           </NavLink>
 
           <NavLink
