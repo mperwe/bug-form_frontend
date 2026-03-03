@@ -6,7 +6,7 @@ export default function About() {
     { name: "Owek Sam Sekajjugo", role: "Rhinelands", image: "/sam.png" },
     { name: "Owek Nelson Mugenyi", role: "Scandinavia", image: "/nelson.png" },
     { name: "Owek Ssalongo Kibuuka", role: "United Kingdom", image: "/kibuuka.png" },
-    { name: "Linda Sekayita", role: "Chairperson (Rhinelands)", image: "/linda.png" },
+    { name: "Omuk Linda Sekayita", role: "Chairperson, BBECO Organising Committee (Rhinelands)", image: "/linda.png" },
     { name: "Frank Kyambadde", role: " Vice-Chairperson (Germany)", image: "/frank.png" },
     { name: "Stephen Bwete", role: "Chairman UGDBB e.V (Germany)", image: "/steve.png" },
     { name: "Precious Fisher", role: "Finance Lead (Germany)", image: "/precious.png" },
