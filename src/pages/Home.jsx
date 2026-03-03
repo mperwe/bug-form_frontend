@@ -40,7 +40,6 @@ export default function Home() {
     { name: "Novotel Suites Berlin City", address: "Anhalter Str. 2, 10963 Berlin", website: "https://all.accor.com/hotel/3745/index.en.shtml", distance: "9 min walk (0.8 km)", price: "€130–€180 / night", recommended: true },
     { name: "Hotel Gat Point Charlie", address: "Mauerstraße 81–82, 10117 Berlin", website: "https://www.hotelgatpointcharlie.com/", distance: "5 min walk (0.4 km)", price: "€150–€200 / night", recommended: true },
     { name: "Mondrian Suites Berlin", address: "Markgrafenstraße 16–16a, 10969 Berlin", phone: "+49 30 700 140 0", website: "https://www.mondrian-suites.de/", distance: "3 min walk (0.3 km)", price: "€120–€170 / night", recommended: true },
-
   ];
 
   const hostels = [
@@ -56,12 +55,9 @@ export default function Home() {
   ];
 
   const tickets = [
-    
     { type: "Late (Mar onwards)", price: "€150" },
     { type: "Children (12yrs - 18 yrs)", price: "€50" },
     { type: "Children (Below 12 yrs)", price: "Free" },
-    
-    
   ];
 
   const getPlaces = () => {
@@ -122,9 +118,11 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            {/*<p className="mt-4 text-yellow-300 text-center font-bold text-lg">
-              Payment deadline for Ugandan Delegates: <span className="underline">28 February 2026</span>
-            </p>*/}
+
+            {/* Uganda registration / sponsorship note */}
+            <p className="mt-4 text-yellow-300 text-center font-bold text-lg">
+              ⚠️ Uganda participant registration is now closed. The current open window is available for sponsorship opportunities. For sponsorship inquiries, please contact the organisers.
+            </p>
           </div>
 
           {/* Payment Methods */}
@@ -134,8 +132,6 @@ export default function Home() {
 
               {/* Germany Bank & PayPal */}
               <div className="bg-[#0B1B3D] p-3 rounded-xl border border-white/40">
-                           
-
                 <h3 className="text-yellow-400 font-bold mt-2">💻 PayPal</h3>
                 <p>frankmperwe@gmail.com</p>
                 <p className="text-xs italic text-yellow-300">⚠️ Include purpose: <strong>BBECO BERLIN 2026</strong></p>
