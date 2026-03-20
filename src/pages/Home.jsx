@@ -203,7 +203,8 @@ export default function Home() {
           <div className="mt-4">
             <h3 className="text-2xl font-bold text-white mb-2">Visa Disclaimer</h3>
             <p className="text-gray-300 mb-2">
-              BBECO and UGDBB e.V. are solely the organisers of this convention and do not provide visa assistance, sponsorship, or guarantees of visa approval. All participants are responsible for obtaining the appropriate German (Schengen) visa and for meeting all entry requirements. Participants travelling from Uganda require a visa to enter Germany.
+              BBECO and Uganda Community Berlin-Brandenburg e.V. (UGDBB) are solely the organizers of the Buganda Bumu European Convention (BBECO 2026) and do not provide visa assistance, sponsorship, or guarantees of visa approval. All participants are individually responsible for obtaining the appropriate German (Schengen) visa and meeting all entry requirements. Please note that BBECO and UGDBB e.V. have not authorized or appointed any individual, company, or agency to act on their behalf in relation to visa processing, travel arrangements, or financial transactions. Any engagement with third parties claiming to offer such services is done entirely at the participant’s own risk, and the organizers shall not be held liable for any loss or fraud resulting from such dealings.
+
             </p>
             <p className="text-blue-400 mb-1"><a href="https://www.auswaertiges-amt.de/en/visa-service" target="_blank" rel="noopener noreferrer">Official German Visa Info</a></p>
             <p className="text-blue-400"><a href="https://kampala.diplo.de" target="_blank" rel="noopener noreferrer">German Embassy in Kampala</a></p>
