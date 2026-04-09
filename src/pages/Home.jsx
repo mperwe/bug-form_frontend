@@ -55,7 +55,7 @@ export default function Home() {
   ];
 
   const tickets = [
-    { type: "Late (Mar onwards)", price: "€150" },
+    { type: "Late (Mar onwards)", price: "€120" },
     { type: "Children (12yrs - 18 yrs)", price: "€50" },
     { type: "Children (Below 12 yrs)", price: "Free" },
   ];
