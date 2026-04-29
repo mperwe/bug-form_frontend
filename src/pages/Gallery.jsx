@@ -137,6 +137,20 @@ export default function Gallery() {
             title="BBECO Highlight 1"
             allowFullScreen
           />
+          
+          <iframe
+          className="aspect-video rounded-2xl shadow-lg"
+          src="https://www.youtube.com/embed/XTewSwqsJzk"
+          title="BBECO Highlight 4"
+          allowFullScreen
+            />
+                   
+          <iframe
+            className="aspect-video rounded-2xl shadow-lg"
+            src="https://www.youtube.com/embed/tG-Kamb1eQo"
+            title="BBECO Highlight 1"
+            allowFullScreen
+          />
           <iframe
             className="aspect-video rounded-2xl shadow-lg"
             src="https://www.youtube.com/embed/kItmJ63DOF4"
