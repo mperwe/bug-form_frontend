@@ -79,7 +79,7 @@ export default function Home() {
           <h1 className="text-3xl md:text-5xl font-extrabold uppercase mb-2 text-black">Buganda Bumu European Convention</h1>
           <p className="text-lg md:text-xl font-semibold mb-1 text-gray-700">Hosted by Berlin Chapter, Germany</p>
           <p className="text-sm md:text-base mb-2 text-gray-600">Celebrate heritage, connect with community, and experience an unforgettable European Convention!</p>
-          <p className="text-blue-900 font-bold text-lg md:text-xl mb-4">May 22–24, 2026 | Gloria Events Center, Berlin</p>
+          <p className="text-blue-900 font-bold text-lg md:text-xl mb-4">May 22–24, 2026 | Gloria Events Center, Berlin - Vicom Festsaal</p>
 
           {/* Countdown */}
           <div className="flex justify-center gap-2 mb-4">
@@ -107,7 +107,7 @@ export default function Home() {
             <p className="text-xl font-extrabold mb-4 text-center text-gray-200">"Preserving Heritage & Navigating Modernity in the Diaspora"</p>
             <ul className="text-lg space-y-2 mb-4 text-gray-200">
               <li><strong>Date:</strong> May 22–24, 2026</li>
-              <li><strong>Location:</strong> Gloria Events Center, Markgrafenstraße 67, 10969 Berlin</li>
+              <li><strong>Location:</strong> Gloria Events Center - Vicom Festsaal, Markgrafenstraße 67, 10969 Berlin</li>
               <li><strong>Activities:</strong> Cultural Workshops, Networking, Entertainment</li>
             </ul>
             <h2 className="text-2xl font-bold mb-3 text-white text-center">Tickets</h2>
